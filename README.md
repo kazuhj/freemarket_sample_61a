@@ -47,8 +47,8 @@ Things you may want to cover:
 - has_many :reviews
 - has_many :messages
 - has_many :orders
-- has_one :cards
-- has_one :deliver_addresses
+- has_one :card
+- has_one :deliver_address
 
 ## deliver_addresses
 
@@ -135,13 +135,13 @@ Things you may want to cover:
 - belongs_to :category
 - belongs_to :size
 - belongs_to :brand
-- belongs_to :users
+- belongs_to :user
 - has_many :images
 - has_many :likes
 - has_many :comments
 - has_many :reviews
 - has_many :messages
-- has_one :orders
+- has_one :order
 
 ## likes
 
@@ -187,5 +187,5 @@ Things you may want to cover:
 |item_id|references|null: false, foreign_key: true|
 
 ### Association
-- belong_to :user
-- belong_to :item
+- belongs_to :user
+- belongs_to :item
