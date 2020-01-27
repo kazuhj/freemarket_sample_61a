@@ -99,9 +99,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
+|ctegory_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :catrgories
+- belongs_to :category
 - has_many :items
 
 ## sizes
@@ -131,10 +132,10 @@ Things you may want to cover:
 |size_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :category
 - belongs_to :size
 - belongs_to :brand
 - belongs_to :user
+- belongs_to :category
 - has_many :images
 - has_many :likes
 - has_many :comments
@@ -188,3 +189,14 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+## categories
+
+|Column|Type|Options|
+|------|----|-------|
+|path|integer|null: false|
+|name|string|null: false|
+
+### Association
+- has_many :items
+- has_many :brands
