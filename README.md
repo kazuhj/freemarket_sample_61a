@@ -62,8 +62,8 @@ Things you may want to cover:
 |zip_code|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
-|address1|string|null: false|
-|address2|string||
+|address|string|null: false|
+|building|string||
 |telephone|integer|null: false, unique: true|
 
 ### Association
