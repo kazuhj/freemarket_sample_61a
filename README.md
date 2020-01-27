@@ -116,7 +116,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, add_index|
+|name|string|null: false, index: true|
 |text|text|null: false|
 |condition|string|null: false|
 |price|integer|null: false|
