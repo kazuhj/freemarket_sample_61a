@@ -99,10 +99,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-|ctegory_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :category
 - has_many :items
 
 ## sizes
@@ -199,4 +197,3 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :brands
