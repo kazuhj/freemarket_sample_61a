@@ -1,0 +1,36 @@
+.header
+  .header__group
+    .header__group__upper-header
+      .header__group__upper-header__logo
+        %img.logo{alt: "Mercari", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}/
+      %form.search-bar{action: "/jp/search/"}
+        %input.search-input{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
+        %button.search-button
+          = icon('fas', 'search', class: 'search-icon')
+    .header__group__lower-header
+      .header__group__lower-header__search-group
+        .header__group__lower-header__search-group__list
+          %a.lower-list{href: "#"}
+            = icon('fas', 'list', class: 'left-icon')
+            カテゴリーから探す
+        .header__group__lower-header__search-group__list
+          %a.lower-list{href: "#"}
+            = icon('fas', 'tag', class: 'left-icon')
+            ブランドから探す
+      %ul.right-list
+        %li.right-list__content
+          %a.right-content{href: "#"}
+            = icon('fas', 'heart', class: 'right-icon')
+            いいね！一覧
+        %li.right-list__content
+          %a.right-content{href: "#"}
+            = icon('fas', 'bell', class: 'right-icon')
+            お知らせ
+        %li.right-list__content
+          %a.right-content{href: "#"}
+            = icon('fas', 'check', class: 'right-icon')
+            やることリスト
+        %li.right-list__content
+          %a.right-content{href: "#"}
+            %img.image-icon{alt: "", src: "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"}/
+            マイページ
