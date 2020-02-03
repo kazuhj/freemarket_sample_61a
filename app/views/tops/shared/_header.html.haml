@@ -3,35 +3,35 @@
     .header__group__upper-header
       .header__group__upper-header__logo
         = link_to root_path do
-          %img.logo{alt: "Mercari", src: "/assets/fmarket_logo_red.svg"}
-      %form.search-bar{action: "/jp/search/"}
-        %input.search-input{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
-        %button.search-button
+          %img.header__group__upper-header__logo-icon{alt: "fmarket", src: "/assets/fmarket_logo_red.svg"}
+      %form.header__group__upper-header__search-bar{action: "#"}
+        %input.header__group__upper-header__search-input{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
+        %button.header__group__upper-header__search-button
           = icon('fas', 'search', class: 'search-icon')
     .header__group__lower-header
-      .header__group__lower-header__search-group
-        .header__group__lower-header__search-group__list
-          %a.lower-list{href: "#"}
+      .header__group__lower-header__left-group
+        .header__group__lower-header__left-group__list
+          %a.left-content{href: "#"}
             = icon('fas', 'list', class: 'left-icon')
             カテゴリーから探す
-        .header__group__lower-header__search-group__list
-          %a.lower-list{href: "#"}
+        .header__group__lower-header__left-group__list
+          %a.left-content{href: "#"}
             = icon('fas', 'tag', class: 'left-icon')
             ブランドから探す
-      %ul.right-list
-        %li.right-list__content
+      %ul.header__group__lower-header__right-group
+        %li.header__group__lower-header__right-group__list
           %a.right-content{href: "#"}
             = icon('fas', 'heart', class: 'right-icon')
             いいね！一覧
-        %li.right-list__content
+        %li.header__group__lower-header__right-group__list
           %a.right-content{href: "#"}
             = icon('fas', 'bell', class: 'right-icon')
             お知らせ
-        %li.right-list__content
+        %li.header__group__lower-header__right-group__list
           %a.right-content{href: "#"}
             = icon('fas', 'check', class: 'right-icon')
             やることリスト
-        %li.right-list__content
+        %li.header__group__lower-header__right-group__list
           %a.right-content{href: "#"}
-            %img.image-icon{alt: "", src: "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"}/
+            %img.image-icon{alt: "none", src: "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"}/
             マイページ
