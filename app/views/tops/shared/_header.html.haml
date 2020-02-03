@@ -2,7 +2,8 @@
   .header__group
     .header__group__upper-header
       .header__group__upper-header__logo
-        %img.logo{alt: "Mercari", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}/
+        = link_to root_path do
+          %img.logo{alt: "Mercari", src: "/assets/fmarket_logo_red.svg"}
       %form.search-bar{action: "/jp/search/"}
         %input.search-input{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
         %button.search-button
