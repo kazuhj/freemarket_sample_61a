@@ -1,9 +1,9 @@
 .header {
-  height:100px;
   width: 100%;
-  background-color: white;
+  background-color: $white;
   position: relative;
-  box-shadow:  rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  box-shadow: $box-shadow-black 0px 2px 4px;
+  z-index: 2;
 
   &__group {
     width:1020px;
@@ -17,14 +17,68 @@
         display: flex;
         height: 40px;
         margin-right: 45px;
+
+        &-icon {
+          height: 36px;
+          width:134px;
+        }
+      }
+
+      &__search-bar {
+        position: relative;
+        width:100%;
+      }
+
+      &__search-input {
+        background-color: $whitesmoke;
+        font-size: 16px;
+        height: 40px;
+        /*em,%→計算された親要素の高さを子要素,孫要素にも反映*/
+        line-height: 1.4em;
+        position: relative;
+        width: 100%;
+        border: 1px solid $whitegray;
+        /*initial→このプロパティをデフォルト値に設定*/
+        border-image: initial;
+        border-radius: 4px;
+        /*outline: none;→ボタンをクリックした際、格好の悪いアウトラインが表示されるのを打ち消したい*/
+        outline: none;
+        padding: 0px 50px 0px 10px;
+        /*transition: all 0.3s ease-out 0s→複数のプロパティをまとめたもの
+          個別に表示した場合
+          transition-property: background;
+          transition-duration: 0.3s;
+          transition-timing-function: ease;
+          all→全てのプロパティを対象
+          0.3s→変化にかかる時間
+          ease→変化の方法*/
+        transition: all 0.3s ease-out 0s;
+      }
+
+      &__search-button {
+        /*transparent→初期値*/
+        background-color: transparent;
+        cursor: pointer;
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        width: 40px;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        border-radius: 0px 4px 4px 0px;
+        padding: 0px;
+        font-size:15px;
       }
     }
+
 
     &__lower-header {
       display: flex;
       margin-top: 8px;
 
-      &__search-group {
+      &__left-group {
         display: flex;
         margin-left: -3px;
 
@@ -35,64 +89,24 @@
           padding: 0px 10px;
         }
       }
+
+      &__right-group {
+        display: flex;
+        position: relative;
+        left: 190px;
+
+        &__list {
+          height: 44px;
+          position: relative;
+          display: block;
+          padding: 0px 14px;
+        }
+      }
     }
   }
 }
 
-.logo {
-  height: 36px;
-  width:134px;
-}
-
-.search-bar {
-  position: relative;
-  width:100%;
-}
-
-.search-input {
-  background-color: whitesmoke;
-  font-size: 16px;
-  height: 40px;
-  /*em,%→計算された親要素の高さを子要素,孫要素にも反映*/
-  line-height: 1.4em;
-  position: relative;
-  width: 100%;
-  border: 1px solid rgb(204, 204, 204);
-  /*initial→このプロパティをデフォルト値に設定*/
-  border-image: initial;
-  border-radius: 4px;
-  /*initial→ボタンをクリックした際、格好の悪いアウトラインが表示されるのを打ち消したい*/
-  outline: none;
-  padding: 0px 50px 0px 10px;
-  /*transition: all 0.3s ease-out 0s→複数のプロパティをまとめたもの
-    個別に表示した場合
-    transition-property: background;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
-    all→全てのプロパティを対象
-    0.3s→変化にかかる時間
-    ease→変化の方法*/
-  transition: all 0.3s ease-out 0s;
-}
-
-.search-button {
-  /*transparent→初期値*/
-  background-color: transparent;
-  cursor: pointer;
-  position: absolute;
-  right: 0px;
-  top: 10px;
-  width: 40px;
-  border-width: initial;
-  border-style: none;
-  border-color: initial;
-  border-image: initial;
-  border-radius: 0px 4px 4px 0px;
-  padding: 0px;
-  font-size:15px;
-}
-
-.lower-list {
+.left-content {
   display: block;
   font-size: 14px;
   font-weight: 600;
@@ -106,18 +120,6 @@
   color: red;
   height: 12px;
   margin-right: 4px;
-}
-
-.right-list {
-  display: flex;
-  position: relative;
-  left: 190px;
-  &__content {
-    height: 44px;
-    position: relative;
-    display: block;
-    padding: 0px 14px;
-  }
 }
 
 .right-content {
@@ -137,7 +139,7 @@
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  color: rgb(204, 204, 204);
+  color: $whitegray;
   width: 19px;
 }
 
@@ -147,5 +149,5 @@
   border-radius: 50%;
   /*はみ出た部分は非表示に*/
   overflow: hidden;
-  border: 1px solid silver;
+  border: 1px solid $whitegray;
 }
