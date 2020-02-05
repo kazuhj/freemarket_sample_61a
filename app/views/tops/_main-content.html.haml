@@ -1,20 +1,41 @@
 .main-contents
-  .main-contents-center
+  .main-contents-frame
     .banner
-      %a{href: "https://jp-news.mercari.com/2020/01/10/pasha-shuppin/", rel: "noopener noreferrer", target: "_blank"}
-        .sc-exkUMo.cLeZmk
+      .banner-image
+      .banner-style
+        .banner-frame
+          /*後に複数バナーを用意して数秒おきに切り替える内容を実装したいため、リストを作成*/
+          %ul.banner-list
+            %li.banner-list__content
+              .banner-list__content__items
+                %img.banner-list__content__items__smartphone{alt: "fmarket", src: "https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png"}
+                .banner-list__content__items__item
+                  .banner-list__content__items__item__title
+                    スマホで かんたん
+                    %br
+                    フリマアプリ
+                  %p.banner-list__content__items__item__text
+                    フリマアプリはスマホカメラからすぐに出品できる
+                    %br
+                    購入時も安心な独自システムのアプリです！！！
+                  .banner-list__content__items__item__icon
+                    %a{href: "https://google.co.jp", rel: "noopener noreferrer", target: "_blank"}
+                      %img.banner-list__content__items__item__icon__AppStore{alt: "", src: "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}
+                    %a{href: "https://webst8.com/blog/css-flex/", rel: "noopener noreferrer", target: "_blank"}
+                      %img.banner-list__content__items__item__icon__GooglePlay{alt: "", src: "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}
     .popular-categories
       %h2.popular-categories__title 人気のカテゴリー
       .popular-categories__title__tag
         %ul.popular-categories__title__tag__items
           %li.popular-categories__title__tag__items__item
-            %a.popular-categories__title__tag__items__item__tag レディース
+            %a.popular-categories__title__tag__items__item__name レディース
           %li.popular-categories__title__tag__items__item
-            %a.popular-categories__title__tag__items__item__tag メンズ
+            %a.popular-categories__title__tag__items__item__name メンズ
           %li.popular-categories__title__tag__items__item
-            %a.popular-categories__title__tag__items__item__tag 家電・スマホ・カメラ
+            %a.popular-categories__title__tag__items__item__name 家電・スマホ・カメラ
           %li.popular-categories__title__tag__items__item
-            %a.popular-categories__title__tag__items__item__tag おもちゃ・ホビー・グッズ
+            %a.popular-categories__title__tag__items__item__name おもちゃ・ホビー・グッズ
+          %li.popular-categories__title__tag__items__item
     .item-list
       .item-list__group
         .item-list__group__title
@@ -22,108 +43,67 @@
           %a.more-item{href: "#"}
             もっと見る
             = icon('fas', 'angle-right', class: 'style-right')
-        .category-groups
-          %ul.category-groups__group
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
-            %li.category-groups__group__content
-              %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                %a.category-groups__group__content__image{href: "#"}
-                  %figure.category-groups__group__content__text
-                    %figcaption
-                      %span.category-groups__group__content__text__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                      .style_figcaptionTail__ACglP
-                    .style_thumbnail__N_xAi
-                      %span{class: 'price'} ¥2,099
-                      %img{alt: "Thumbnail of \"新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー\"", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}/
+        %ul.category-groups
+          %li.category-groups__content
+            %a.category-groups__content__link{href: "#"}
+              /*figure要素→写真、挿絵、図表などコードのまとまりを表す*/
+              %figure.category-groups__content__items
+                /*figcaptionタグ→図表のキャプションを示す際に使用*/
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
+          %li.category-groups__content
+            %a.category-groups__content__link{href: "#"}
+              /*figure要素→写真、挿絵、図表などコードのまとまりを表す*/
+              %figure.category-groups__content__items
+                /*figcaptionタグ→図表のキャプションを示す際に使用*/
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
+          %li.category-groups__content
+            %a.category-groups__content__link{href: "#"}
+              /*figure要素→写真、挿絵、図表などコードのまとまりを表す*/
+              %figure.category-groups__content__items
+                /*figcaptionタグ→図表のキャプションを示す際に使用*/
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
+          %li.category-groups__content
+            %a.category-groups__content__link{href: "#"}
+              /*figure要素→写真、挿絵、図表などコードのまとまりを表す*/
+              %figure.category-groups__content__items
+                /*figcaptionタグ→図表のキャプションを示す際に使用*/
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
+          %li.category-groups__content
+            %a.category-groups__content__link{href: "#"}
+              /*figure要素→写真、挿絵、図表などコードのまとまりを表す*/
+              %figure.category-groups__content__items
+                /*figcaptionタグ→図表のキャプションを示す際に使用*/
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
+          %li.category-groups__content
+            %a.category-groups__content__link{href: "#"}
+              /*figure要素→写真、挿絵、図表などコードのまとまりを表す*/
+              %figure.category-groups__content__items
+                /*figcaptionタグ→図表のキャプションを示す際に使用*/
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
 .sell-icon
   %a.sell-icon__link{href: "#"}
     .sell-icon__content

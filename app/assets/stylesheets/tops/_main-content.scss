@@ -2,40 +2,133 @@
   max-width: 1020px;
   width: 100%;
   margin: 0px auto;
-}
 
-.main-contents-center {
-  position: relative;
+  &-frame {
+    position: relative;
+  }
 }
 
 .banner {
   height: 390px;
-  left: 50%;
-  margin-left: -50vw;
+  width: 100vw;/*100%とすることで切れてる画像を画面一杯に引き延ばすが左側に余白が残る*/
+  left: 50%;/*ブラウザ中央を基準にして左側へバナーを移動*/
+  margin-left: -50vw;/*100cwに対して-50vwとすることで左側の余白をなくす*/
   position: relative;
-  top: 0px;
-  width: 100vw;
-  overflow: hidden;
-  background-color: aquamarine;
-}
+  top: 0px;/*ヘッダー直下にバナーを固定*/
+  overflow: hidden;/*内容がボックスに収まらない場合、収まらない部分は非表示にする*/
 
-.cLeZmk {
-  height: 390px;
-  background-size: auto;
-  position: relative;
-  background: url(https://lh3.googleusercontent.com/HGTstLLNpgdzwj3IHsffjEAo9aF6vRJ9mAv4VXbYKJ8v2qlxJcOIgiPPLMzHr0EQaVuDJedpgokgf9LfknZ8PgpJT8XKeCy5St9wXGJdxOkv6iTosrQ0e5JU2JgjeB0ckZzcxS-g);
-  background-position: center center;
-  background-size: contain;
-  background-size: cover;
+  &-image {
+    height: 390px;
+    background-size: auto;
+    position: relative;
+    background: url(/assets/top-banner-free.jpg);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;/*半透明カラーの透明度*/
+    filter: blur(8px);/*ぼかし度*/
+  }
+
+  &-style {
+    margin-top: -390px;/*背景画像が親要素になり、アイテムの枠があるので-390pxで画像の上にアイテムの枠を重ねる*/
+    width: 100%;
+    font-size: 14px;
+    height: auto;
+    position: relative;
+  }
+
+  &-frame {
+    height: 100%;
+    margin: 0px;
+    padding:0px;
+    overflow:hidden;
+  }
+
+  &-list {
+    position: relative;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    height: 390px;
+    width: 1440px;
+
+    &__content {
+      display: inline-block;
+      height: auto;
+      width: 1440px;
+      list-style-type: none;
+      margin: auto 0px;
+      position: absolute;
+      top: 0px;
+      
+      &__items {
+        display: flex;/*子要素をフレックスボックスにする*/
+        height: 390px;
+        max-width: 860px;
+        position: relative;
+        margin: 0px auto;
+
+        &__smartphone {
+          background-size: auto;
+          height: 390px;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+        }
+
+        &__item {
+          height: 100%;
+          position: relative;
+          width: 100%;
+          padding: 20px 40px;
+
+          &__title {
+            font-size: 60px;
+            white-space: normal;/*ソース中の連続する半角スペース・タブを無視。改行を１つの半角スペースとして表示。ボックスサイズの指定がある場合は自動改行する*/
+            margin-bottom: 16px;
+            padding: 0px;
+            font-weight: 600;
+            line-height: 1.4;
+          }
+
+          &__text {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 24px;
+          }
+
+          &__icon {
+            text-align: left;
+            padding: 0px;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+
+            &__AppStore {
+              height: 50px;
+              width: 170px;
+              display: inline-block;
+            }
+
+            &__GooglePlay {
+              margin-left: 8px;
+              height: 50px;
+              width: 170px;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .popular-categories {
   padding: 56px 0 30px;
   background-color: rgb(255, 255, 255);
-  left: 50%;
-  margin-left: -50vW;
   position: relative;
   top: 0;
+  left: 50%;
+  margin-left: -50vW;
   width: 100vw;
 
   &__title {
@@ -46,7 +139,8 @@
     font-weight: 600;
 
     &__tag {
-      overflow-x: auto;
+      /*overflow-x→ボックスの範囲内に内容が収まらない場合、はみ出た要素の左右の表示方法を指定する際に使用*/
+      overflow-x: auto;/*auto→ボックスに収まらない内容をどう表示するかはユーザーエージェントに依存。内容が収まらない場合にはスクロールバーなどが表示される*/
       text-align: center;
       white-space: nowrap;
 
@@ -60,7 +154,7 @@
           margin: 10px 0px 0px 10px;
           display: inline-block;
 
-          &__tag {
+          &__name {
             background-color: rgb(239, 239, 239);
             cursor: pointer;
             display: inline-block;
@@ -79,11 +173,9 @@
   padding: 42px 0px 100px;
 
   &__group__title {
-    -webkit-box-align: center;
     align-items: center;
     display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
+    justify-content: space-between;/*各アイテムを均等に配置し最初のアイテムは先頭、最後のアイテムは末尾に寄せる*/
     margin-bottom: 16px;
 
     &__name {
@@ -95,7 +187,7 @@
     &__contents {
       margin: -10px;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: wrap;/*フレックスボックスを複数行に配置する*/
 
       &__content {
         width: 20%;
@@ -105,59 +197,49 @@
   }
 }
 
-.more-item {
-  font-size: 14px;
-  align-items: center;
-  color: #0095ee;
-  cursor: pointer;
-  display: inline-flex;
-  line-height: 1.4em;
-  text-decoration: none;
-  word-break: normal;
-}
-
-.style-right {
-  fill-rule: evenodd;
-  fill: rgb(0, 149, 238);
-  height: 16;
-  width: 16;
-  margin-left: 10px;
-}
-
 .category-groups {
   display: flex;
   flex-wrap: wrap;
-
-  &__group {
-    display: flex;
-    flex-wrap: wrap;
+  margin: -10px;
    
+  &__content {
+    width: 20%;
+    padding: 20px 10px 10px 10px;
 
-    &__content {
-      width: 18%;
-      padding: 20px 10px 10px 10px;
+    &__link {
+      width: 100%;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      /*vertical-align→行の中でテキストや画像などの縦方向の揃え位置を指定する際に使用(inline,テーブルセルのみに使用できる)*/
+      vertical-align: top;/*top→上端揃え*/
+    }
 
-      &__image {
-        width: 100%;
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        text-decoration: none;
-        vertical-align: top;
-      }
+    &__items {
+      font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+      width: 100%;
+      align-items: center;
+      display: flex;
+      position: relative;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,.18);
+      /*flex-direction→主軸の方向や向きを定義することで、フレックスコンテナ内でフレックスアイテムの位置を配置する方法を設定*/
+      flex-direction: column-reverse;/*column-reverse→アイテムを逆向きに積み重ねる*/
+      margin: 0;
+      overflow: hidden;
 
-      &__text {
-        font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
-        width: 100%;
+      &__item {
+        height: 64px;
+        box-sizing: border-box;
+        font-size: 14px;
+        line-height: 1.4em;
+        padding: 12px;
+        white-space: normal;
+        word-break: break-word;/*行内で適切に改行できる場所が他にない場合に限って、単語の途中でも改行するようにする*/
         align-items: center;
         display: flex;
         position: relative;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,.18);
-        flex-direction: column-reverse;
-        margin: 0;
-        overflow: hidden;
-        z-index: 0;
+        width: 100%;
 
         &__title {
           display: inline-block;
@@ -165,76 +247,17 @@
           overflow: hidden;
           position: relative;
         }
+
+        &__description {
+          height: 0;
+          overflow: hidden;
+          padding: 0 0 100%;
+          position: relative;
+          width: 100%;
+        }
       }
     }
   }
-}
-
-.figcaption {
-  height: 64px;
-  box-sizing: border-box;
-  color: #222;
-  font-size: 14px;
-  line-height: 1.4em;
-  padding: 12px;
-  white-space: normal;
-  word-break: break-word;
-  align-items: center;
-  display: flex;
-  position: relative;
-  width: 100%;
-}
-
-.style_figcaptionTail__ACglP {
-  align-items: center;
-  background: #fff;
-  bottom: 0;
-  display: flex;
-  height: 1.4em;
-  margin: auto;
-  position: absolute;
-  right: 12px;
-  top: 1.4em;
-}
-
-.style_thumbnail__N_xAi {
-  height: 0;
-  overflow: hidden;
-  padding: 0 0 100%;
-  position: relative;
-  width: 100%;
-}
-
-.price {
-  align-items: center;
-  background: rgba(0,0,0,.4);
-  border-radius: 0 14px 14px 0;
-  bottom: 8px;
-  box-sizing: border-box;
-  color: #fff;
-  display: inline-flex;
-  font-size: 17px;
-  height: 28px;
-  letter-spacing: .02em;
-  margin: 0;
-  padding: 0 12px;
-  position: absolute;
-  z-index: 2;
-}
-
-.show-image {
-  bottom: 0;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  object-fit: cover;
-  vertical-align: top;
-  width: 100%;
-  z-index: 1;
-}
-
-#figcaption {
-  height: 100px;
 }
 
 .sell-icon {
@@ -254,7 +277,7 @@
   &__content {
     width: 160px;
     height: 160px;
-    padding-top: 32px;
+    padding-top: 26px;
     text-align: center;
     background-color: rgb(234, 53, 45);
     border-radius: 50%;
@@ -274,4 +297,47 @@
   display: block;
   overflow: hidden;
   font-size: 60px;
+}
+
+.item-price {
+  align-items: center;
+  background: rgba(0,0,0,.4);
+  border-radius: 0 14px 14px 0;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-flex;
+  font-size: 17px;
+  height: 28px;
+  letter-spacing: .02em;/*文字の間隔を指定する(100%=1em)*/
+  margin: 0;
+  padding: 0 12px;
+  position: absolute;
+  bottom: 8px;
+  z-index: 2;
+}
+
+.show-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  vertical-align: top;
+  z-index: 1;
+}
+
+.more-item {
+  font-size: 14px;
+  align-items: center;
+  color: #0095ee;
+  cursor: pointer;
+  display: inline-flex;
+  line-height: 1.4em;
+  text-decoration: none;
+  word-break: normal;
+}
+
+.style-right {
+  margin-left: 10px;
 }
