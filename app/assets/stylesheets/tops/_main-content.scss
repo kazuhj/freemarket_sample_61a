@@ -124,7 +124,7 @@
 
 .popular-categories {
   padding: 56px 0 30px;
-  background-color: rgb(255, 255, 255);
+  background-color: $white;
   position: relative;
   top: 0;
   left: 50%;
@@ -221,8 +221,8 @@
       align-items: center;
       display: flex;
       position: relative;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,.18);
+      background-color: $white;
+      box-shadow: 0 2px 4px $box-shadow-black;
       /*flex-direction→主軸の方向や向きを定義することで、フレックスコンテナ内でフレックスアイテムの位置を配置する方法を設定*/
       flex-direction: column-reverse;/*column-reverse→アイテムを逆向きに積み重ねる*/
       margin: 0;
@@ -285,7 +285,7 @@
 
   &__text {
     font-size: 22px;
-    color: rgb(255, 255, 255);
+    color: $white;
   }
 }
 
@@ -293,7 +293,7 @@
   margin-top: 8px;
   max-width: 100%;
   max-height: 100%;
-  color: rgb(255, 255, 255);
+  color: $white;
   display: block;
   overflow: hidden;
   font-size: 60px;
@@ -304,7 +304,7 @@
   background: rgba(0,0,0,.4);
   border-radius: 0 14px 14px 0;
   box-sizing: border-box;
-  color: #fff;
+  color: $white;
   display: inline-flex;
   font-size: 17px;
   height: 28px;
