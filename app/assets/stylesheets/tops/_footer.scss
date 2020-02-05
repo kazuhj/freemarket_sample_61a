@@ -1,125 +1,70 @@
-.fOoKHJ {
-  color: rgb(255, 255, 255);
+.bottom-banner {
   background: url(/assets/top-banner-free.jpg) center center / cover;
-  background-position: center center;
-  display: block;
+
+  &__frame {
+    display: flex;
+    justify-content: space-between;/*各アイテムを均等に配置し最初のアイテムは先頭、最後のアイテムは末尾に寄せる*/
+    width: 900px;
+    margin: 0px auto;
+
+    &__left-contents {
+      display: flex;
+      /*flex-direction→主軸の方向や向きを定義することで、フレックスコンテナ内でフレックスアイテムの位置を配置する方法を設定*/
+      flex-direction: column;/*column→アイテムを積み重ねるように配置する*/
+      justify-content: center;/*アイテムを中央に寄せる*/
+
+      &__upper-text {
+        color: black;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      &__bottom-text {
+        color: black;
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+
+      &__icon-box__logo {
+        height: 68px;
+        margin-right: 20px;
+        width: 68px;
+        vertical-align: middle;
+      }
+
+      &__icon-box__AppStore {
+        height: 40px;
+        margin-right: 8px;
+        width: 144px;
+        vertical-align: middle;
+      }
+
+      &__icon-box__GooglePlay {
+        height: 40px;
+        width: 144px;
+        vertical-align: middle;
+      }
+    }
+
+    &__right-content {
+      margin-bottom: 0;
+
+      &__image {
+        height: 260px;
+        width: 300px;
+        vertical-align: middle;
+      }
+    }
+  }
 }
-
-.hvlkre {
-  margin-top: auto;
-}
-
-
-.jFINDQ {
-  display: none;
-}
-
-.owlKq {
-  background: url(/assets/top-banner-free.jpg) center center / cover;
-  background-position: center center;
-}
-
-.dFRgDS {
-  height: 50px;
-  margin-right: 20px;
-  width: 50px;
-  vertical-align: middle;
-}
-
-
-.dnUUFB {
-  -webkit-box-align: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: rgb(255, 255, 255);
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  text-align: center;
-  padding: 15px 0px;
-}
-
-.fSlTqU {
-  display: inline-flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.cIrgUm {
-  font-size: 20px;
-  margin-top: 8px;
-}
-
-.dIIoYQ {
-  background: url(/assets/top-banner-free.jpg) center center / cover;
-  background-position: center center;
-}
-
-.dnCeTq {
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  width: 900px;
-  margin: 0px auto;
-}
-
-.iIHVGt {
-  display: flex;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  justify-content: center;
-}
-
-.iJzZcr {
-  color: black;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.dWuBVP {
-  color: black;
-  font-size: 35px;
-  margin-bottom: 20px;
-}
-
-.dhshOG {
-  height: 68px;
-  margin-right: 20px;
-  width: 68px;
-  vertical-align: middle;
-}
-
-.fqxjlz {
-  height: 40px;
-  margin-right: 8px;
-  width: 144px;
-  vertical-align: middle;
-}
-
-.kCsiQg {
-  height: 40px;
-  width: 144px;
-  vertical-align: middle;
-}
-figure {
-  margin-bottom: 0;
-}
-
-.hQVsXF {
-  height: 260px;
-  width: 300px;
-  vertical-align: middle;
-}
-
 
 .footer {
   background-color: rgb(34, 34, 34);
-  color: rgb(255, 255, 255);
+  color: $white;
   font-size: 12px;
   padding: 0px 20px 10px;
   display: block;
-  height: 389px;
 
   &__menu {
     width: 1100px;
@@ -129,7 +74,8 @@ figure {
     &__container {
       display: inline-block;
       margin-top: 18px;
-      vertical-align: top;
+      /*vertical-align→行の中でテキストや画像などの縦方向の揃え位置を指定する際に使用(inline,テーブルセルのみに使用できる)*/
+      vertical-align: top;/*top→上端揃え*/
       width: auto;
       padding: 0px 40px 0px 0px;
   
@@ -145,7 +91,7 @@ figure {
         margin: 16px 0px 0px;
 
         &__link {
-          color: rgb(255, 255, 255);
+          color: $white;
           opacity: 0.7;
           word-break : break-all;
         }
@@ -189,7 +135,7 @@ figure {
   max-height: 100%;
   width: 30px;
   margin-right: 20px;
-  color: white;
+  color: $white;
   font-size: 25px;
 }
 
@@ -206,7 +152,7 @@ figure {
     &__image {
       height: 31px;
       width: 124px;
-      vertical-align: middle;
+      vertical-align: middle;/*middle→中央揃え*/
     }
   }
 
