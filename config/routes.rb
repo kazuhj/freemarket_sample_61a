@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "tests#index"
+  root "tops#index"
 
   resources :tops, only: [:index]
   resources :items_sell, only: [:index]
