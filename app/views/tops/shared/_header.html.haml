@@ -6,7 +6,7 @@
           = image_tag '/assets/fmarket_logo_red.svg', class: 'header__group__upper-header__logo-icon', alt: "fmarket"
       %form.header__group__upper-header__search-bar{action: "#"}
         %input.header__group__upper-header__search-input{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}
-        %button.header__group__upper-header__search-button
+        = button_tag '#', class: 'header__group__upper-header__search-button' do
           = icon('fas', 'search', class: 'search-icon')
     .header__group__lower-header
       .header__group__lower-header__left-group
