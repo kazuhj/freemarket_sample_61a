@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.wrapper {
+  background-color: $whitesmoke;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
