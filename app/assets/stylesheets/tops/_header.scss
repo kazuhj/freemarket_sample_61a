@@ -33,30 +33,18 @@
         background-color: $whitesmoke;
         font-size: 16px;
         height: 40px;
-        /*em,%→計算された親要素の高さを子要素,孫要素にも反映*/
         line-height: 1.4em;
         position: relative;
         width: 100%;
         border: 1px solid $whitegray;
-        /*initial→このプロパティをデフォルト値に設定*/
         border-image: initial;
         border-radius: 4px;
-        /*outline: none;→ボタンをクリックした際、格好の悪いアウトラインが表示されるのを打ち消したい*/
         outline: none;
         padding: 0px 50px 0px 10px;
-        /*transition: all 0.3s ease-out 0s→複数のプロパティをまとめたもの
-          個別に表示した場合
-          transition-property: background;
-          transition-duration: 0.3s;
-          transition-timing-function: ease;
-          all→全てのプロパティを対象
-          0.3s→変化にかかる時間
-          ease→変化の方法*/
         transition: all 0.3s ease-out 0s;
       }
 
       &__search-button {
-        /*transparent→初期値*/
         background-color: transparent;
         cursor: pointer;
         position: absolute;
@@ -127,10 +115,6 @@
   display: flex;
   font-size: 14px;
   height: 32px;
-  /*transform: scale()→要素を拡大・縮小表示
-    scale(数値, 数値)
-    scale()関数では、2つの数値で2D縮尺比率を指定します。 1つ目の数値はX方向、2つ目の数値はY方向の
-    比率です。 2つ目の数値は省略することができますが、この場合には最初の値と同じになります。[sx,sy]*/
   transform: scale(1);
   transition: all 0.3s ease-out 0s;
 }
@@ -147,7 +131,6 @@
   margin-right: 10px;
   width: 32px;
   border-radius: 50%;
-  /*はみ出た部分は非表示に*/
   overflow: hidden;
   border: 1px solid $whitegray;
 }

@@ -3,15 +3,14 @@
 
   &__frame {
     display: flex;
-    justify-content: space-between;/*各アイテムを均等に配置し最初のアイテムは先頭、最後のアイテムは末尾に寄せる*/
+    justify-content: space-between;
     width: 900px;
     margin: 0px auto;
 
     &__left-contents {
       display: flex;
-      /*flex-direction→主軸の方向や向きを定義することで、フレックスコンテナ内でフレックスアイテムの位置を配置する方法を設定*/
-      flex-direction: column;/*column→アイテムを積み重ねるように配置する*/
-      justify-content: center;/*アイテムを中央に寄せる*/
+      flex-direction: column;
+      justify-content: center;
 
       &__upper-text {
         color: black;
@@ -74,8 +73,7 @@
     &__container {
       display: inline-block;
       margin-top: 18px;
-      /*vertical-align→行の中でテキストや画像などの縦方向の揃え位置を指定する際に使用(inline,テーブルセルのみに使用できる)*/
-      vertical-align: top;/*top→上端揃え*/
+      vertical-align: top;
       width: auto;
       padding: 0px 40px 0px 0px;
   
@@ -152,7 +150,7 @@
     &__image {
       height: 31px;
       width: 124px;
-      vertical-align: middle;/*middle→中央揃え*/
+      vertical-align: middle;
     }
   }
 

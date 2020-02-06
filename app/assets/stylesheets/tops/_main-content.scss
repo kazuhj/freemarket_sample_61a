@@ -10,12 +10,12 @@
 
 .banner {
   height: 390px;
-  width: 100vw;/*100%とすることで切れてる画像を画面一杯に引き延ばすが左側に余白が残る*/
-  left: 50%;/*ブラウザ中央を基準にして左側へバナーを移動*/
-  margin-left: -50vw;/*100cwに対して-50vwとすることで左側の余白をなくす*/
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
   position: relative;
-  top: 0px;/*ヘッダー直下にバナーを固定*/
-  overflow: hidden;/*内容がボックスに収まらない場合、収まらない部分は非表示にする*/
+  top: 0px;
+  overflow: hidden;
 
   &-image {
     height: 390px;
@@ -24,12 +24,12 @@
     background: url(/assets/top-banner-free.jpg);
     background-position: center;
     background-size: cover;
-    opacity: 0.5;/*半透明カラーの透明度*/
-    filter: blur(8px);/*ぼかし度*/
+    opacity: 0.5;
+    filter: blur(8px);
   }
 
   &-style {
-    margin-top: -390px;/*背景画像が親要素になり、アイテムの枠があるので-390pxで画像の上にアイテムの枠を重ねる*/
+    margin-top: -390px;
     width: 100%;
     font-size: 14px;
     height: auto;
@@ -61,7 +61,7 @@
       top: 0px;
       
       &__items {
-        display: flex;/*子要素をフレックスボックスにする*/
+        display: flex;
         height: 390px;
         max-width: 860px;
         position: relative;
@@ -83,7 +83,7 @@
 
           &__title {
             font-size: 60px;
-            white-space: normal;/*ソース中の連続する半角スペース・タブを無視。改行を１つの半角スペースとして表示。ボックスサイズの指定がある場合は自動改行する*/
+            white-space: normal;
             margin-bottom: 16px;
             padding: 0px;
             font-weight: 600;
@@ -139,8 +139,7 @@
     font-weight: 600;
 
     &__tag {
-      /*overflow-x→ボックスの範囲内に内容が収まらない場合、はみ出た要素の左右の表示方法を指定する際に使用*/
-      overflow-x: auto;/*auto→ボックスに収まらない内容をどう表示するかはユーザーエージェントに依存。内容が収まらない場合にはスクロールバーなどが表示される*/
+      overflow-x: auto;
       text-align: center;
       white-space: nowrap;
 
@@ -175,7 +174,7 @@
   &__group__title {
     align-items: center;
     display: flex;
-    justify-content: space-between;/*各アイテムを均等に配置し最初のアイテムは先頭、最後のアイテムは末尾に寄せる*/
+    justify-content: space-between;
     margin-bottom: 16px;
 
     &__name {
@@ -187,7 +186,7 @@
     &__contents {
       margin: -10px;
       display: flex;
-      flex-wrap: wrap;/*フレックスボックスを複数行に配置する*/
+      flex-wrap: wrap;
 
       &__content {
         width: 20%;
@@ -211,8 +210,7 @@
       cursor: pointer;
       display: inline-block;
       position: relative;
-      /*vertical-align→行の中でテキストや画像などの縦方向の揃え位置を指定する際に使用(inline,テーブルセルのみに使用できる)*/
-      vertical-align: top;/*top→上端揃え*/
+      vertical-align: top;
     }
 
     &__items {
@@ -223,8 +221,7 @@
       position: relative;
       background-color: $white;
       box-shadow: 0 2px 4px $box-shadow-black;
-      /*flex-direction→主軸の方向や向きを定義することで、フレックスコンテナ内でフレックスアイテムの位置を配置する方法を設定*/
-      flex-direction: column-reverse;/*column-reverse→アイテムを逆向きに積み重ねる*/
+      flex-direction: column-reverse;
       margin: 0;
       overflow: hidden;
 
@@ -235,7 +232,7 @@
         line-height: 1.4em;
         padding: 12px;
         white-space: normal;
-        word-break: break-word;/*行内で適切に改行できる場所が他にない場合に限って、単語の途中でも改行するようにする*/
+        word-break: break-word;
         align-items: center;
         display: flex;
         position: relative;
@@ -308,7 +305,7 @@
   display: inline-flex;
   font-size: 17px;
   height: 28px;
-  letter-spacing: .02em;/*文字の間隔を指定する(100%=1em)*/
+  letter-spacing: .02em;
   margin: 0;
   padding: 0 12px;
   position: absolute;
