@@ -18,33 +18,33 @@
                     %br
                     購入時も安心な独自システムのアプリです！！！
                   .banner-list__content__items__item__icon
-                    %a{href: "#", rel: "noopener noreferrer", target: "_blank"}
+                    = link_to "#", rel: "noopener noreferrer", target: "_blank" do
                       %img.banner-list__content__items__item__icon__AppStore{alt: "appStore", src: "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}
-                    %a{href: "#", rel: "noopener noreferrer", target: "_blank"}
+                    = link_to "#", rel: "noopener noreferrer", target: "_blank" do
                       %img.banner-list__content__items__item__icon__GooglePlay{alt: "googlePlay", src: "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}
     .popular-categories
       %h2.popular-categories__title 人気のカテゴリー
       .popular-categories__title__tag
         %ul.popular-categories__title__tag__items
           %li.popular-categories__title__tag__items__item
-            %a.popular-categories__title__tag__items__item__name レディース
+            = link_to "レディース", "#", class: "popular-categories__title__tag__items__item__name"
           %li.popular-categories__title__tag__items__item
-            %a.popular-categories__title__tag__items__item__name メンズ
+            = link_to "メンズ", "#", class: "popular-categories__title__tag__items__item__name"
           %li.popular-categories__title__tag__items__item
-            %a.popular-categories__title__tag__items__item__name 家電・スマホ・カメラ
+            = link_to "家電・スマホ・カメラ", "#", class: "popular-categories__title__tag__items__item__name"
           %li.popular-categories__title__tag__items__item
-            %a.popular-categories__title__tag__items__item__name おもちゃ・ホビー・グッズ
+            = link_to "おもちゃ・ホビー・グッズ", "#", class: "popular-categories__title__tag__items__item__name"
           %li.popular-categories__title__tag__items__item
     .item-list
       .item-list__group
         .item-list__group__title
           %h3.item-list__group__title__name 全ての新着アイテム(カテゴリ・ブランドは各機能実装時)
-          %a.more-item{href: "#"}
+          = link_to "#", class: "more-item" do
             もっと見る
             = icon('fas', 'angle-right', class: 'style-right')
         %ul.category-groups
           %li.category-groups__content
-            %a.category-groups__content__link{href: "#"}
+            = link_to "#", class: "category-groups__content__link" do
               %figure.category-groups__content__items
                 %figcaption.category-groups__content__items__item
                   %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
@@ -52,7 +52,7 @@
                   %span{class: 'item-price'} ¥2,099
                   %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
           %li.category-groups__content
-            %a.category-groups__content__link{href: "#"}
+            = link_to "#", class: "category-groups__content__link" do
               %figure.category-groups__content__items
                 %figcaption.category-groups__content__items__item
                   %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
@@ -60,7 +60,7 @@
                   %span{class: 'item-price'} ¥2,099
                   %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
           %li.category-groups__content
-            %a.category-groups__content__link{href: "#"}
+            = link_to "#", class: "category-groups__content__link" do
               %figure.category-groups__content__items
                 %figcaption.category-groups__content__items__item
                   %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
@@ -68,7 +68,7 @@
                   %span{class: 'item-price'} ¥2,099
                   %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
           %li.category-groups__content
-            %a.category-groups__content__link{href: "#"}
+            = link_to "#", class: "category-groups__content__link" do
               %figure.category-groups__content__items
                 %figcaption.category-groups__content__items__item
                   %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
@@ -76,7 +76,7 @@
                   %span{class: 'item-price'} ¥2,099
                   %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
           %li.category-groups__content
-            %a.category-groups__content__link{href: "#"}
+            = link_to "#", class: "category-groups__content__link" do
               %figure.category-groups__content__items
                 %figcaption.category-groups__content__items__item
                   %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
@@ -84,7 +84,7 @@
                   %span{class: 'item-price'} ¥2,099
                   %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
           %li.category-groups__content
-            %a.category-groups__content__link{href: "#"}
+            = link_to "#", class: "category-groups__content__link" do
               %figure.category-groups__content__items
                 %figcaption.category-groups__content__items__item
                   %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
@@ -92,7 +92,7 @@
                   %span{class: 'item-price'} ¥2,099
                   %img{alt: "画像が表示できません", src: "https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903", class: "show-image"}
 .sell-icon
-  %a.sell-icon__link{href: "#"}
+  = link_to "#", class: "sell-icon__link" do
     .sell-icon__content
       .sell-icon__text 出品
       = icon('fas', 'camera', class: 'camera-icon')
