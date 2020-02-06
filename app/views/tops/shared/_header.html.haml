@@ -3,7 +3,7 @@
     .header__group__upper-header
       .header__group__upper-header__logo
         = link_to root_path do
-          %img.header__group__upper-header__logo-icon{alt: "fmarket", src: "/assets/fmarket_logo_red.svg"}
+          = image_tag '/assets/fmarket_logo_red.svg', class: 'header__group__upper-header__logo-icon', alt: "fmarket"
       %form.header__group__upper-header__search-bar{action: "#"}
         %input.header__group__upper-header__search-input{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}
         %button.header__group__upper-header__search-button
@@ -33,5 +33,5 @@
             やることリスト
         %li.header__group__lower-header__right-group__list
           = link_to "#", class: "right-content" do
-            %img.image-icon{alt: "none", src: "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"}
+            = image_tag 'https://icooon-mono.com/i/icon_00146/icon_001460_256.png', class: 'image-icon', alt: "none"
             マイページ
