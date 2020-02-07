@@ -1,0 +1,98 @@
+.main-contents
+  .main-contents-frame
+    .banner
+      .banner-image
+      .banner-style
+        .banner-frame
+          %ul.banner-list
+            %li.banner-list__content
+              .banner-list__content__items
+                = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png', class: 'banner-list__content__items__smartphone', alt: "fmarket"
+                .banner-list__content__items__item
+                  .banner-list__content__items__item__title
+                    スマホで かんたん
+                    %br
+                    フリマアプリ
+                  %p.banner-list__content__items__item__text
+                    フリマアプリはスマホカメラからすぐに出品できる
+                    %br
+                    購入時も安心な独自システムのアプリです！！！
+                  .banner-list__content__items__item__icon
+                    = link_to "#", rel: "noopener noreferrer", target: "_blank" do
+                      = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', class: 'banner-list__content__items__item__icon__AppStore', alt: "appStore"
+                    = link_to "#", rel: "noopener noreferrer", target: "_blank" do
+                      = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', class: 'banner-list__content__items__item__icon__GooglePlay', alt: "googlePlay"
+    .popular-categories
+      %h2.popular-categories__title 人気のカテゴリー
+      .popular-categories__title__tag
+        %ul.popular-categories__title__tag__items
+          %li.popular-categories__title__tag__items__item
+            = link_to "レディース", "#", class: "popular-categories__title__tag__items__item__name"
+          %li.popular-categories__title__tag__items__item
+            = link_to "メンズ", "#", class: "popular-categories__title__tag__items__item__name"
+          %li.popular-categories__title__tag__items__item
+            = link_to "家電・スマホ・カメラ", "#", class: "popular-categories__title__tag__items__item__name"
+          %li.popular-categories__title__tag__items__item
+            = link_to "おもちゃ・ホビー・グッズ", "#", class: "popular-categories__title__tag__items__item__name"
+          %li.popular-categories__title__tag__items__item
+    .item-list
+      .item-list__group
+        .item-list__group__title
+          %h3.item-list__group__title__name 全ての新着アイテム(カテゴリ・ブランドは各機能実装時)
+          = link_to "#", class: "more-item" do
+            もっと見る
+            = icon('fas', 'angle-right', class: 'style-right')
+        %ul.category-groups
+          %li.category-groups__content
+            = link_to "#", class: "category-groups__content__link" do
+              %figure.category-groups__content__items
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  = image_tag 'https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903', class: 'show-image', alt: "画像が表示できません"
+          %li.category-groups__content
+            = link_to "#", class: "category-groups__content__link" do
+              %figure.category-groups__content__items
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  = image_tag 'https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903', class: 'show-image', alt: "画像が表示できません"
+          %li.category-groups__content
+            = link_to "#", class: "category-groups__content__link" do
+              %figure.category-groups__content__items
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  = image_tag 'https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903', class: 'show-image', alt: "画像が表示できません"
+          %li.category-groups__content
+            = link_to "#", class: "category-groups__content__link" do
+              %figure.category-groups__content__items
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  = image_tag 'https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903', class: 'show-image', alt: "画像が表示できません"
+          %li.category-groups__content
+            = link_to "#", class: "category-groups__content__link" do
+              %figure.category-groups__content__items
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  = image_tag 'https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903', class: 'show-image', alt: "画像が表示できません"
+          %li.category-groups__content
+            = link_to "#", class: "category-groups__content__link" do
+              %figure.category-groups__content__items
+                %figcaption.category-groups__content__items__item
+                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
+                .category-groups__content__items__item__description
+                  %span{class: 'item-price'} ¥2,099
+                  = image_tag 'https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903', class: 'show-image', alt: "画像が表示できません"
+.sell-icon
+  = link_to "#", class: "sell-icon__link" do
+    .sell-icon__content
+      .sell-icon__text 出品
+      = icon('fas', 'camera', class: 'camera-icon')

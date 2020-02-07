@@ -1,0 +1,83 @@
+.bottom-banner
+  .bottom-banner__frame
+    .bottom-banner__frame__left-contents
+      .bottom-banner__frame__left-contents__upper-text スマホでかんたんフリマアプリ
+      .bottom-banner__frame__left-contents__bottom-text 今すぐ無料ダウンロード！
+      .bottom-banner__frame__left-contents__icom-box
+        = link_to root_path do
+          = image_tag '/assets/logo_red.svg', class: 'bottom-banner__frame__left-contents__icon-box__logo', alt: "fmarket"
+          = link_to "#" do
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', class: 'bottom-banner__frame__left-contents__icon-box__AppStore', alt: "AppStore"
+          = link_to "#" do
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', class: 'bottom-banner__frame__left-contents__icon-box__GooglePlay', alt: "GooglePlay"
+    .bottom-banner__frame__right-content
+      = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png', class: 'bottom-banner__frame__right-content__image', alt: "fmarket"
+.footer
+  %nav.footer__menu
+    .footer__menu__container
+      %h2.footer__menu__container__title フリマアプリについて
+      %ul.footer__menu__container__list
+        %li.footer__menu__container__list-content
+          = link_to "会社概要（運営会社）", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "採用情報", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "プレスリリース", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "公式ブログ", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "フリマアプリロゴ利用ガイドライン", "#", class: "footer__menu__container__list-content__link"
+        = link_to "#", class: "footer__menu__container__list-content__icon", target: "_blank" do
+          = icon('fab', 'twitter', class: 'twitter-icon')
+        = link_to "#", class: "footer__menu__container__list-content__icon", target: "_blank" do
+          = icon('fab', 'facebook-square', class: 'twitter-icon')
+    .footer__menu__container
+      %h2.footer__menu__container__title ヘルプ＆ガイド
+      %ul.footer__menu__container__list
+        %li.footer__menu__container__list-content
+          = link_to "フリマアプリガイド", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "らくらくフリマアプリ便", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "ゆうゆうフリマアプリ便", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "大型フリマアプリ便", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "車体取引ガイド", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "フリマアプリあんしん・あんぜん宣言！", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "偽ブランド品撲滅への取り組み", "#", class: "footer__menu__container__list-content__link"
+        %li.footer__menu__container__list-content
+          = link_to "フリマアプリボックス", "#", class: "footer__menu__container__list-content__link"
+    .footer__menu__container__privacy
+      %h2.footer__menu__container__title プライバシーと利用規約
+      .footer__menu__container__privacy-policy
+        %ul.footer__menu__container__list
+          %li.footer__menu__container__list-content
+            = link_to "プライバシーポリシー", "#", class: "footer__menu__container__list-content__link"
+          %li.footer__menu__container__list-content
+            = link_to "フリマアプリ利用規約", "#", class: "footer__menu__container__list-content__link"
+          %li.footer__menu__container__list-content
+            = link_to "あんしんスマホサポート制度に関する利用特約", "#", class: "footer__menu__container__list-content__link"
+          %li.footer__menu__container__list-content
+            = link_to "コンプライアンスポリシー", "#", class: "footer__menu__container__list-content__link"
+      .footer__menu__container__privacy-policy__right
+        %ul.footer__menu__container__list
+          %li.footer__menu__container__list-content
+            = link_to "個人データの安全管理に係る基本方針", "#", class: "footer__menu__container__list-content__link"
+          %li.footer__menu__container__list-content
+            = link_to "特定商取引に関する表記", "#", class: "footer__menu__container__list-content__link"
+          %li.footer__menu__container__list-content
+            = link_to "資金決済法に基づく表示", "#", class: "footer__menu__container__list-content__link"
+          %li.footer__menu__container__list-content
+            = link_to "法令遵守と犯罪抑止のために", "#", class: "footer__menu__container__list-content__link"
+    .footer__menu__container
+      %h2.footer__menu__container__title 国
+      %ul.footer__menu__container__list
+        %li.footer__menu__container__list-content
+          = link_to "日本", "#", class: "footer__menu__container__list-content__link"
+  .footer-bottom
+    = link_to "#", class: "footer-bottom__link" do
+      = image_tag '/assets/logo_white.svg', class: 'footer-bottom__link__image', alt: "fmarket"
+    %span.footer-bottom__offer © Free Market, Inc.

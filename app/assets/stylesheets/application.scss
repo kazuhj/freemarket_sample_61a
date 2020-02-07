@@ -1,7 +1,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "reset";
-@import "tests";
-@import "users/users";
-@import "users/users_header";
-@import "users/main";
+@import "config/reset";
+@import "config/color";
+@import "common";
+@import "tops/header";
+@import "tops/main-content";
+@import "tops/footer";
