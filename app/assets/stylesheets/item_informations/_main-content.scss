@@ -1,23 +1,20 @@
 .item-box-container {
   padding: 24px 40px 40px;
-  background: #fff;
+  background: $background-white;
   margin: 40px auto 0;
   width: 700px;
 
-}
+  &__item-name {
+    font-size: 24px;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.4;
+    font-weight: bold;
+  }
 
-.item-name {
-  font-size: 24px;
-  text-align: center;
-  word-wrap: break-word;
-  line-height: 1.4;
-  font-weight: bold;
-}
-
-.clearfix:after {
-  content: '';
-  display: block;
-  clear: both;
+  & .item-main-content {
+    margin: 16px 0 0;
+  }
 }
 
 .item-photo {
@@ -27,6 +24,7 @@
   min-height: 375px;
   position: relative;
   margin: 0 auto;
+  background: #fafafa;
 
   &__list {
     position: relative;
@@ -44,12 +42,6 @@
           width: 300px;
           min-height: 1px;
           float: left;
-          user-select: none;
-          -webkit-tap-highlight-color: transparent;
-          -webkit-touch-callout: none;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
 
           &-inner {
             position: relative;
@@ -58,7 +50,6 @@
             padding: 0 0 100%;
 
             &__lazy {
-              transition: opacity 400ms ease;
               width: 100%;
               vertical-align: bottom;
               opacity: 1;
@@ -87,22 +78,15 @@
             cursor: default;
           }
 
-          & span {
-            display: none;
-          }
-
           &__inner {
-            position:static;
             width: auto;
             height: auto;
             padding: 0;
             overflow: hidden;
-            pointer-events: none;
 
             & img {
               width: 100%;
               vertical-align: bottom;
-              
             }
           }
         }
@@ -117,29 +101,32 @@
   height: 420px;
   margin: 0 auto;
   width: 100%;
+  /*隣接するボーダーを重ねて表示*/
   border-collapse: collapse;
-  border: 1px solid #f5f5f5;
+  border: 1px solid $border-line;
 
   & th {
     width: 39%;
-    text-align: center;
+    text-align: left;
     font-weight: 400;
     background: #fafafa;
-    padding: 8px;
     border-collapse: collapse;
-    border: 1px solid #f5f5f5;
+    padding: 8px;
+    border: 1px solid $border-line;
+
   }
 
   & td {
     width: 61%;
-    background: #fff;
+    background: $background-white;
     padding: 8px;
     border-collapse: collapse;
-    border: 1px solid #f5f5f5;
+    border: 1px solid $border-line;
+
+
 
     & a {
-      color: #0099e8;
-      text-decoration: none;
+      color: $link-color;
     }
   }
 }
@@ -159,7 +146,7 @@
 
   & span {
     vertical-align: middle;
-    font-size: 10px;
+    font-size: 13px;
   }
 }
 
@@ -170,7 +157,7 @@
   &__bold {
     margin-right: 16px;
     font-size: 50px;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   &__tax {
@@ -195,7 +182,8 @@
     margin-top: 20px 0 0 0;
     padding: 8px;
     border-radius: 4px;
-
+    
+    /*吹き出し*/
     &:after {
       content: '';
       position: absolute;
@@ -219,7 +207,6 @@
   color: #fff;
   text-align: center;
   font-weight: 600;
-  transition: all ease-out .3s;
 }
 
 .item-description {
@@ -236,35 +223,26 @@
   margin: 16px 0 0;
   font-size: 0;
 
-  &.clearfix:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-
   &__left {
     float: left;
 
     &__like {
-      border: 1px solid #ea352d;
+      border: 1px solid $like-icon;
       background: none;
-      color: #ea352d;
-      /*まとめる*/
+      color: $like-icon;
       display: inline-block;
       padding: 8px 16px;
       border-radius: 40px;
-      transition: all ease-out .3s;
+      cursor: pointer;
     }
 
     &__report {
       margin: 0 0 0 16px;
       color: #333;
       background: #f5f5f5;
-      /*まとめる*/
       display: inline-block;
       padding: 8px 16px;
       border-radius: 40px;
-      transition: all ease-out .3s;
     }
   }
 
@@ -274,7 +252,7 @@
 
     &__relief {
       display: inline-block;
-      color: #0099e8;
+      color: $link-color;
     }
   }
 
@@ -297,7 +275,11 @@
 
   &__container__content {
     padding: 24px;
-    background: #fff;
+    background: $background-white;
+
+    &__bold {
+      font-weight: 400;
+    }
 
     &__items {
       margin: 0;
@@ -311,7 +293,6 @@
       }
 
       &__message-user {
-        float: left;
         position: relative;
         top: -20px;
         display: inline-block;
@@ -407,7 +388,7 @@
     min-height: 104px;
     padding: 10px;
     border: 1px solid #ccc;
-    background: #fff;
+    background: $background-white;
     font-size: 16px;
     line-height: 1.5;
     border-radius: 0;
@@ -424,7 +405,6 @@
     color: #fff;
     display: block;
     line-height: 48px;
-    transition: all ease-out .3s;
     cursor: pointer;
 
     & span {
@@ -434,15 +414,9 @@
   }
 }
 
-.nav-item-link-prev-next {
+.nav-item-link {
   margin: 24px auto 0;
   width: 700px;
-
-  &clearfix:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
 
   & .nav-item-link-prev {
     width: 45%;
@@ -452,7 +426,7 @@
     padding: 0 0 0 14px;
     
     & a {
-      color: #0099e8;
+      color: $link-color;
       font-size: 13px;
     }
   }
@@ -466,7 +440,7 @@
     text-align: right;
 
     & a {
-      color: #0099e8;
+      color: $link-color;
       font-size: 13px;
     }
   }
@@ -476,7 +450,7 @@
   margin: 24px auto;
   padding: 32px 0 24px;
   width: 700px;
-  background: #fff;
+  background: $background-white;
 
   &__text-center {
     text-align: center;
@@ -510,6 +484,7 @@
 .items-in-user-profile {
   width: 700px;
   margin: 0 auto;
+  margin-bottom: 40px;
 
   &__items-box-head {
     font-size: 22px;
@@ -517,8 +492,7 @@
     line-height: 1.4;
 
     & a {
-      color: #0099e8;
-      text-decoration: none;
+      color: $link-color;
     }
   }
 
@@ -526,18 +500,12 @@
     width: auto;
     margin: 0 auto;
 
-    &.clearfix:after {
-      content: '';
-      display: block;
-      clear: both;
-    }
-
     &__item-box {
       width: 220px;
       margin: 0 20px 20px 0;
       position: relative;
       float: left;
-      background: #fff;
+      background: $background-white;
 
       &:nth-child(3n) {
         margin-right: 0;
@@ -566,7 +534,6 @@
           z-index: 1;
           width: 100%;
           opacity: 1;
-          transition: opacity .3s;
           vertical-align: middle;
         }
       }
@@ -587,6 +554,17 @@
       white-space: normal;
       font-size: 16px;
       color: #333;
+
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 1.5em;
+        background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+      }
     }
 
     &__num {
@@ -611,35 +589,25 @@
   }
 }
 
-.items-in-user-profile .related-item-column:last-of-type {
-  margin-bottom: 40px;
-}
-
 .items-box-head {
   font-size: 22px;
   margin: 24px 0 8px;
   line-height: 1.4;
 
   & a {
-    color: #0099e8;
+    color: $link-color;
   }
 
   &-content {
     width: auto;
     margin: 0 auto;
 
-    &.clearfix:after  {
-      content: '';
-      display: block;
-      clear: both;
-    }
-
     &__item-box {
       width: 220px;
       margin: 0 20px 20px 0;
       position: relative;
       float: left;
-      background: #fff;
+      background: $background-white;
 
       &:nth-child(3n) {
         margin-right: 0;
@@ -724,7 +692,6 @@
     font-size: 0;
 
     & li {
-      text-overflow: ellipsis;
       white-space: nowrap;
       display: inline-block;
       font-size: 14px;
@@ -742,23 +709,9 @@
 
       &:last-child {
         font-weight: 600;
-
       }
     }
   }
-}
-
-
-.owl-carousel .owl-nav {
-  display: none;
-}
- 
-.owl-nav.disabled .owl-prev, .owl-nav.disabled .owl-next {
-  display: none;
-}
-
-.owl-nav.disabled .owl-prev, .owl-nav.disabled .owl-next {
-  display: none;
 }
 
 .icon-good {
@@ -774,11 +727,11 @@ color: #ef5185;
 }
 
 .icon-like {
-  color: #ea352d;
+  color: $like-icon;
 }
 
 .icon-lock {
-  color: #0099e8;
+  color: $link-color;
 }
 
 .bold {
@@ -795,7 +748,7 @@ color: #ef5185;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  color: #0099e8;
+  color: $link-color;
 }
 
 .icon-facebook {
@@ -840,14 +793,13 @@ color: #ef5185;
   }
 }
 
-
 figure {
   margin: 0;
   padding: 0;
 }
 
-
-
-
-
-
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
