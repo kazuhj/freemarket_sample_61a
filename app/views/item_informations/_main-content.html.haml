@@ -1,5 +1,5 @@
 %section.item-box-container
-  %h1.item-name 希少な超望遠レンズキット 大人気機種 LUMIX GF7
+  %h1.item-box-container__item-name 希少な超望遠レンズキット 大人気機種 LUMIX GF7
   .item-main-content.clearfix
     .item-photo
       .item-photo__list
@@ -17,24 +17,17 @@
             .item-photo__list__outer-stage__item
               .item-photo__list__outer-stage__item-inner
                 = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_4.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
-        .owl-nav.disabled
-          .owl-prev prev
-          .owl-next next
         .item-photo__list__outer__dots
           .item-photo__list__outer__dots__dot.active
-            %span
             .item-photo__list__outer__dots__dot__inner
               = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_1.jpg?1580358437'
           .item-photo__list__outer__dots__dot
-            %span
             .item-photo__list__outer__dots__dot__inner
               = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_2.jpg?1580358437'
           .item-photo__list__outer__dots__dot
-            %span
             .item-photo__list__outer__dots__dot__inner
               = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_3.jpg?1580358437'
           .item-photo__list__outer__dots__dot
-            %span
             .item-photo__list__outer__dots__dot__inner
               = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_4.jpg?1580358437'
 
@@ -128,7 +121,7 @@
       = button_tag '#', class: 'item-button-container__left__like', name: "unlike", type: "button" do
         = icon('fas', 'heart', class: 'rubber-band')
         %span いいね!
-        %span.fade-in-up 9
+        %span 9
       = link_to "#", class: 'item-button-container__left__report' do
         = icon('far', 'flag', class: 'icon-flag')
         %span 不適切な商品の報告
@@ -145,9 +138,22 @@
             %figure
               .item-detail-message__container__content__items__message-user__unknown
                 = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?73731125', alt: "none"
-              %figcaption.bold
+              %figcaption.item-detail-message__container__content__bold hoge
           .item-detail-message__container__content__items__message-body
             .item-detail-message__container__content__items__message-body__text 出品者がコメントを削除しました
+            .item-detail-message__container__content__items__message-icons.clearfix
+              %time.item-detail-message__container__content__items__message-icons__icon-left
+                = icon('far', 'clock', class: 'icon-time')
+                %span 7 日前
+            %i.icon-balloon
+        %li.clearfix
+          .item-detail-message__container__content__items__message-user
+            %figure
+              .item-detail-message__container__content__items__message-user__unknown
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?73731125', alt: "none"
+              %figcaption.item-detail-message__container__content__bold a
+          .item-detail-message__container__content__items__message-body
+            .item-detail-message__container__content__items__message-body__text 33,000円でも可能なら即買いしますが可能でしょうか？
             .item-detail-message__container__content__items__message-icons.clearfix
               %time.item-detail-message__container__content__items__message-icons__icon-left
                 = icon('far', 'clock', class: 'icon-time')
@@ -162,7 +168,7 @@
         %textarea.message-form__textarea-default{name: "", type: "text", value: ""}
         = button_tag '#', class: 'message-form__submit', name: "submit", type: "button" do
           %span コメントする
-%ul.nav-item-link-prev-next.clearfix
+%ul.nav-item-link.clearfix
   %li.nav-item-link-prev
     = link_to "#" do
       = icon('fas', 'angle-left', class: 'icon-arrow-left')
@@ -184,7 +190,7 @@
       = link_to "#", class: "share-btn" do
         = icon('fab', 'pinterest-square', class: 'icon-pinterest')
 .items-in-user-profile
-  %section.items-box-container.clearfix.related-item-column.items-in-user-profile
+  %section.items-in-user-profile.clearfix
     %h2.items-in-user-profile__items-box-head
       = link_to "hogeさんのその他の出品", "#"
     .items-in-user-profile__items-box-content.clearfix
