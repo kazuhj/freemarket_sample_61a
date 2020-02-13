@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  background-color: $white;
+  background-color: $background-white;
   position: relative;
   box-shadow: $box-shadow-black 0px 2px 4px;
   z-index: 2;
@@ -30,7 +30,7 @@
       }
 
       &__search-input {
-        background-color: $whitesmoke;
+        background-color: whitesmoke;
         font-size: 16px;
         height: 40px;
         line-height: 1.4em;

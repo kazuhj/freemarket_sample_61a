@@ -21,7 +21,7 @@
     height: 390px;
     background-size: auto;
     position: relative;
-    background: url(/assets/top-banner-free.jpg);
+    background-image: image-url("top-banner-free.jpg");
     background-position: center;
     background-size: cover;
     opacity: 0.5;
@@ -124,7 +124,7 @@
 
 .popular-categories {
   padding: 56px 0 30px;
-  background-color: $white;
+  background-color: $background-white;
   position: relative;
   top: 0;
   left: 50%;
@@ -219,7 +219,7 @@
       align-items: center;
       display: flex;
       position: relative;
-      background-color: $white;
+      background-color: $background-white;
       box-shadow: 0 2px 4px $box-shadow-black;
       flex-direction: column-reverse;
       margin: 0;
@@ -282,7 +282,7 @@
 
   &__text {
     font-size: 22px;
-    color: $white;
+    color: white;
   }
 }
 
@@ -290,7 +290,7 @@
   margin-top: 8px;
   max-width: 100%;
   max-height: 100%;
-  color: $white;
+  color: white;
   display: block;
   overflow: hidden;
   font-size: 60px;
@@ -301,7 +301,7 @@
   background: rgba(0,0,0,.4);
   border-radius: 0 14px 14px 0;
   box-sizing: border-box;
-  color: $white;
+  color: white;
   display: inline-flex;
   font-size: 17px;
   height: 28px;
@@ -327,7 +327,7 @@
 .more-item {
   font-size: 14px;
   align-items: center;
-  color: #0095ee;
+  color: $link-color;
   cursor: pointer;
   display: inline-flex;
   line-height: 1.4em;
