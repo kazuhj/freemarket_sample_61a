@@ -1,0 +1,215 @@
+* {
+  text-decoration: none;
+}
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  font-family: "Source Sans Pro", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  background-color: #f5f5f5;
+  padding: 0 0 220px;
+}
+
+.form-info {
+  color: #888;
+}
+
+.single-main {
+  display: block;
+
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #ffff;
+
+    &__header {
+      border-top: 1px solid #f5f5f5;
+      font-weight: bold;
+      padding: 32px 16px;
+      font-size: 22px;
+      line-height: 1.5;
+      margin: 0px;
+      text-align: center;
+    }
+
+    &__registration-form {
+      border-top: 1px solid #f5f5f5;
+      padding: 40px 40px 64px;
+
+      &__content {
+        max-width: 343px;
+        margin: 0 auto;
+
+        p:first-child {
+          margin: 0;
+          padding: 0;
+        }
+
+        p {
+          margin: 8px 0 0;
+          padding: 0;
+          line-height: 1.5;
+        }
+
+        &__input-box {
+          margin: 40px 0 0;
+
+          &:first-child {
+            margin: 0;
+          }
+
+          label {
+            font-weight: 600;
+            display: inline-block;
+          }
+
+          &__require {
+            background: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+
+          &__default {
+            width: 100%;
+            margin: 8px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+
+          &__checkbox-default {
+            margin: 16px 0 0;
+            position: relative;
+            input {
+              display: none;
+            }
+            label {
+              position: relative;
+              z-index: 2;
+              padding: 0 0 0 28px;
+              font-size: 14px;
+              font-weight: 400;
+              vertical-align: middle;
+              cursor: pointer;
+            }
+
+            &__icon-check {
+              position: absolute;
+              left: 0;
+              z-index: 1;
+              width: 20px;
+              height: 20px;
+              border-radius: 2px;
+              background: #fff;
+              border: 1px solid #ccc;
+              font-size: 10px;
+              line-height: 17px;
+              text-align: center;
+              color: #fff;
+              vertical-align: middle;
+              transition: all ease-out .3s;
+              padding-top: 2px;
+              &::before {
+                content: '\e00f';
+              }
+            }
+          }
+
+          &__identification-title {
+            font-size: 16px;
+            font-weight: bold;
+          }
+
+          &__identification-message{
+            margin: 8px 0 0;
+            padding: 0;
+            line-height: 1.5;
+            font-size: 14px;
+          }
+
+          &__birthday {
+
+            &__select-wrap {
+              width: 76px;
+              display: inline-block;
+              margin: 8px 0 0;
+              position: relative;
+              background: #fff;
+              span {
+                margin: 0 2px;
+              }
+
+              .icon-arrow-bottom {
+                right: 12px;
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                font-size: 16px;
+                transform: translate(0, -50%);
+              }
+              
+              &__default {
+                padding: 0 10px;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                outline: 0;
+                -webkit-appearance: none;
+              }
+            }
+          }
+
+          &__text-center {
+            text-align: center;
+          }
+
+          &__btn {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 32px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+          }
+
+          &__text-right {
+            text-align: right;
+          }
+
+          &__recaptcha-term {
+            background-color: #f5f5f5;
+            padding: 8px 16px;
+            p {
+              color: #888888;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

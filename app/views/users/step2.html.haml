@@ -1,41 +1,26 @@
-.single-container
+.wrapper
   .single-container__step2
-    .single-header
-      %h1.single-header__logo
-        = link_to root_path do 
-          = image_tag '/assets/fmarket_logo_red.svg', class: 'single-header__logo__icon', alt: "fmarket"
-      %nav.progress-bar
-        %ol.clearfix
-          %li.progress-bar__active
-            会員情報
-            .progress-bar__active__status
-          %li.progress-bar__active__phone-number
-            電話番号認証
-            .progress-bar__active__status__phone-number
-          %li.progress-bar__active__address
-            お届け先住所入力
-            .progress-bar__active__status__address
-          %li.progress-bar__active__payment
-            支払い方法
-            .progress-bar__active__status__payment
-          %li.progress-bar__active__complete
-            完了
-            .progress-bar__active__status__complete
+    = render 'users/new-account-header'
   %main.single-main
     %section.single-main__container
-      %h2.single-main__container__header 電話番号の確認
-      %form#register-form.l-single-inner.registration-form{:action => "#", :method => "POST", :novalidate => "novalidate"}
-        %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
-        .registration-form__content
-          .form-group
-            %label{:for => "phone_number"} 携帯電話の番号
-            %input.input-default{:name => "phone_number", :placeholder => "携帯電話の番号を入力", :type => "tel", :value => ""}/
+      %h2.single-main__container__header
+        電話番号の確認
+      %form.single-main__container__registration-form{action: "#", method: "POST", novalidate: "novalidate"}
+        %input{name: "after_save_callback", type: "hidden", value: ""}
+        .single-main__container__registration-form__content
+          .single-main__container__registration-form__content__input-box
+            %label{for: "phone_number"}
+              携帯電話の番号
+            %input.single-main__container__registration-form__content__input-box__default{name: "phone_number", placeholder: "携帯電話の番号を入力", type: "tel", value: ""}
           %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-          %button.btn-default.btn-red{:type => "submit"} SMSを送信する
+          %button.single-main__container__registration-form__content__input-box__btn{type: "submit"}
+            SMSを送信する
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-          .form-group.text-right
-            %a{:href => "#", :target => "_blank"}
-              電話番号の確認が必要な理由
-              %i.icon-arrow-right
-          %input{:name => "__csrf_value", :type => "hidden", :value => ""}/
-          %input{:name => "id", :type => "hidden", :value => ""}/
+          .single-main__container__registration-form__content__input-box 
+            .single-main__container__registration-form__content__input-box__text-right
+              %p
+                = link_to "", class: "single-main__container__registration-form__content__input-box__text-right__text" do
+                  電話番号の確認が必要な理由
+                  = icon('fas', 'chevron-right', class: 'single-main__container__registration-form__content__input-box__text-right__icon')
+              %input{name: "__csrf_value", type: "hidden", value: ""}
+              %input{name: "id", type: "hidden", value: ""}
