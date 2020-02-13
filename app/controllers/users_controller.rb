@@ -3,6 +3,6 @@ class UsersController < ApplicationController
   def index
   end
 
-  def step2
+  def tel
   end
 end
