@@ -232,7 +232,7 @@
             = link_to "利用規約" "", class: "single-main__container__registration-form__content__input-box__text-center"
             に同意したものとみなします
         = link_to step2_users_path do
-          %button.single-main__container__registration-form__content__input-box__btn{type: "submit"}
+          = button_tag '#', class: 'single-main__container__registration-form__content__input-box__btn', type: 'submit' do
             次へ進む
         .single-main__container__registration-form__content__input-box 
           .single-main__container__registration-form__content__input-box__text-right
