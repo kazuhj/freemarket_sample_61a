@@ -213,19 +213,20 @@
             「次へ進む」のボタンを押すことにより、
             %a{:href => "#", :target => "_blank"}> 利用規約
             に同意したものとみなします
-        %button.btn-default.btn-red{:type => "submit"} 次へ進む
-        .form-group.text-right
-          %p
-            %a{:href => "#", :target => "_blank"}
-              本人情報の登録について
-              = icon('fas', 'chevron-right', class: 'icon-arrow-right')
-        .form-group.recaptcha_term
-          %p
-            This site is protected by reCAPTCHA and the Google
-            %a{:href => "#", :target => "_blank"} Privacy Policy
-            and
-            %a{:href => "#", :target => "_blank"} Terms of Service
-            apply.
+        = link_to step2_users_path do
+          %button.btn-default.btn-red{:type => "submit"} 次へ進む
+          .form-group.text-right
+            %p
+              %a{:href => "#", :target => "_blank"}
+                本人情報の登録について
+                = icon('fas', 'chevron-right', class: 'icon-arrow-right')
+          .form-group.recaptcha_term
+            %p
+              This site is protected by reCAPTCHA and the Google
+              %a{:href => "#", :target => "_blank"} Privacy Policy
+              and
+              %a{:href => "#", :target => "_blank"} Terms of Service
+              apply.
 
 
 

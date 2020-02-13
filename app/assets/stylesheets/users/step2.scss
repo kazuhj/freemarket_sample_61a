@@ -1,0 +1,17 @@
+a {
+  color: #0099e8;
+  text-decoration: none;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.main {
+  display: block;
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+  }
+}
