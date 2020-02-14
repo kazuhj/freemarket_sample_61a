@@ -1,7 +1,7 @@
 .single-header
   %h1.single-header__logo
-    = link_to root_path do 
-      = image_tag '/assets/fmarket_logo_red.svg', class: 'single-header__logo__icon', alt: "fmarket"
+    = link_to root_path do
+      = image_tag "#{asset_path "fmarket_logo_red.svg"}", class: 'single-header__logo__icon', alt: "fmarket"
   %nav.progress-bar
     %ol.clearfix
       %li.progress-bar__active
