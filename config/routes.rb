@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tops, only: [:index]
   resources :items_sell, only: [:index]
   resources :item_informations, only: [:index]
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :new] do
     collection do
       get 'tel'
     end
