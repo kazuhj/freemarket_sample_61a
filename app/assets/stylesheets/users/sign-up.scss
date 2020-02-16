@@ -207,6 +207,66 @@
         }
       }
     }
+
+    &__signup-form {
+      border-top: 1px solid #f5f5f5;
+      padding: 40px 40px 64px;
+
+      &__content {
+        max-width: 343px;
+        margin: 0 auto;
+      }
+
+      .contents__btn {
+        border-radius: 4px;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+
+        &__mail {
+          color: #fff;
+          background-color: #ea352d;
+          position: relative;
+
+          .far.fa-envelope {
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translate(0, -50%);
+            font-size: 20px;
+          }
+        }
+
+        &__facebook {
+          margin: 16px 0 0;
+          background: #385185;
+          color: #fff;
+          position: relative;
+
+          i {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translate(0, -50%);
+            font-size: 30px;
+          }
+        }
+
+        &__google {
+          margin: 16px 0 0;
+          background: #fff;
+          color: #333;
+          border: #979797 solid 1px;
+          position: relative;
+        }
+      }
+    }
   }
 }
 
