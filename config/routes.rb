@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :tops, only: [:index]
   resources :items_sell, only: [:index]
   resources :item_informations, only: [:index]
+  resources :item_buys, only: [:index] do
+    collection do
+      get 'done'
+    end
+  end
   resources :users, only: [:index, :new] do
     collection do
       get 'tel'
