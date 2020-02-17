@@ -316,3 +316,45 @@
     }
    }
 
+  .sell-form__content__sell-btn-box {
+    padding: 40px;
+    border-top: 1px solid #eee;
+    height: 329px;
+
+   &__rule {
+     line-height: 1.5;
+
+     &__link {
+      color: #0099e8;
+      text-decoration: none;
+     }
+   }
+  }
+
+   .sell-btn-red {
+     margin: 40px 0 0;
+     background: #ea352d;
+     border: 1px solid #ea352d;
+     color: #fff;
+     display: block;
+     width: 100%;
+     line-height: 48px;
+     font-size: 14px;
+     transition: all ease-out .3s;
+     cursor: pointer;
+     text-align: center;
+   }
+
+    .sell-btn-gray {
+      width: 45%;
+      margin: 24px auto 0;
+      background: #aaa;
+      border: 1px solid #aaa;
+      color: #fff;
+      display: block;
+      line-height: 48px;
+      font-size: 14px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+    }
