@@ -1,7 +1,7 @@
 .single-container
   %header.single-header
     %h1
-      = link_to "#" do
+      = link_to root_path do
         = image_tag "#{asset_path "fmarket_logo_red.svg"}", alt: "fmarket"
   %main.single-main
     %section.single-main__buy-item-container
@@ -66,7 +66,7 @@
               購入代金が出品者に振り込まれます。
               %br
               評価後に取引は完了です。
-            %a{:href => "https://www.mercari.com/jp/mypage/"} マイページへもどる
+            = link_to "マイページへもどる"
   %footer.main-footer
     %ul.main-footer__container
       %li.main-footer__container__list
