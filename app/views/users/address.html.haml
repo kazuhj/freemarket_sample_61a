@@ -28,8 +28,18 @@
               %span.single-main__container__registration-form__content__input-box__require
                 必須
               %input.single-main__container__registration-form__content__input-box__default{name: "postal_code", placeholder: "例) 123-4567", type: "text", value: ""}
-            
             /* ここに都道府県の記述をあとで入れる */
+            .single-main__container__registration-form__content__input-box
+              %label{for: "prefectures_title"}
+                都道府県
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              .single-main__container__registration-form__content__input-box__prefectures
+                .single-main__container__registration-form__content__input-box__prefectures__select-wrap
+                  = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
+                  %select.single-main__container__registration-form__content__input-box__prefectures__select-wrap__default
+                    %option{value: "北海道"} 北海道
+                    %option{value: "東京"} 東京
             
             .single-main__container__registration-form__content__input-box
               %label{for: "city_title"}
