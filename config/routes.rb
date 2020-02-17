@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :tops, only: [:index]
   resources :item_sells, only: [:index]
-  resources :items_sell, only: [:index]
   resources :item_informations, only: [:index]
   resources :users, only: [:index, :new] do
     collection do
