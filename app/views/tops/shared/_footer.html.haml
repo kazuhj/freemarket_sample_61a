@@ -5,7 +5,7 @@
       .bottom-banner__frame__left-contents__bottom-text 今すぐ無料ダウンロード！
       .bottom-banner__frame__left-contents__icom-box
         = link_to root_path do
-          = image_tag '/assets/logo_red.svg', class: 'bottom-banner__frame__left-contents__icon-box__logo', alt: "fmarket"
+          = image_tag "#{asset_path "logo_red.svg"}", class: 'bottom-banner__frame__left-contents__icon-box__logo', alt: "fmarket"
           = link_to "#" do
             = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', class: 'bottom-banner__frame__left-contents__icon-box__AppStore', alt: "AppStore"
           = link_to "#" do
@@ -79,5 +79,5 @@
           = link_to "日本", "#", class: "footer__menu__container__list-content__link"
   .footer-bottom
     = link_to "#", class: "footer-bottom__link" do
-      = image_tag '/assets/logo_white.svg', class: 'footer-bottom__link__image', alt: "fmarket"
+      = image_tag "#{asset_path "logo_white.svg"}", class: 'footer-bottom__link__image', alt: "fmarket"
     %span.footer-bottom__offer © Free Market, Inc.
