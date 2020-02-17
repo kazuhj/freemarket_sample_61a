@@ -1,0 +1,63 @@
+.single-container
+  %header.single-header
+    %h1
+      = link_to "#" do
+        = image_tag "#{asset_path "fmarket_logo_red.svg"}", alt: "fmarket"
+  %main.single-main
+    %section.single-main__buy-item-container
+      %h2.single-main__buy-item-container__head 購入内容の確認
+      %section.single-main__buy-item-container__item
+        .single-main__buy-item-container__item__inner
+          .single-main__buy-item-container__item__inner__box
+            %h3.single-main__buy-item-container__item__inner__box__image
+              = image_tag 'https://static.mercdn.net/thumb/photos/m11176264190_1.jpg?1581819795', class: "image-size", alt: ""
+            .single-main__buy-item-container__item__inner__box__detail
+              %p.single-main__buy-item-container__item__inner__box__detail__name GOOGLE HOME MINI グーグルホームミニ
+              %p.single-main__buy-item-container__item__inner__box__detail__price
+                %span ¥2,000
+                %span.single-main__buy-item-container__item__inner__box__detail__price__fee (税込)送料込み
+      %section.single-main__buy-item-container__item
+        .single-main__buy-item-container__item__inner
+          %form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m11176264190/", :method => "POST", :novalidate => "novalidate"}
+            %ul.buy-price-table
+              %li.buy-you-pay
+                .buy-price-sell.buy-price-sell-label 支払い金額
+                .buy-price-sell
+                  %span ¥2,000
+            %ul.buy-not-have-point
+              %li.buy-not-have-point__parent
+                .buy-use-point
+                  %input{disabled: "disabled", type: "checkbox"}
+                  %i.icon-check
+                  %label ポイントを使用 (所持ポイント: P0)
+            %section.buy-user-info
+              .buy-content-inner
+                .clearfix
+                  %h3.l-left 支払い方法
+                  %a.l-right{:href => "https://www.mercari.com/jp/transaction/select_card/m39846999765/"}
+                    %span 変更する
+                %p.buy-user-info-text
+                  クレジットカード
+                  %br
+                  ************1111
+                  %br
+                  有効期限 11 / 24
+                %figure.buy-card-logo
+                  %img{:alt => "master-card", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?35314277", :width => "34"}
+            %section.buy-user-info
+              .buy-content-inner
+                .clearfix
+                  %h3.l-left 配送先
+                  %a.l-right{:href => "https://www.mercari.com/jp/transaction/select_card/m39846999765/"}
+                    %span 変更する
+                %adress.buy-user-info-text
+                  %p
+                    〒111-1111
+                    %br
+                    三重県 鈴鹿市
+                    ○○○丁目 ○○-○
+                    %br
+                    hoge
+            %section.buy-user-info
+              = link_to done_item_buys_path do
+                %button.btn-red{:type => "submit"} 購入する
