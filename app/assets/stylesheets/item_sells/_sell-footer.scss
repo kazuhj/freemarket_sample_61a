@@ -1,0 +1,45 @@
+.main-footer {
+  width: 456px;
+  height: 250px;
+  margin: 0 auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+
+  &__container {
+    list-style: none;
+
+    &__list {
+      margin: 0;
+      display: inline-block;
+      margin: 0 0 0 16px;
+      font-size: 12px;
+
+      &__link {
+        display: block;
+      }
+    }
+  }
+
+  .fmarket-footer__top {
+    display: block;
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+
+    &__logo {
+      vertical-align: middle;
+    }
+  }
+  .company {
+    margin: 8px 0 0;
+
+    &__name {
+      font-size: 13px;
+    }
+  }
+}
