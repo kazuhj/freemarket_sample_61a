@@ -15,10 +15,10 @@
               %p.single-main__buy-item-container__item__inner__box__detail__name GOOGLE HOME MINI グーグルホームミニ
               %p.single-main__buy-item-container__item__inner__box__detail__price
                 %span ¥2,000
-                %span.single-main__buy-item-container__item__inner__box__detail__price__fee (税込)送料込み
+                %span.single-main__buy-item-container__item__inner__box__detail__fee (税込)送料込み
       %section.single-main__buy-item-container__item
         .single-main__buy-item-container__item__inner
-          %form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m11176264190/", :method => "POST", :novalidate => "novalidate"}
+          %form.buy-form{action: "#", method: "POST", novalidate: "novalidate"}
             %ul.buy-price-table
               %li.buy-you-pay
                 .buy-price-sell.buy-price-sell-label 支払い金額
@@ -34,7 +34,7 @@
               .buy-content-inner
                 .clearfix
                   %h3.l-left 支払い方法
-                  %a.l-right{:href => "https://www.mercari.com/jp/transaction/select_card/m39846999765/"}
+                  = link_to "#", class: "l-right" do
                     %span 変更する
                 %p.buy-user-info-text
                   クレジットカード
@@ -43,12 +43,12 @@
                   %br
                   有効期限 11 / 24
                 %figure.buy-card-logo
-                  %img{:alt => "master-card", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?35314277", :width => "34"}
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?35314277', alt: "master-card"
             %section.buy-user-info
               .buy-content-inner
                 .clearfix
                   %h3.l-left 配送先
-                  %a.l-right{:href => "https://www.mercari.com/jp/transaction/select_card/m39846999765/"}
+                  = link_to "#", class: "l-right" do
                     %span 変更する
                 %adress.buy-user-info-text
                   %p
@@ -60,4 +60,4 @@
                     hoge
             %section.buy-user-info
               = link_to done_item_buys_path do
-                %button.btn-red{:type => "submit"} 購入する
+                = button_tag "購入する", class:'btn-red', type: 'submit'

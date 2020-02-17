@@ -16,39 +16,32 @@
       height: 49px;
       line-height: 49px;
       display: inline-block;
-      margin: 0 8px 0 0;
+      margin-right: 8px;
     }
   }
 }
 
 .single-main {
-  display: block;
 
   &__buy-item-container {
     width: 700px;
     margin: 0 auto;
-    background: #fff;
+    background: $background-white;
 
     &__head {
       font-size: 22px;
       padding: 32px;
-      line-height: 1.5;
       text-align: center;
+      font-weight: bold;
     }
 
     &__item {
       text-align: center;
       padding: 32px 16px;
-      border-top: 1px solid #f5f5f5;
-
-
-      &:first-of-type {
-        margin: 0;
-      }
+      border-top: 1px solid $border-line;
 
       &__inner {
-        max-width: 343px;
-        margin: 0 auto;
+        @include inner();
 
         &__box {
           display: flex;
@@ -59,13 +52,10 @@
             min-width: 80px;
             display: flex;
             justify-content: center;
-            align-items: center;
 
             & .image-size {
               width: auto;
               max-height: 80px;
-              opacity: 1;
-              transition: opacity .3s;
             }
           }
 
@@ -74,43 +64,32 @@
 
             &__name {
               font-size: 14px;
-              margin: 0;
-              padding: 0 0 8px;
+              padding-bottom: 8px;
               line-height: 1.5;
               text-align: left;
             }
 
             &__price {
-              margin: 0;
               text-align: left;
               font-size: 15px;
-              font-weight: 600;
+              font-weight: 500;
+            }
 
-              &__fee {
-                font-size: 12px;
-                display: inline-block;
-              }
+            &__fee {
+              font-size: 12px;
+              display: inline-block;
             }
           }
         }
 
         & .buy-price-table {
           display: table;
-          border-collapse: collapse;
           width: 100%;
-
-          &:first-child {
-            margin: 0;
-          }
 
           & .buy-you-pay {
             font-size: 30px;
             display: table-row;
             font-weight: 600;
-
-            &:first-child {
-              border: 0;
-            }
 
             & .buy-price-sell-label {
               font-size: 18px;
@@ -118,7 +97,6 @@
 
             & .buy-price-sell {
               display: table-cell;
-              padding: 0;
               text-align: right;
 
               &:first-child {
@@ -136,21 +114,17 @@
             & .buy-use-point {
               text-align: left;
               position: relative;
-              font-size: 0;
 
               & input {
                 display: none;
                 border: 0;
                 outline: 0;
-                font-family: inherit;
-                -webkit-appearance: none;
               }
 
               & .icon-check {
-                color: #ccc;
                 background: #ccc;
                 position: absolute;
-                top: 50%;
+                top: 0;
                 left: 0;
                 z-index: 1;
                 width: 20px;
@@ -158,21 +132,12 @@
                 border-radius: 2px;
                 border: 1px solid #ccc;
                 font-size: 10px;
-                line-height: 17px;
-                text-align: center;
-                color: #fff;
-                vertical-align: middle;
-                -webkit-transition: all ease-out .3s;
-                transition: all ease-out .3s;
-                -webkit-transform: translate(0, -50%);
-                transform: translate(0, -50%);
               }
 
               & label {
-                cursor: default;
                 position: relative;
                 z-index: 2;
-                padding: 0 0 0 28px;
+                padding-left: 28px;
                 font-size: 14px;
                 font-weight: 400;
                 vertical-align: middle;
@@ -184,23 +149,19 @@
 
         & .buy-user-info {
           padding: 32px 0;
-          transition: all ease-out .3s;
           text-align: left;
-          border-top: 1px solid #f5f5f5;
+          border-top: 1px solid $border-line;
 
           &:first-of-type {
             margin: 0;
           }
 
-          & .buy-content-inner {
-            max-width: 343px;
-            margin: 0 auto;
+          &:last-of-type {
+            padding-bottom: 0;
+          }
 
-            & .clearfix:after {
-              content: '';
-              display: block;
-              clear: both;
-            }
+          & .buy-content-inner {
+            @include inner;
 
             & .l-left {
               margin: 0;
@@ -212,55 +173,28 @@
               display: block;
               text-align: right;
               float: right;
-              color: #0099e8;
-              text-decoration: none;
-
-              & span {
-                vertical-align: middle;
-              }
             }
           }
 
           &-text {
             line-height: 1.5;
             text-align: left;
-            margin: 8px 0 0;
+            margin-top: 8px;
             font-size: 14px;
           }
 
           & .buy-card-logo {
             margin-top: 8px;
-          }
-        }
 
-        & .buy-user-info {
-          padding: 32px 0;
-          transition: all ease-out .3s;
-          text-align: left;
-          border-top: 1px solid #f5f5f5;
-
-          & address {
-            display: block;
-
-            & p {
-              line-height: 1.5;
+            & img {
+              height: 20px;
+              width: 34px;
             }
           }
-        }
-
-        & .buy-user-info {
-          padding: 32px 0;
-          transition: all ease-out .3s;
-          text-align: left;
-          border-top: 1px solid #f5f5f5;
-
-        &:last-of-type {
-          padding-bottom: 0;
-        }
 
           & .btn-red {
-            background: #ea352d;
-            border: 1px solid #ea352d;
+            background: $red-button-color;
+            border: 1px solid $red-button-color;
             color: #fff;
             display: block;
             width: 100%;
