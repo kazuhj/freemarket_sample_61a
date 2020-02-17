@@ -162,3 +162,56 @@
       }
     }
   }
+    .sell-form__content__details {
+      padding: 40px;
+      border-top: 1px solid #eee;
+      height: 241px;
+    }
+      .sell-form__content__head {
+        float: left;
+        color: #888;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .sell-form__content__box {
+        float: right;
+        width: 400px;
+        margin: 0;
+      }
+          .sell-form__select__wrap {
+            margin: 8px 0 0;
+            position: relative;
+            background: #fff;
+
+              .angele-down {
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                font-size: 25px;
+                transform: translate(0, -50%);
+              }
+            }
+              .sell-form__select__wrap__default {
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+              }
+
+        .sell-form__content__group__lower {
+          margin: 40px 0 0;
+          }
+
