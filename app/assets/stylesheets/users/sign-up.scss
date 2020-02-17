@@ -264,6 +264,13 @@
           color: #333;
           border: #979797 solid 1px;
           position: relative;
+
+          &__icon-google {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translate(0, -50%);
+          }
         }
       }
     }
