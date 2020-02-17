@@ -11,4 +11,7 @@ class UsersController < ApplicationController
 
   def address
   end
+
+  def credit
+  end
 end
