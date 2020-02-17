@@ -31,7 +31,7 @@
                   %span.form-require
                     必須
                 %div
-                  %input.sell-form__container__item__name__default{placeholder: "商品名（必須 40文字まで)", value: ""}
+                  %input.sell-form__container__item__default{placeholder: "商品名（必須 40文字まで)", value: ""}
               .sell-form__container__item__description
                 %label
                   商品の説明
@@ -189,8 +189,6 @@
                     .left
                       販売利益
                     .l-right -
-            .modal{role: "dialog", tabindex: "-1"}
-              .modal-inner
             .sell-form__content__sell-btn-box
               %div
                 %p.sell-form__content__sell-btn-box__rule
@@ -209,6 +207,5 @@
               = button_tag "#", class: "sell-btn-red", type: "submit" do
                 出品する
               = link_to "もどる", "#", class: "sell-btn-gray"
-          .overlay
 
     =render 'item_sells/footer'
