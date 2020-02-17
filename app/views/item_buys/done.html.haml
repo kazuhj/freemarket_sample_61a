@@ -1,0 +1,85 @@
+.single-container
+  %header.single-header
+    %h1
+      = link_to "#" do
+        = image_tag "#{asset_path "fmarket_logo_red.svg"}", alt: "fmarket"
+  %main.single-main
+    %section.single-main__buy-item-container
+      .transact-attention
+        %h3
+          = icon('far', 'clock', class: 'icon-time')
+          %span 発送をお待ちください
+        %p 出品者からの発送通知をお待ちください
+      %h2.l-single-head 購入が完了しました
+      %section.single-main__buy-item-container__item
+        .single-main__buy-item-container__item__inner
+          .single-main__buy-item-container__item__inner__box
+            %h3.single-main__buy-item-container__item__inner__box__image
+              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_1.jpg?1580358437', class: "image-size", alt: ""
+            .single-main__buy-item-container__item__inner__box__detail
+              %p.single-main__buy-item-container__item__inner__box__detail__name 希少な超望遠レンズキット 大人気機種 LUMIX GF7
+              %p.single-main__buy-item-container__item__inner__box__detail__price
+                %span ¥35,800
+                %span.single-main__buy-item-container__item__inner__box__detail__price__fee (税込)送料込み
+      %section.single-main__buy-item-container__item
+        .single-main__buy-item-container__item__inner
+          %ul.buy-price-table
+            %li.buy-you-pay
+              .buy-price-sell.buy-price-sell-label 支払い金額
+              .buy-price-sell
+                %span ¥35,800
+          %section.buy-user-info
+            .buy-content-inner
+              .clearfix
+                %h3.l-left 配送先
+              %adress.buy-user-info-text
+                %p
+                  〒111-1111
+                  %br
+                  三重県 鈴鹿市
+                  ○○○丁目 ○○-○
+                  %br
+                  hoge
+          %section.buy-user-info
+            .buy-content-inner
+              .clearfix
+                %h3.l-left 支払い方法
+              %p.buy-user-info-text
+                クレジットカード
+                %br
+                ************1111
+                %br
+                有効期限 11 / 24
+              %figure.buy-card-logo
+                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?35314277', alt: "master-card"
+          %section.buy-done-flow
+            %h3 発送通知後の流れ
+            %div
+              = icon('fas', 'grin', class: 'icon-good')
+              = icon('fas', 'meh', class: 'icon-normal')
+              = icon('fas', 'tired', class: 'icon-bad')
+            %p
+              商品を受け取ったら
+              %br
+              出品者の評価をしましょう。
+              %br
+              購入代金が出品者に振り込まれます。
+              %br
+              評価後に取引は完了です。
+            %a{:href => "https://www.mercari.com/jp/mypage/"} マイページへもどる
+  %footer.main-footer
+    %ul.main-footer__container
+      %li.main-footer__container__list
+        = link_to "#", class: "main-footer__container__list__link" do
+          プライバシーポリシー
+      %li.main-footer__container__list
+        = link_to "#", class: "main-footer__container__list__link" do
+          Fmarket利用規約
+      %li.main-footer__container__list
+        = link_to "#", class: "main-footer__container__list__link" do
+          特定商取引に関する表記
+    = link_to root_path, class: "fmarket-footer__top" do
+      = image_tag "#{asset_path'logo_gray.svg'}", alt: 'fmarket', class: "fmarket-footer__top__logo"
+    %p.company
+      %small.company__name
+        © Free Market, Inc. 
