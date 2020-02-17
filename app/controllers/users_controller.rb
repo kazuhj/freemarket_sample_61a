@@ -8,4 +8,7 @@ class UsersController < ApplicationController
   
   def tel
   end
+
+  def address
+  end
 end
