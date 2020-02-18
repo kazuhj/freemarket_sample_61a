@@ -5,7 +5,7 @@
       .single-main__login-panel__no-account
         %p
         アカウントをお持ちでない方はこちら
-        = link_to '#', class: 'single-main__login-panel__no-account__sign-up' do
+        = link_to users_path, class: 'single-main__login-panel__no-account__sign-up' do
           新規登録
       .single-main__login-panel__form-inner
         = link_to '#', method: :get, class: 'contents__btn contents__btn__facebook' do
