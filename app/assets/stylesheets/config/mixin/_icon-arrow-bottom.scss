@@ -1,0 +1,9 @@
+@mixin arrow-bottom {
+  right: 12px;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  color: #888;
+  font-size: 16px;
+  transform: translate(0, -50%);
+}
