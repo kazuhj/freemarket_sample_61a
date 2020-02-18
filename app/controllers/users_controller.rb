@@ -17,4 +17,7 @@ class UsersController < ApplicationController
 
   def done
   end
+
+  def login
+  end
 end
