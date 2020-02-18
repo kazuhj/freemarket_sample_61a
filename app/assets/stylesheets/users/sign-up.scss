@@ -137,11 +137,9 @@
           &__birthday {
 
             &__select-wrap {
+              @include signup-select-wrap();
               width: 76px;
               display: inline-block;
-              margin: 8px 0 0;
-              position: relative;
-              background: #fff;
               span {
                 margin: 0 2px;
               }
@@ -171,9 +169,7 @@
           &__prefectures {
 
             &__select-wrap {
-              margin: 8px 0 0;
-              position: relative;
-              background: #fff;
+              @include signup-select-wrap();
 
               .icon-arrow-bottom {
                 @include arrow-bottom ();
@@ -200,9 +196,7 @@
           &__card-expiration {
 
             &__select-wrap {
-              margin: 8px 0 0;
-              position: relative;
-              background: #fff;
+              @include signup-select-wrap();
               width: calc(50% - 2px);
 
               .icon-arrow-bottom {
@@ -293,11 +287,8 @@
           position: relative;
 
           .far.fa-envelope {
+            @include sns-icon();
             color: #fff;
-            position: absolute;
-            top: 50%;
-            left: 16px;
-            transform: translate(0, -50%);
             font-size: 20px;
           }
         }
@@ -309,10 +300,7 @@
           position: relative;
 
           i {
-            position: absolute;
-            top: 50%;
-            left: 16px;
-            transform: translate(0, -50%);
+            @include sns-icon();
             font-size: 30px;
           }
         }
@@ -325,10 +313,7 @@
           position: relative;
 
           &__icon-google {
-            position: absolute;
-            top: 50%;
-            left: 16px;
-            transform: translate(0, -50%);
+            @include sns-icon();
           }
         }
       }
