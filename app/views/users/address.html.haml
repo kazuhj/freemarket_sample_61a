@@ -28,7 +28,6 @@
               %span.single-main__container__registration-form__content__input-box__require
                 必須
               %input.single-main__container__registration-form__content__input-box__default{name: "postal_code", placeholder: "例) 123-4567", type: "text", value: ""}
-            /* ここに都道府県の記述をあとで入れる */
             .single-main__container__registration-form__content__input-box
               %label{for: "prefectures_title"}
                 都道府県
@@ -40,8 +39,7 @@
                   %select.single-main__container__registration-form__content__input-box__prefectures__select-wrap__default
                     - @address.each do |address|
                       %option{value: ""}
-                        = address.name
-            
+                        = address.name           
             .single-main__container__registration-form__content__input-box
               %label{for: "city_title"}
                 市区町村
