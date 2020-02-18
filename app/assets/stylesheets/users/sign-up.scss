@@ -181,33 +181,69 @@
               position: relative;
               background: #fff;
 
-            .icon-arrow-bottom {
-              right: 12px;
-              position: absolute;
-              top: 50%;
-              z-index: 2;
-              color: #888;
-              font-size: 16px;
-              transform: translate(0, -50%);
-            }
+              .icon-arrow-bottom {
+                right: 12px;
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                font-size: 16px;
+                transform: translate(0, -50%);
+              }
 
-            &__default {
-              padding: 0 10px;
-              width: 100%;
-              position: relative;
-              z-index: 2;
-              height: 48px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: 0;
-              font-size: 16px;
-              line-height: 1.5;
-              cursor: pointer;
-              outline: 0;
-              -webkit-appearance: none;
+              &__default {
+                padding: 0 10px;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                outline: 0;
+                -webkit-appearance: none;
+              }
             }
           }
-        }
+
+          &__card-expiration {
+
+            &__select-wrap {
+              margin: 8px 0 0;
+              position: relative;
+              background: #fff;
+              width: calc(50% - 2px);
+
+              .icon-arrow-bottom {
+                right: 12px;
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                font-size: 16px;
+                transform: translate(0, -50%);
+              }
+
+              &__default {
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
+              }
+            }
+          }
+        
 
           &__text-center {
             text-align: center;
@@ -308,6 +344,15 @@
           }
         }
       }
+    }
+  }
+
+  .card-list {
+    list-style: none;
+    margin: 8px 0 0;
+    &__icon {
+      width:45px;
+      height:20px;
     }
   }
 }
