@@ -14,4 +14,7 @@ class UsersController < ApplicationController
 
   def credit
   end
+
+  def done
+  end
 end
