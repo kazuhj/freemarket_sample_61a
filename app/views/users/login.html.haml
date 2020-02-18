@@ -1,5 +1,5 @@
 .user-wrapper
-  = render 'users/new-account-header'
+  = render 'item_sells/header'
   %main.single-main
     .single-main__login-panel
       .single-main__login-panel__no-account
@@ -25,3 +25,4 @@
               ログイン
           .login-form-inner__form-group
             = link_to "パスワードをお忘れの方", '#', class: "find-password"
+  = render 'item_sells/footer'
