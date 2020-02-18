@@ -38,8 +38,9 @@
                 .single-main__container__registration-form__content__input-box__prefectures__select-wrap
                   = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
                   %select.single-main__container__registration-form__content__input-box__prefectures__select-wrap__default
-                    %option{value: "北海道"} 北海道
-                    %option{value: "東京"} 東京
+                    - @address.each do |address|
+                      %option{value: ""}
+                        = address.name
             
             .single-main__container__registration-form__content__input-box
               %label{for: "city_title"}

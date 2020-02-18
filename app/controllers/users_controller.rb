@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def address
+    @address = Prefecture.all
   end
 
   def credit
