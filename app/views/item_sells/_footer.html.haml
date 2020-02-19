@@ -1,0 +1,16 @@
+%footer.main-footer
+  %ul.main-footer__container
+    %li.main-footer__container__list
+      = link_to "#", class: "main-footer__container__list__link" do
+        プライバシーポリシー
+    %li.main-footer__container__list
+      = link_to "#", class: "main-footer__container__list__link" do
+        Fmarket利用規約
+    %li.main-footer__container__list
+      = link_to "#", class: "main-footer__container__list__link" do
+        特定商取引に関する表記
+  = link_to root_path, class: "fmarket-footer__top" do
+    = image_tag "#{asset_path'logo_gray.svg'}", alt: 'fmarket', class: "fmarket-footer__top__logo"
+  %p.company
+    %small.company__name
+      © Free Market, Inc.

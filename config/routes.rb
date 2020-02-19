@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "tops#index"
 
   resources :tops, only: [:index]
-  resources :items_sell, only: [:index]
+  resources :item_sells, only: [:index]
   resources :item_informations, only: [:index]
   resources :item_buys, only: [:index] do
     collection do
@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :new] do
     collection do
-      get 'tel'
+      get :tel
+      get :address
+      get :credit
+      get :done
+      get :login
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
