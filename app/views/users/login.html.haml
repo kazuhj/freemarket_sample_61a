@@ -1,0 +1,28 @@
+.user-wrapper
+  = render 'item_sells/header'
+  %main.single-main
+    .single-main__login-panel
+      .single-main__login-panel__no-account
+        %p
+        アカウントをお持ちでない方はこちら
+        = link_to users_path, class: 'single-main__login-panel__no-account__sign-up' do
+          新規登録
+      .single-main__login-panel__form-inner
+        = link_to '#', method: :get, class: 'contents__btn contents__btn__facebook' do
+          = icon('fab', 'facebook-square')
+          Facebookでログイン
+        = button_tag '', class: 'contents__btn contents__btn__google' do
+          = image_tag '/assets/g_rainbow.png', class: 'contents__btn__google__icon-google', size: '30x30'
+          Googleで登録する
+      %form{action: "", method: "", novalidate: "novalidate"}
+        .login-form-inner
+          .login-form-inner__form-group
+            %input.login-form-inner__form-group__input-mail{name: "email", placeholder: "メールアドレス", type: "email", value: ""}
+          .login-form-inner__form-group
+            %input.login-form-inner__form-group__input-password{name: "password", placeholder: "パスワード", type: "password"}
+          .login-form-inner__form-group
+            = button_tag '#', class: 'single-main__container__registration-form__content__input-box__btn', type: 'submit' do
+              ログイン
+          .login-form-inner__form-group
+            = link_to "パスワードをお忘れの方", '#', class: "find-password"
+  = render 'item_sells/footer'
