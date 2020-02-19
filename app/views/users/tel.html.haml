@@ -13,13 +13,13 @@
                 携帯電話の番号
               %input.single-main__container__registration-form__content__input-box__default{name: "phone_number", placeholder: "携帯電話の番号を入力", type: "tel", value: ""}
             %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-            = button_tag '#', class: 'single-main__container__registration-form__content__input-box__btn', type: 'submit' do
+            = button_tag "#", class: 'single-main__container__registration-form__content__input-box__btn', type: 'submit' do
               SMSを送信する
             %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
             .single-main__container__registration-form__content__input-box 
               .single-main__container__registration-form__content__input-box__text-right
                 %p
-                  = link_to "", class: "single-main__container__registration-form__content__input-box__text-right__text" do
+                  = link_to address_users_path, class: "single-main__container__registration-form__content__input-box__text-right__text" do
                     電話番号の確認が必要な理由
                     = icon('fas', 'chevron-right', class: 'single-main__container__registration-form__content__input-box__text-right__icon')
                 %input{name: "__csrf_value", type: "hidden", value: ""}
