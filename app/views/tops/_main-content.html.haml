@@ -92,7 +92,7 @@
                   %span{class: 'item-price'} ¥2,099
                   = image_tag 'https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903', class: 'show-image', alt: "画像が表示できません"
 .sell-icon
-  = link_to "#", class: "sell-icon__link" do
+  = link_to item_sells_path, class: "sell-icon__link" do
     .sell-icon__content
       .sell-icon__text 出品
       = icon('fas', 'camera', class: 'camera-icon')
