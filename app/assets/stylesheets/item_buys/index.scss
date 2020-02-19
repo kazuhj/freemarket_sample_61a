@@ -1,0 +1,256 @@
+.single-container {
+  background: whitesmoke;
+}
+
+.single-header {
+  height: 128px;
+  text-align: center;
+
+  & h1 {
+    margin: 40px 0 0;
+    display: inline-block;
+
+    & a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+}
+
+.single-main {
+
+  &__buy-item-container {
+    width: 700px;
+    margin: 0 auto;
+    background: $background-white;
+
+    &__head {
+      font-size: 22px;
+      padding: 32px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    &__item {
+      text-align: center;
+      padding: 32px 16px;
+      border-top: 1px solid $border-line;
+
+      &__inner {
+        @include inner();
+
+        &__box {
+          display: flex;
+
+          &__image {
+            height: 80px;
+            width: 80px;
+            min-width: 80px;
+            display: flex;
+            justify-content: center;
+
+            & .image-size {
+              width: auto;
+              max-height: 80px;
+            }
+          }
+
+          &__detail {
+            margin-left: 16px;
+
+            &__name {
+              font-size: 14px;
+              padding-bottom: 8px;
+              line-height: 1.5;
+              text-align: left;
+            }
+
+            &__price {
+              text-align: left;
+              font-size: 15px;
+              font-weight: 500;
+            }
+
+            &__fee {
+              font-size: 12px;
+              display: inline-block;
+            }
+          }
+        }
+
+        & .buy-price-table {
+          display: table;
+          width: 100%;
+
+          & .buy-you-pay {
+            font-size: 30px;
+            display: table-row;
+            font-weight: 600;
+
+            & .buy-price-sell-label {
+              font-size: 18px;
+            }
+
+            & .buy-price-sell {
+              display: table-cell;
+              text-align: right;
+
+              &:first-child {
+                text-align: left;
+              }
+            }
+          }
+        }
+        & .buy-not-have-point {
+          color: #888;
+          margin: 24px 0 32px;
+
+          &__parent {
+
+            & .buy-use-point {
+              text-align: left;
+              position: relative;
+
+              & input {
+                display: none;
+                border: 0;
+                outline: 0;
+              }
+
+              & .icon-check {
+                background: #ccc;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                border: 1px solid $border-line;
+                font-size: 10px;
+              }
+
+              & label {
+                position: relative;
+                z-index: 2;
+                padding-left: 28px;
+                font-size: 14px;
+                font-weight: 400;
+                vertical-align: middle;
+                display: inline-block;
+              }
+            }
+          }
+        }
+
+        & .buy-user-info {
+          padding: 32px 0;
+          text-align: left;
+          border-top: 1px solid $border-line;
+
+          &:first-of-type {
+            margin: 0;
+          }
+
+          &:last-of-type {
+            padding-bottom: 0;
+          }
+
+          & .buy-content-inner {
+            @include inner;
+
+            & .l-left {
+              margin: 0;
+              font-size: 14px;
+              float: left;
+            }
+
+            & .l-right {
+              display: block;
+              text-align: right;
+              float: right;
+            }
+          }
+
+          &-text {
+            line-height: 1.5;
+            text-align: left;
+            margin-top: 8px;
+            font-size: 14px;
+          }
+
+          & .buy-card-logo {
+            margin-top: 8px;
+
+            & img {
+              height: 20px;
+              width: 34px;
+            }
+          }
+
+          & .btn-red {
+            background: $red-button-color;
+            border: 1px solid $red-button-color;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-footer {
+  width: 456px;
+  height: 250px;
+  margin: 0 auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+
+  &__container {
+    list-style: none;
+
+    &__list {
+      margin: 0;
+      display: inline-block;
+      margin: 0 0 0 16px;
+      font-size: 12px;
+
+      &__link {
+        display: block;
+      }
+    }
+  }
+
+  .fmarket-footer__top {
+    display: block;
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+
+    &__logo {
+      vertical-align: middle;
+    }
+  }
+  .company {
+    margin: 8px 0 0;
+
+    &__name {
+      font-size: 13px;
+    }
+  }
+}

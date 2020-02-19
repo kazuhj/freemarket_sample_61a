@@ -14,4 +14,7 @@
 @import "users/new-account-header";
 @import "config/mixin/sin-up-definition";
 @import "users/sign-up";
+@import "mixin/inner";
+@import "item_buys/index.scss";
+@import "item_buys/done.scss";
 @import "users/login.scss";
