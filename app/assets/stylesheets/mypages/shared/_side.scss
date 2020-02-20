@@ -1,55 +1,58 @@
-.mypage-side-content {
-  float: left;
-  width: 280px;
-  margin: 0 40px 0 0;
+.mypage-nav__list__item.active2 {
 
-  & .mypage-nav {
+  .mypage-side-content {
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
 
-    &__list {
+    & .mypage-nav {
 
-      & li {
-        border-top: 1px solid #eee;
+      &__list {
 
-        &:first-child {
-          border: 0;
-        }
-      }
+        & li {
+          border-top: 1px solid #eee;
 
-      &__item {
-        position: relative;
-        display: block;
-        min-height: 48px;
-        padding: 16px;
-        background: #fff;
-        font-size: 14px;
-        color: #333;
-
-        &.active {
-          background: #eee;
-          font-weight: 600;
-
-          & .mypage-style-right {
-            color: #333;
+          &:first-child {
+            border: 0;
           }
         }
 
-        & .mypage-style-right {
-          position: absolute;
-          top: 50%;
-          right: 16px;
-          color: #ccc;
-          -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-          -webkit-transition: all ease-out .2s;
-          transition: all ease-out .2s;
+        &__item {
+          position: relative;
+          display: block;
+          min-height: 48px;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+
+          &.active {
+            background: #eee;
+            font-weight: 600;
+
+            & .mypage-style-right {
+              color: #333;
+            }
+          }
+
+          & .mypage-style-right {
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            color: #ccc;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            -webkit-transition: all ease-out .2s;
+            transition: all ease-out .2s;
+          }
         }
       }
-    }
 
-    &__head {
-      margin: 40px 0 0;
-      font-size: 16px;
-      font-weight: bold;
+      &__head {
+        margin: 40px 0 0;
+        font-size: 16px;
+        font-weight: bold;
+      }
     }
   }
 }
