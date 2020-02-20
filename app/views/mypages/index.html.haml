@@ -1,5 +1,5 @@
 .wrapper
-  = render 'users/shared/header'
+  = render 'mypages/shared/header'
   %nav.bread-crumbs
     %ul
       %li
@@ -112,7 +112,7 @@
                 = icon('fas', 'angle-right', class: 'mypage-style-right')
             %li.mypage-go-list
               = link_to "一覧を見る", "#"
-    = render 'users/shared/side'
+    = render 'mypages/shared/side'
   .sell-icon
     %a.sell-icon__link{href: "#"}
       .sell-icon__content
