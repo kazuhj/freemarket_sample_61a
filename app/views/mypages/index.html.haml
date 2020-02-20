@@ -4,7 +4,7 @@
   %nav.bread-crumbs
     %ul
       %li
-        = link_to "https://www.mercari.com/jp/", itemprop: "url" do
+        = link_to root_path do
           %span フリマアプリ
         = icon('fas', 'angle-right', class: 'mypage-style-right')
       %li
@@ -12,7 +12,7 @@
   %main.mypage-container.clearfix
     .mypage-container__right-content
       %section.mypage-user-icon
-        = link_to "https://www.mercari.com/jp/u/463015864/" do
+        = link_to "#" do
           %figure
             = image_tag "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"
           %h2 hoge

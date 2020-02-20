@@ -1,19 +1,15 @@
 .bread-crumbs {
   position: relative;
-  background: #f5f5f5;
   border-bottom: 1px solid rgba(0,0,0,0.16);
   background: #fff;
   box-shadow: $box-shadow-black 0px 2px 4px;
 
   & ul {
     width: 1020px;
-    overflow: visible;
     margin: 0 auto;
     padding: 16px 0;
-    white-space: normal;
 
     & li {
-      text-overflow: ellipsis;
       white-space: nowrap;
       display: inline-block;
       font-size: 14px;
@@ -42,12 +38,6 @@
   padding-bottom: 40px;
   width: 1020px;
   display: block;
-
-  &.clearfix:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
 
   &__right-content {
     float: right;
@@ -120,7 +110,6 @@
       }
 
       &__mypage-tabs {
-        border: 0;
         background: #eee;
         font-size: 0;
 
@@ -200,11 +189,6 @@
 
                 &__text {
                   overflow: hidden;
-                  display: -webkit-box;
-                  max-height: 4.4em;
-                  -webkit-line-clamp: 3;
-                  -webkit-box-orient: vertical;
-                  text-overflow: ellipsis;
                   line-height: 1.5;
                   font-size: 14px;
                 }
