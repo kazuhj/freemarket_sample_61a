@@ -1,0 +1,122 @@
+.wrapper
+  = render 'users/shared/header'
+  %nav.bread-crumbs
+    %ul
+      %li
+        = link_to "https://www.mercari.com/jp/", itemprop: "url" do
+          %span フリマアプリ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        %span マイページ
+  %main.mypage-container.clearfix
+    .mypage-container__right-content
+      %section.mypage-user-icon
+        = link_to "https://www.mercari.com/jp/u/463015864/" do
+          %figure
+            = image_tag "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"
+          %h2 hoge
+          .mypage-number
+            %div
+              評価
+              %span 1
+            %div
+              出品数
+              %span 1
+      %section.mypage-tab-container.notification-todo
+        %ul.mypage-tab-container__mypage-tabs
+          %li.active
+            %h3
+              = link_to "#" do
+                お知らせ
+          %li
+            %h3
+              = link_to "#" do
+                やることリスト
+        .mypage-tab-container__tab-content
+          %ul.mypage-tab-container__tab-content__item-list.active
+            %li
+              = link_to "#", class: "mypage-item-link" do
+                %figure
+                  = image_tag "#{asset_path "logo_red.svg"}", alt: ""
+                .mypage-item-body
+                  .mypage-item-body__text 《最大10,000円分》販売手数料全額ポイントバックのチャンス！スタート！
+                  %time
+                    = icon('far', 'clock', class: 'icon-time')
+                    %span 2 日前
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+            %li
+              = link_to "#", class: "mypage-item-link" do
+                %figure
+                  = image_tag '//static.mercdn.net/c!/w=240,f=webp/thumb/photos/m77180401534_1.jpg?1581748291', alt: ""
+                .mypage-item-body
+                  .mypage-item-body__text 「HTML・CSS WEBデザイン」を購入しました。発送までしばらくお待ちください。
+                  %time
+                    = icon('far', 'clock', class: 'icon-time')
+                    %span 4 日前
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+            %li
+              = link_to "#", class: "mypage-item-link" do
+                %figure
+                  = image_tag "#{asset_path "logo_red.svg"}", alt: ""
+                .mypage-item-body
+                  .mypage-item-body__text 事務所からの個別メッセージ「ログイン通知」
+                  %time
+                    = icon('far', 'clock', class: 'icon-time')
+                    %span ５ 日前
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+            %li
+              = link_to "#", class: "mypage-item-link" do
+                %figure
+                  = image_tag "#{asset_path "logo_red.svg"}", alt: ""
+                .mypage-item-body
+                  .mypage-item-body__text 事務所からの個別メッセージ「ログイン通知」
+                  %time
+                    = icon('far', 'clock', class: 'icon-time')
+                    %span ６ 日前
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+            %li
+              = link_to "#", class: "mypage-item-link" do
+                %figure
+                  = image_tag "#{asset_path "logo_red.svg"}", alt: ""
+                .mypage-item-body
+                  .mypage-item-body__text 事務所からの個別メッセージ「ログイン通知」
+                  %time
+                    = icon('far', 'clock', class: 'icon-time')
+                    %span ７ 日前
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+            %li.mypage-go-list
+              = link_to "一覧を見る", "#"
+      %section.mypage-tab-container
+        %h2.mypage-tab-head 購入した商品
+        %ul.mypage-tab-container__mypage-tabs
+          %li.active
+            %h3
+              = link_to "#" do
+                取引中
+          %li
+            %h3
+              = link_to "#" do
+                過去の取引
+        .mypage-tab-container__tab-content
+          %ul.mypage-tab-container__tab-content__item-list.active
+            %li
+              = link_to "#", class: "mypage-item-link" do
+                %figure
+                  = image_tag '//static.mercdn.net/c!/w=240,f=webp/thumb/photos/m77180401534_1.jpg?1581748291', alt: ""
+                .mypage-item-body
+                  .mypage-item-body__text
+                    「HTML・CSS WEBデザイン」を購入しました。
+                    %span 発送をお待ちください
+                  .mypage-item-body__status.awaiting
+                    発送待ち
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+            %li.mypage-go-list
+              = link_to "一覧を見る", "#"
+    = render 'users/shared/side'
+  .sell-icon
+    %a.sell-icon__link{href: "#"}
+      .sell-icon__content
+        .sell-icon__text 出品
+        = icon('fas', 'camera', class: 'camera-icon')
+  = render 'tops/shared/footer'
+
