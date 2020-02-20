@@ -26,3 +26,9 @@ table {
 body {
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}

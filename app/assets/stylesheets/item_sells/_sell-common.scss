@@ -7,9 +7,3 @@ color: #fff;
 font-size: 12px;
 vertical-align: top;
 }
-
-.clearfix::after {
-   content: "";
-   display: block;
-   clear: both;
-}
