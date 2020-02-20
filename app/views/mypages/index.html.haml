@@ -1,5 +1,6 @@
 .wrapper
-  = render 'mypages/shared/header'
+  .mypage-header
+    = render 'tops/shared/header'
   %nav.bread-crumbs
     %ul
       %li
@@ -112,11 +113,8 @@
                 = icon('fas', 'angle-right', class: 'mypage-style-right')
             %li.mypage-go-list
               = link_to "一覧を見る", "#"
-    = render 'mypages/shared/side'
-  .sell-icon
-    %a.sell-icon__link{href: "#"}
-      .sell-icon__content
-        .sell-icon__text 出品
-        = icon('fas', 'camera', class: 'camera-icon')
+    .mypage-nav__list__item.active2
+      = render 'mypages/shared/side'
+  = render 'tops/shared/sell-icon'
   = render 'tops/shared/footer'
 
