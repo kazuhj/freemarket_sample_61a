@@ -65,11 +65,7 @@
                 = icon('fas', 'angle-right', class: 'mypage-style-right')
           %input{name: "__csrf_value", type: "hidden", value: ""}
     = render 'mypages/shared/side'
-    .sell-icon
-      %a.sell-icon__link{href: "#"}
-        .sell-icon__content
-          .sell-icon__text 出品
-          = icon('fas', 'camera', class: 'camera-icon')
+    = render 'tops/shared/sell-icon'
   =render 'tops/shared/footer'
 
 
