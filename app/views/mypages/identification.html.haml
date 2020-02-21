@@ -46,8 +46,9 @@
             .select-wrap
               = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
               %select.select-default{name: "prefecture"}
+                %option --
                 - @address.each do |address|
-                  %option{value: "", prompt: "--"}
+                  %option{value: ""}
                     = address.name
           .form-group
             %label{for: "city"} 市区町村
