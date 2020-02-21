@@ -1,0 +1,75 @@
+.wrapper
+  .mypage-header
+    = render 'tops/shared/header'
+  %nav.bread-crumbs
+    %ul
+      %li
+        = link_to root_path do
+          %span フリマアプリ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        = link_to mypages_path do
+          %span マイページ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        %span 本人情報の登録
+  %main.mypage-container.clearfix
+    .mypage-container__right-content
+      %section.mypage-identification
+        %h2.mypage-identification__head 本人情報の登録
+        %form.mypage-identification__right-single-inner{action: "#", method: "POST", novalidate: ""}
+          %div
+            %p
+              お客さまの本人情報をご登録ください。
+              %br
+              登録されたお名前・生年月日を変更する場合は、本人確認書類の提出が必要になります。
+            %p.text-right
+              = link_to "#" do
+                本人確認書類のアップロードについて
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+          .form-group
+            %label お名前
+            %p hoge
+          .form-group
+            %label お名前カナ
+            %p hoge
+          .form-group
+            %label{for: "birthday"} 生年月日
+            %p 2000/01/01
+          .form-group
+            %label{for: "zip_code"} 郵便番号
+            %span.form-arbitrary 任意
+            %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
+          .form-group
+            %label{for: "zip_code"} 都道府県
+            %span.form-arbitrary 任意
+            .select-wrap
+              = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
+              %select.select-default{name: "prefecture"}
+                - @address.each do |address|
+                  %option{value: "", prompt: "--"}
+                    = address.name
+          .form-group
+            %label{for: "city"} 市区町村
+            %span.form-arbitrary 任意
+            %input.input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}
+          .form-group
+            %label{for: "address2_label"} 建物名
+            %span.form-arbitrary 任意
+            %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}
+          %button.btn-red{type: "submit"} 登録する
+          .form-group.text-right
+            %p
+              = link_to "#" do
+                本人情報の登録について
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+          %input{name: "__csrf_value", type: "hidden", value: ""}
+    = render 'mypages/shared/side'
+    .sell-icon
+      %a.sell-icon__link{href: "#"}
+        .sell-icon__content
+          .sell-icon__text 出品
+          = icon('fas', 'camera', class: 'camera-icon')
+  =render 'tops/shared/footer'
+
+
