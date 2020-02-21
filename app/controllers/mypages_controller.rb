@@ -4,6 +4,7 @@ class MypagesController < ApplicationController
   end
 
   def identification
+    @address = Prefecture.all
   end
 
 end
