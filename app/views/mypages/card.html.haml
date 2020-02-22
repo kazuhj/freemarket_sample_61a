@@ -1,0 +1,38 @@
+.wrapper
+  .mypage-header
+    = render 'tops/shared/header'
+  %nav.bread-crumbs
+    %ul
+      %li
+        = link_to root_path do
+          %span フリマアプリ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        = link_to mypages_path do
+          %span マイページ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        %span 支払い方法
+  %main.mypage-container.clearfix
+    .mypage-container__right-content
+      %section.profile-container
+        %h2.profile-container__head
+          支払い方法
+        .card-add__inner
+          %section
+            .card-add__content
+              %h3.card-add__content__sub-head
+                クレジットカード一覧
+            %ul.settings-payment-list
+          %section.settings-add-card
+            .card-add__content
+              = link_to "#", class: "card_submit_button" do
+                = icon("fa", "credit-card", class: "card-icon")
+                クレジットカードを追加する
+          .settings-not-regist
+            = link_to "#", class: "payment-guide", taget: "_blank" do
+              %span 支払い方法について
+              = icon('fas', 'angle-right', class: 'mypage-style-right')
+    = render 'mypages/shared/side'
+  = render 'tops/shared/sell-icon'
+  = render 'tops/shared/footer'
