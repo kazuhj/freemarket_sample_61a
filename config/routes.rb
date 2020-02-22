@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :mypages, only: [:index] do
     collection do
       get 'identification'
+      get :profile
     end
   end
 end

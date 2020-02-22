@@ -1,0 +1,35 @@
+.wrapper
+  .mypage-header
+    = render 'tops/shared/header'
+  %nav.bread-crumbs
+    %ul
+      %li
+        = link_to root_path do
+          %span フリマアプリ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        = link_to root_path do
+          %span マイページ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        %span プロフィール
+  %main.mypage-container.clearfix
+    .mypage-container__right-content
+      %section.profile-container
+        %h2.profile-container__head
+          プロフィール
+        %form{action: "#", method: "POST"}
+          %input{name: "__csrf_value", type: "hidden", value: "#"}
+          .setting-profile-icon
+            %figure
+              = image_tag "https://icooon-mono.com/i/icon_00146/icon_001460_256.png", class: "user-icon"
+            %input.input-default{name: "nickname", placeholder: "例)hoge☆セール中", type: "text", value: "hoge"}
+          .setting-profile-content
+            %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+            %input{name: "after_save_callback", type: "hidden", value: "#"}
+            = button_tag "#", class: "btn-default btn-red", type: "submit" do
+              変更する
+    = render 'mypages/shared/side'
+  = render 'tops/shared/sell-icon'
+  = render 'tops/shared/footer'
+

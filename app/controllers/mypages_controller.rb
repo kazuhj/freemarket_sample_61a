@@ -7,4 +7,6 @@ class MypagesController < ApplicationController
     @address = Prefecture.all
   end
 
+  def profile
+  end
 end
