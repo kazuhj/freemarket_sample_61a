@@ -12,5 +12,7 @@ class MypagesController < ApplicationController
 
   def card
   end
-  
+
+  def card_create
+  end
 end
