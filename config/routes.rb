@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get 'identification'
       get :profile
       get :card
+      get :card_create
     end
   end
 end
