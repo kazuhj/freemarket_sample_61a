@@ -18,4 +18,10 @@ Rails.application.routes.draw do
       get :login
     end
   end
+  resources :mypages, only: [:index] do
+    collection do
+      get 'identification'
+      get :profile
+    end
+  end
 end

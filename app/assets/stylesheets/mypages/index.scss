@@ -1,0 +1,265 @@
+.bread-crumbs {
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.16);
+  background: #fff;
+  box-shadow: $box-shadow-black 0px 2px 4px;
+
+  & ul {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 16px 0;
+
+    & li {
+      white-space: nowrap;
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+
+      &:last-child {
+        font-weight: 600;
+      }
+
+      & a {
+        color: #333;
+        touch-action: manipulation;
+      }
+
+      & .mypage-style-right {
+        margin: 0 8px;
+        font-size: 9px;
+        color: #888;
+      }
+    }
+  }
+}
+
+.mypage-container {
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  width: 1020px;
+  display: block;
+
+  &__right-content {
+    float: right;
+    width: 700px;
+
+    & .mypage-user-icon {
+      height: 200px;
+      position: relative;
+      padding: 20px;
+      background-image: image-url("mypage-user-icon-background-color.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+
+      & a {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translate(0, -50%);
+        color: #333;
+        touch-action: manipulation;
+
+        & figure {
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 50%;
+
+          & img {
+            height: 60px;
+            width: 60px;
+            background-color: white;
+          }
+        }
+
+        & h2 {
+          margin: 8px 0 0;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4;
+        }
+
+        & .mypage-number {
+          margin: 8px 0 0;
+          font-size: 0;
+
+          & div {
+            display: inline-block;
+            font-size: 14px;
+
+            & span {
+              margin: 0 0 0 8px;
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    & .mypage-tab-container {
+      margin: 40px 0 0;
+      background: #fff;
+
+      &.notification-todo {
+        margin: 0;
+      }
+
+      &__mypage-tabs {
+        background: #eee;
+        font-size: 0;
+
+        & li {
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+
+          &.active {
+            background: #fff;
+
+            & a {
+              border-top: 2px solid #ea352d;
+            }
+          }
+
+          & h3 {
+            font-size: 22px;
+            font-weight: bold;
+
+            & a {
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 72px;
+            }
+          }
+        }
+      }
+
+      &__tab-content {
+
+        &__item-list {
+
+          &.active {
+            display: block;
+          }
+
+          & li {
+            position: relative;
+            border-bottom: 1px solid #eee;
+
+            &:first-child {
+              border-bottom: 1px solid #eee;
+            }
+
+            & .mypage-item-link {
+              display: block;
+              min-height: 80px;
+              padding: 16px;
+              color: #333;
+
+              & figure {
+                position: relative;
+                overflow: hidden;
+                float: left;
+                width: 48px;
+                height: 55px;
+
+                & img {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                  z-index: 1;
+                  width: 100%;
+                  opacity: 1;
+                  transition: opacity .3s;
+                }
+              }
+
+              & .mypage-item-body {
+                margin: 0 40px 0 68px;
+
+                &__text {
+                  overflow: hidden;
+                  line-height: 1.5;
+                  font-size: 14px;
+                }
+
+                &__status {
+                  display: inline-block;
+                  margin: 8px 0 0 0;
+                  padding: 5px 6px;
+                  border-radius: 2px;
+                  font-size: 12px;
+                  color: #fff;
+                  font-weight: 600;
+
+                  &.awaiting {
+                    background: #0099e8;
+                  }
+                }
+
+                & time {
+                  display: inline-block;
+                  color: #888;
+                  font-size: 12px;
+
+                  & .icon-time {
+                    margin: 0 8px 0 0;
+
+                    & span {
+                      vertical-align: middle;
+                    }
+                  } 
+                }
+              }
+
+              & .mypage-style-right {
+                position: absolute;
+                top: 50%;
+                right: 16px;
+                transform: translate(0, -50%);
+                font-size: 25px;
+              }
+            }
+          }
+
+          & li.mypage-go-list {
+            padding: 16px;
+            position: relative;
+
+            &:last-child {
+              border: 0;
+            }
+
+            & a {
+              display: block;
+              height: 56px;
+              margin: 0 auto;
+              background: #eee;
+              color: #333;
+              line-height: 56px;
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      & .mypage-tab-head {
+        padding: 0 16px;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+        font-weight: bold;
+      }
+    }
+  }
+}
