@@ -15,4 +15,7 @@ class MypagesController < ApplicationController
 
   def card_create
   end
+
+  def logout
+  end
 end
