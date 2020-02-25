@@ -9,4 +9,10 @@ class MypagesController < ApplicationController
 
   def profile
   end
+
+  def card
+  end
+
+  def card_create
+  end
 end

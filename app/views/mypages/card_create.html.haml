@@ -1,0 +1,95 @@
+.wrapper
+  .mypage-header
+    = render 'tops/shared/header'
+  %nav.bread-crumbs
+    %ul
+      %li
+        = link_to root_path do
+          %span フリマアプリ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        = link_to mypages_path do
+          %span マイページ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        = link_to card_mypages_path do
+          %span 支払い方法
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        %span クレジットカード情報入力
+  %main.mypage-container.clearfix
+    .mypage-container__right-content
+      %section.profile-container
+        %h2.profile-container__head
+          クレジットカード情報入力
+        %form#add-card-form{action: "#", "data-adyen-id" => "card-form", method: "POST", novalidate: "novalidate"}
+          %input{name: "__csrf_value", type: "hidden", value: "#"}
+            .card-information__content
+              .form-group.card-number
+                %label{for: "payment_card_no"}
+                  カード番号
+                %span.form-require
+                  必須
+                %input#payment_card_number.input-default{"data-input-type" => "card", maxlength: "19", placeholder: "半角数字のみ", type: "text", value: ""}
+                %ul.card-list
+                  %li
+                  = image_tag "#{asset_path "visa.svg"}", class: 'card-list__icon'
+                  = image_tag "#{asset_path "master.svg"}", class: 'card-list__icon'
+                  = image_tag "#{asset_path "saison-card.svg"}", class: 'card-list__icon'
+                  = image_tag "#{asset_path "jcb.svg"}", class: 'card-list__icon'
+                  = image_tag "#{asset_path "american_express.svg"}", class: 'card-list__icon'
+                  = image_tag "#{asset_path "dinersclub.svg"}", class: 'card-list__icon'
+                  = image_tag "#{asset_path "discover.svg"}", class: 'card-list__icon'
+              .form-group.expiration-date
+                %label{for: "payment_card_expire"}
+                  有効期限
+                %span.form-require
+                  必須
+                %br
+                .select-wrap.half.month
+                  %select#payment_card_expire_month.select-default
+                    %option{value: "01"} 01
+                    %option{value: "02"} 02
+                    %option{value: "03"} 03
+                    %option{value: "04"} 04
+                    %option{value: "05"} 05
+                    %option{value: "06"} 06
+                    %option{value: "07"} 07
+                    %option{value: "08"} 08
+                    %option{value: "09"} 09
+                    %option{value: "10"} 10
+                    %option{value: "11"} 11
+                    %option{value: "12"} 12
+                  = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
+                  %span 月
+                .select-wrap.half.year
+                  %select#payment_card_expire_year.select-default
+                    %option{value: "20"} 20
+                    %option{value: "21"} 21
+                    %option{value: "22"} 22
+                    %option{value: "23"} 23
+                    %option{value: "24"} 24
+                    %option{value: "25"} 25
+                    %option{value: "26"} 26
+                    %option{value: "27"} 27
+                    %option{value: "28"} 28
+                    %option{value: "29"} 29
+                    %option{value: "30"} 30
+                  = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
+                  %span 年
+              .form-group.security-code
+                %label{for: "payment_card_security_code"}
+                  セキュリティコード
+                %span.form-require
+                  必須
+                %input#payment_card_security_code.input-default{placeholder: "カード背面4桁もしくは3桁の番号", type: "number", value: ""}
+                .signup-seqcode
+                  .signup-seqcode-text{"data-js" => "show-tips-toggle"}
+                    %span.form-question ?
+                    カード裏面の番号とは？
+                    %br
+                  = link_to card_create_mypages_path do
+                    = button_tag "追加する", class: "card_submit_button"
+    = render 'mypages/shared/side'
+  = render 'tops/shared/sell-icon'
+  = render 'tops/shared/footer'

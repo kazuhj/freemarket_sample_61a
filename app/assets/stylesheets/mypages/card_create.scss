@@ -1,0 +1,97 @@
+#add-card-form {
+  padding: 40px 40px 64px;
+  border-top: 1px solid #f5f5f5;
+
+  .card-information__content {
+    max-width: 343px;
+    margin: 0 auto;
+
+    label {
+      font-weight: 600;
+    }
+
+   .input-default {
+     width: 100%;
+     margin: 8px 0 0;
+     height: 48px;
+     padding: 10px 16px 8px;
+     border-radius: 4px;
+     border: 1px solid #ccc;
+     background: #fff;
+     line-height: 1.5;
+     font-size: 16px;
+   }
+
+   .card-list {
+     margin: 8px 0 0;
+     font-size: 0;
+
+     &__icon {
+      width: 45px;
+      height: 20px;
+    }
+   }
+
+   .form-group.expiration-date {
+     margin-top: 32px;
+
+     .select-wrap.half {
+      display: inline-block;
+      width: calc(50% - 2px);
+      margin: 8px 0 0;
+     }
+
+     .select-wrap.half.year {
+       position: absolute;
+       width: 170px;
+     }
+
+      .select-default {
+        width: calc(100% - 38px);
+        position: relative;
+        z-index: 2;
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        cursor: pointer;
+        -webkit-appearance: none;
+      }
+      .icon-arrow-bottom {
+        font-size: 16px;
+        margin: 0 6px 0 -15px;
+        position: relative;
+        top: 3px;
+        pointer-events: none;
+        right: 16px;
+      }
+   }
+   .form-group {
+     margin: 24px 0 0;
+
+     .signup-seqcode {
+       position: relative;
+       margin: 8px 0 0;
+       text-align: right;
+       color: #0099e8;
+
+      .card_submit_button {
+        display: block;
+        margin-top: 32px;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+      }
+     }
+   }
+  }
+}
