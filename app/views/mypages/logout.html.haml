@@ -1,0 +1,27 @@
+.wrapper
+  .mypage-header
+    = render 'tops/shared/header'
+  %nav.bread-crumbs
+    %ul
+      %li
+        = link_to root_path do
+          %span フリマアプリ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        = link_to mypages_path do
+          %span マイページ
+        = icon('fas', 'angle-right', class: 'mypage-style-right')
+      %li
+        %span ログアウト
+  %main.mypage-container.clearfix
+    .mypage-container__right-content
+      .mypage-container__logout
+        .mypage-container__logout__content
+          %form.card-add__inner{action: "#", method: "POST", novalidate: "novalidate"}
+            .card-add__content
+              = link_to root_path do
+                = button_tag "ログアウト", class: "logout_submit_button", type: "submit"
+              %input{name: "__csrf_value", type: "hidden", value: "#"}
+    = render 'mypages/shared/side'
+  = render 'tops/shared/sell-icon'
+  = render 'tops/shared/footer'
