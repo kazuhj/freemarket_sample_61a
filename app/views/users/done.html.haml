@@ -1,4 +1,4 @@
-.user-wrapper
+.wrapper
   .single-container__step5
     = render 'users/new-account-header'
     %main.single-main
@@ -11,7 +11,7 @@
             %p.done-message 会員登録が完了しました。
             .single-main__container__registration-form__content__input-box
               %p.single-main__container__registration-form__content__input-box__text-center
-            = link_to '#' do
+            = link_to mypages_path do
               = button_tag '#', class: 'single-main__container__registration-form__content__input-box__btn', type: 'submit' do
                 Fmarketをはじめる
   = render 'item_sells/footer'
