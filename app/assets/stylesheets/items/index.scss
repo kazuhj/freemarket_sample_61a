@@ -259,35 +259,6 @@
   }
 }
 
-.sell-icon {
-  bottom: 32px;
-  font-size: 22px;
-  height: 160px;
-  right: 32px;
-  width: 160px;
-  position: fixed;
-  text-align: center;
-  z-index: 2;
-
-  &__link {
-    display: block;
-  }
-
-  &__content {
-    width: 160px;
-    height: 160px;
-    padding-top: 26px;
-    text-align: center;
-    background-color: rgb(234, 53, 45);
-    border-radius: 50%;
-  }
-
-  &__text {
-    font-size: 22px;
-    color: white;
-  }
-}
-
 .camera-icon {
   margin-top: 8px;
   max-width: 100%;

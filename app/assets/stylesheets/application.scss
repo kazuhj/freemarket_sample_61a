@@ -4,13 +4,8 @@
 @import "config/color";
 @import "item_informations/main-content";
 @import "common";
-@import "tops/header";
-@import "tops/main-content";
-@import "tops/footer";
-@import "item_sells/sell-common";
-@import "item_sells/sell-header";
-@import "item_sells/sell-main";
-@import "item_sells/sell-footer";
+@import "items/index.scss";
+@import "items/new.scss";
 @import "config/mixin/new-account-header-definition";
 @import "users/new-account-header";
 @import "config/mixin/sin-up-definition";
@@ -27,3 +22,8 @@
 @import "mypages/card";
 @import "mypages/card_create";
 @import "mypages/logout";
+@import "shared/header";
+@import "shared/footer";
+@import "shared/sell-icon";
+@import "shared/sell-header";
+@import "shared/sell-footer";
