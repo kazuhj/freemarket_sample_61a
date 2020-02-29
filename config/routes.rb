@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   root "items#index"
 
-  resources :item_buys, only: [:index] do
-    collection do
-      get 'done'
-    end
-  end
   resources :users, only: [:index, :new] do
     collection do
       get :tel
