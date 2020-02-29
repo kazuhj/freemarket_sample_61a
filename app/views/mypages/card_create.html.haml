@@ -1,6 +1,6 @@
 .wrapper
   .mypage-header
-    = render 'tops/shared/header'
+    = render 'shared/header'
   %nav.bread-crumbs
     %ul
       %li
@@ -90,6 +90,6 @@
                     %br
                   = link_to card_create_mypages_path do
                     = button_tag "追加する", class: "card_submit_button"
-    = render 'mypages/shared/side'
-  = render 'tops/shared/sell-icon'
-  = render 'tops/shared/footer'
+    = render 'shared/side'
+  = render 'shared/sell-icon'
+  = render 'shared/footer'

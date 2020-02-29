@@ -1,6 +1,6 @@
 .wrapper
   .mypage-header
-    = render 'tops/shared/header'
+    = render 'shared/header'
   %nav.bread-crumbs
     %ul
       %li
@@ -22,6 +22,6 @@
               = link_to root_path do
                 = button_tag "ログアウト", class: "logout_submit_button", type: "submit"
               %input{name: "__csrf_value", type: "hidden", value: "#"}
-    = render 'mypages/shared/side'
-  = render 'tops/shared/sell-icon'
-  = render 'tops/shared/footer'
+    = render 'shared/side'
+  = render 'shared/sell-icon'
+  = render 'shared/footer'

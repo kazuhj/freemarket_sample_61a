@@ -1,6 +1,6 @@
 .wrapper
   .mypage-header
-    = render 'tops/shared/header'
+    = render 'shared/header'
   %nav.bread-crumbs
     %ul
       %li
@@ -33,6 +33,6 @@
             = link_to "#", class: "payment-guide", taget: "_blank" do
               %span 支払い方法について
               = icon('fas', 'angle-right', class: 'mypage-style-right')
-    = render 'mypages/shared/side'
-  = render 'tops/shared/sell-icon'
-  = render 'tops/shared/footer'
+    = render 'shared/side'
+  = render 'shared/sell-icon'
+  = render 'shared/footer'
