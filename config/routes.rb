@@ -18,6 +18,12 @@ Rails.application.routes.draw do
       get :login
     end
   end
+  resources :items, only: [:index, :new, :show] do
+    collection do
+      get 'confirmation'
+      get 'complete'
+    end
+  end
   resources :mypages, only: [:index] do
     collection do
       get 'identification'
