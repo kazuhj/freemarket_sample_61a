@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root "items#index"
 
-  resources :tops, only: [:index]
-  resources :item_informations, only: [:index]
   resources :item_buys, only: [:index] do
     collection do
       get 'done'
