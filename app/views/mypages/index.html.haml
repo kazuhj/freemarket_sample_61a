@@ -1,14 +1,11 @@
 .wrapper
   .mypage-header
     = render 'shared/header'
-  %nav.bread-crumbs
+  %nav.bread-crumbs-list
     %ul
       %li
-        = link_to root_path do
-          %span フリマアプリ
-        = icon('fas', 'angle-right', class: 'mypage-style-right')
-      %li
-        %span マイページ
+        - breadcrumb :mypages
+        = breadcrumbs separator: "#{content_tag(:i, '', class: 'fas fa-angle-right')}", current_class: "current-location"
   %main.mypage-container.clearfix
     .mypage-container__right-content
       %section.mypage-user-icon
