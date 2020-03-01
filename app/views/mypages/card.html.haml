@@ -1,18 +1,11 @@
 .wrapper
   .mypage-header
     = render 'shared/header'
-  %nav.bread-crumbs
+  %nav.bread-crumbs-list
     %ul
       %li
-        = link_to root_path do
-          %span フリマアプリ
-        = icon('fas', 'angle-right', class: 'mypage-style-right')
-      %li
-        = link_to mypages_path do
-          %span マイページ
-        = icon('fas', 'angle-right', class: 'mypage-style-right')
-      %li
-        %span 支払い方法
+        - breadcrumb :card
+        = breadcrumbs separator: "#{content_tag(:i, '', class: 'fas fa-angle-right')}", current_class: "breadcrumbs-current"
   %main.mypage-container.clearfix
     .mypage-container__right-content
       %section.profile-container
