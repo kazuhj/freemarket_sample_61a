@@ -1,6 +1,6 @@
 .wrapper
   .mypage-header
-    = render 'tops/shared/header'
+    = render 'shared/header'
   %nav.bread-crumbs
     %ul
       %li
@@ -29,7 +29,7 @@
             %input{name: "after_save_callback", type: "hidden", value: "#"}
               = link_to profile_mypages_path do
                 = button_tag "変更する", class: "btn-default btn-red", type: "submit"
-    = render 'mypages/shared/side'
-  = render 'tops/shared/sell-icon'
-  = render 'tops/shared/footer'
+    = render 'shared/side'
+  = render 'shared/sell-icon'
+  = render 'shared/footer'
 

@@ -1,6 +1,6 @@
 .wrapper
   .mypage-header
-    = render 'tops/shared/header'
+    = render 'shared/header'
   %nav.bread-crumbs
     %ul
       %li
@@ -65,8 +65,8 @@
                 本人情報の登録について
                 = icon('fas', 'angle-right', class: 'mypage-style-right')
           %input{name: "__csrf_value", type: "hidden", value: ""}
-    = render 'mypages/shared/side'
-    = render 'tops/shared/sell-icon'
-  =render 'tops/shared/footer'
+    = render 'shared/side'
+    = render 'shared/sell-icon'
+  =render 'shared/footer'
 
 
