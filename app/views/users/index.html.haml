@@ -1,5 +1,5 @@
 .wrapper
-  = render 'item_sells/header'
+  =render 'shared/sell-header'
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header
@@ -15,4 +15,4 @@
           = button_tag '', class: 'contents__btn contents__btn__google' do
             = image_tag "#{asset_path "g_rainbow.png"}", class: 'contents__btn__google__icon-google', size: '30x30'
             Googleで登録する
-  = render 'item_sells/footer'
+  = render 'shared/sell-footer'
