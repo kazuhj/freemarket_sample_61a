@@ -1,5 +1,5 @@
 .wrapper
-  = render 'item_sells/header'
+  =render 'shared/sell-header'
   %main.single-main
     .single-main__login-panel
       .single-main__login-panel__no-account
@@ -25,4 +25,4 @@
               ログイン
           .login-form-inner__form-group
             = link_to "パスワードをお忘れの方", '#', class: "find-password"
-  = render 'item_sells/footer'
+  =render 'shared/sell-footer'
