@@ -25,7 +25,6 @@
     border-top: 1px solid #eee;
 
     &__image__upload__box {
-      width: 620px;
       padding: 40px;
 
       &__head {
@@ -49,20 +48,60 @@
               float: left;
           }
         }
+      }
+    }
 
-        &__inner {
-          width: 100%;
-          margin-left: 0;
-          position: relative;
-          min-height: 162px;
-          background: #f5f5f5;
+    // image投稿欄のCSS
+    &__post__drop__box__container{
+      display: block;
+      margin: 16px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+    
+      //プレビュー表示欄のCSS
+      .prev-content {
+        display: flex;
+        .preview-box {
+          height: 162px;
+          width: 112px;
+          margin: 0 15px 10px 0;
+          .upper-box {
+            height: 112px;
+            width: 100%;
+            img{
+              width: 112px;
+              height: 112px;
+            }
+          }
+          .lower-box {
+            text-align: center;
+
+            .delete-box {
+              color: #00b0ff;
+              width: 100%;
+              height: 50px;
+              line-height: 50px;
+              border: 1px solid #eee;
+              background: #f5f5f5;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    
+      //投稿クリックエリアのCSS
+      .label-content{
+        margin-bottom: 10px;
+        width: 620px;
+        .label-box {
+          display: block;
           border: 1px dashed #ccc;
-          font-size: 0;
-          text-align: center;
-          transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+          position: relative;
+          background: #f5f5f5;
+          width: 100%;
+          height: 162px;
           cursor: pointer;
-
-          &__visible-pc {
+          &__text-visible {
             position: absolute;
             top: 50%;
             left: 16px;
@@ -70,6 +109,8 @@
             text-align: center;
             font-size: 14px;
             line-height: 1.5;
+            font-weight: bold;
+            -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%);
             pointer-events: none;
             white-space: pre-wrap;
@@ -77,33 +118,18 @@
           }
         }
       }
-    }
-      &__dropbox__container__inner {
-        width: 100%;
-        margin-left: 0;
-        position: relative;
-        min-height: 162px;
-        background: #f5f5f5;
-        border: 1px dashed #ccc;
-        font-size: 0;
-        text-align: center;
-        transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
-        cursor: pointer;
-
-        &__visible-pc {
-          position: absolute;
-          top: 50%;
-          left: 16px;
-          right: 16px;
-          text-align: center;
-          font-size: 14px;
-          line-height: 1.5;
-          transform: translate(0, -50%);
-          pointer-events: none;
-          white-space: pre-wrap;
-          word-wrap: break-word;
+    
+      //file_fieldのcss
+      .hidden-content {
+        .hidden-field {
+          display: none;
+        }
+        .hidden-checkbox {
+          display: none;
         }
       }
+    }
+
 
     &__container__item {
       padding: 40px;
@@ -159,7 +185,7 @@
         width: 400px;
       }
           .sell-form__select__wrap {
-            margin: 8px 0 0;
+            margin: 8px 0 10px;
             position: relative;
             background: #fff;
 
@@ -197,7 +223,7 @@
     .sell-form__content__delivery{
       padding: 40px;
       border-top: 1px solid #eee;
-      height: 371px;
+      height: 430px;
     }
 
       .form-question {
