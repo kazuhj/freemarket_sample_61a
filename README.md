@@ -60,12 +60,12 @@ Things you may want to cover:
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|zip_code|integer|null: false|
+|zip_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
-|telephone|integer|null: false, unique: true|
+
 
 ### Association
 - belongs_to :user
@@ -75,7 +75,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true|
-|customer_number|integer|null: false|
+|customer_number|string|null: false|
 |year|integer|null: false|
 |month|integer|null: false|
 |security_code|integer|null: false|
@@ -120,7 +120,7 @@ Things you may want to cover:
 |name|string|null: false, index: true|
 |text|text|null: false|
 |condition|string|null: false|
-|price|integer|null: false|
+|price|string|null: false|
 |category_id|references|foreign_key: true|
 |brand_id|references|foreign_key: true|
 |user_id|references|foreign_key: true|
