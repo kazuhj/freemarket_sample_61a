@@ -55,7 +55,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
@@ -74,7 +74,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |customer_number|integer|null: false|
 |year|integer|null: false|
 |month|integer|null: false|
@@ -88,8 +88,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -121,14 +121,14 @@ Things you may want to cover:
 |text|text|null: false|
 |condition|string|null: false|
 |price|integer|null: false|
-|category_id|references|null: false, foreign_key: true|
+|category_id|references|foreign_key: true|
 |brand_id|references|foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |fee_burden|string|null: false|
 |service|string|null: false|
 |area|string|null: false|
 |handling_time|string|null: false|
-|size_id|references|null: false, foreign_key: true|
+|size_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :size
@@ -146,8 +146,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -159,8 +159,8 @@ Things you may want to cover:
 |------|----|-------|
 |rate|integer||
 |text|text||
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -171,8 +171,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |text|text||
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -182,8 +182,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
