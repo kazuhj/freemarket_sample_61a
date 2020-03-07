@@ -197,3 +197,14 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+
+## images
+
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|item_id|references|foreign_key: true|
+
+### Association
+- belongs_to :item
+
