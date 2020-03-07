@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get :login
     end
   end
-  resources :items, only: [:index, :new, :show] do
+  resources :items, only: [:index, :new, :create, :show] do
     collection do
       get 'confirmation'
       get 'complete'
