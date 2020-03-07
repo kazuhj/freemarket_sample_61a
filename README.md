@@ -49,6 +49,7 @@ Things you may want to cover:
 - has_many :orders
 - has_one :card
 - has_one :deliver_address
+- has_one :telepone
 
 ## deliver_addresses
 
@@ -208,3 +209,12 @@ Things you may want to cover:
 ### Association
 - belongs_to :item
 
+## telepones
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|tel|string|null: false|
+
+### Association
+- belongs_to :user
