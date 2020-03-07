@@ -48,10 +48,10 @@ Things you may want to cover:
 - has_many :messages
 - has_many :orders
 - has_one :card
-- has_one :deliver_address
+- has_one :address
 - has_one :telepone
 
-## deliver_addresses
+## addresses
 
 |Column|Type|Options|
 |------|----|-------|
