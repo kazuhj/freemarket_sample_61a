@@ -48,23 +48,24 @@ Things you may want to cover:
 - has_many :messages
 - has_many :orders
 - has_one :card
-- has_one :deliver_address
+- has_one :address
+- has_one :telepone
 
-## deliver_addresses
+## addresses
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|zip_code|integer|null: false|
+|zip_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
-|telephone|integer|null: false, unique: true|
+
 
 ### Association
 - belongs_to :user
@@ -73,8 +74,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|customer_number|integer|null: false|
+|user_id|references|foreign_key: true|
+|customer_number|string|null: false|
 |year|integer|null: false|
 |month|integer|null: false|
 |security_code|integer|null: false|
@@ -87,8 +88,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -119,15 +120,15 @@ Things you may want to cover:
 |name|string|null: false, index: true|
 |text|text|null: false|
 |condition|string|null: false|
-|price|integer|null: false|
-|category_id|references|null: false, foreign_key: true|
+|price|string|null: false|
+|category_id|references|foreign_key: true|
 |brand_id|references|foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |fee_burden|string|null: false|
 |service|string|null: false|
 |area|string|null: false|
 |handling_time|string|null: false|
-|size_id|references|null: false, foreign_key: true|
+|size_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :size
@@ -145,8 +146,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -158,8 +159,8 @@ Things you may want to cover:
 |------|----|-------|
 |rate|integer||
 |text|text||
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -170,8 +171,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |text|text||
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -181,8 +182,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -197,3 +198,23 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+
+## images
+
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|item_id|references|foreign_key: true|
+
+### Association
+- belongs_to :item
+
+## telepones
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|tel|string|null: false|
+
+### Association
+- belongs_to :user
