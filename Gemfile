@@ -80,3 +80,4 @@ gem 'pry-rails'
 gem 'active_hash'
 gem "gretel"
 gem 'jquery-rails'
+gem 'devise'
