@@ -12,7 +12,7 @@
         .mypage-container__logout__content
           %form.card-add__inner{action: "#", method: "POST", novalidate: "novalidate"}
             .card-add__content
-              = link_to root_path do
+              = link_to destroy_user_session_path, method: :delete do
                 = button_tag "ログアウト", class: "logout_submit_button", type: "submit"
               %input{name: "__csrf_value", type: "hidden", value: "#"}
     = render 'shared/side'
