@@ -11,6 +11,13 @@ Rails.application.routes.draw do
       get :login
     end
   end
+  resources :users, only: [:listing, :in_progress, :completed], path: '/mypage/listings' do
+    collection do
+      get 'listing'
+      get 'in_progress'
+      get 'completed'
+    end
+  end
   resources :items, only: [:index, :new, :create, :show] do
     collection do
       get 'confirmation'
