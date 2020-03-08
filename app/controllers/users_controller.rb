@@ -21,4 +21,18 @@ class UsersController < ApplicationController
 
   def login
   end
+
+  # mypageの出品
+  def listiong
+    @items = Item.where(user_id: current_user.id).order("id DESC").limit(5)
+  end
+
+  # mypageの売却済み
+  def completed
+  end
+
+  # mypageの購入した商品
+  def purchased
+  end
+
 end
