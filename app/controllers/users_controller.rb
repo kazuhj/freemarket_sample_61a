@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   # mypageの出品
-  def listiong
+  def listing
     @items = Item.where(user_id: current_user.id).order("id DESC").limit(5)
   end
 
