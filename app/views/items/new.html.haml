@@ -7,6 +7,12 @@
         %h2.sell-main__container__head
           商品の情報を入力
         = form_with model:@item, local:true do |f|
+          - if @item.errors.any?
+            %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+            %ul
+              - @item.errors.full_messages.each do |message|
+                %li= message
+          =f.hidden_field :sales_status,{value: "出品中"}
           .sell-form__image__upload__box
             %h3.sell-form__image__upload__box__head
               出品画像
