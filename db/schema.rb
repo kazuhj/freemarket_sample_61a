@@ -28,6 +28,31 @@ ActiveRecord::Schema.define(version: 2020_03_10_073607) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "text", null: false
+    t.string "condition", null: false
+    t.string "price", null: false
+    t.string "fee_burden", null: false
+    t.string "service", null: false
+    t.string "area", null: false
+    t.string "handing_time", null: false
+    t.string "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.integer "sales_status"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "family_name", null: false
