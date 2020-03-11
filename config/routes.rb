@@ -18,16 +18,17 @@ Rails.application.routes.draw do
       get 'completed'
     end
   end
-  resources :items, only: [:index, :new, :create, :show, :update] do
+  resources :items, only: [:index, :new, :create, :show] do
     collection do
       get 'confirmation'
       get 'complete'
-      get 'item_stop'
     end
   end
-  resource :items, only: :show_mine, path: "m:id" do
+  resource :items, only: :show_mine, path: ":id" do
     collection do
       get 'show_mine'
+      get 'item_stop'
+      get 'item_state'
     end
   end
   resources :mypages, only: [:index] do
