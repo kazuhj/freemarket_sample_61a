@@ -108,8 +108,11 @@
       = link_to "商品の編集", root_path, class: "btn-red"
       %p.text-center or
       - if @item.sales_status == "出品中"
-        = link_to(item_stop_items_path) do
-          .cc_center 出品を一旦中止する
+        = link_to item_stop_items_path(@item.id) do
+          .btn-gray 出品を一旦中止する
+      - else @item.sales_status == "公開停止"
+        = link_to item_state_items_path(@item.id) do
+          .btn-gray 出品を再開する
       %button.btn-gray{"data-modal" => "delete-item", "data-open" => "modal"} この商品を削除する
   .item-detail-message
     .item-detail-message__container

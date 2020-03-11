@@ -132,8 +132,13 @@
             border-radius: 2px;
             font-size: 12px;
             color: #fff;
+            font-weight: 600;
 
-            & .action-required {
+            &.action-sell {
+              background: #0099e8;
+            }
+
+            &.action-required {
               background: #ea352d;
             }
           }
