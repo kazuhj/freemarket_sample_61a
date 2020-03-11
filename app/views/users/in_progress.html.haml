@@ -44,7 +44,10 @@
                     %span.listing-item-count
                       = icon('far', 'comment-alt', class: 'rubber-band')
                       %span 0
-                    .mypage-item-status.action-required 公開停止中
+                    - if item.sales_status == "出品中"
+                      .mypage-item-status.action-sell 出品中
+                    - else item.sales_status == "公開停止"
+                      .mypage-item-status.action-required 公開停止中
                 = icon('fas', 'angle-right', class: 'mypage-listing-right')
     = render 'shared/side'
   = render 'shared/sell-icon'
