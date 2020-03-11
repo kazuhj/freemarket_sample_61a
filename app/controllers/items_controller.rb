@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create, :confirmation, :update, :item_stop]
 
   def index
   end
@@ -23,22 +22,22 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def update
-    item = Item.find(params[:id])
-    if item.update(update_item_params)
-      redirect_to root_path
-    else
-      redirect_to mypages_path
-    end
-  end
 
   def show_mine
+    @item = Item.find(params[:id])
     @seller = User.find(@item.user_id)
   end
 
   def item_stop
-    @item.update(salse_status: "停止中")
-    redirect_to @item
+    @item = Item.find(params[:id])
+    @item.update(sales_status: "公開停止")
+    redirect_to listing_users_path
+  end
+
+  def item_state
+    @item = Item.find(params[:id])
+    @item.update(sales_status: "出品中")
+    redirect_to listing_users_path
   end
 
 
@@ -56,9 +55,5 @@ class ItemsController < ApplicationController
 
   def update_item_params
     params.require(:item).permit(:name, :text, :condition, :price, :fee_burden, :service, :area, :handing_time, :category, :sales_status, [images_attributes: [:image]]).merge(user_id: current_user.id)
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
 end
