@@ -31,7 +31,7 @@
         %ul#mypage-tab-transaction-now.mypage-item-list.active
           - @items.each do |item|
             %li
-              = link_to root_path, class: 'mypage-item-link' do
+              = link_to show_mine_items_path(item), class: 'mypage-item-link' do
                 %figure
                   = image_tag "#{item.images[0].image_url}"
                 .mypage-item-body.show-stock-item
