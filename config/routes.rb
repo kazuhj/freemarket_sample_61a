@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'telephones', to: 'users/registrations#new_telephone' # 電話番号を登録させるページを表示するアクション
     post 'telephones', to: 'users/registrations#create_telephone' # 電話番号を登録するアクション
+    get 'addresses', to: 'users/registrations#new_address' # 住所を登録させるページを表示するアクション
   end
   root "items#index"
 
