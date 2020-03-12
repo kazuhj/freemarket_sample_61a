@@ -30,3 +30,23 @@ crumb :logout do
   link "ログアウト", logout_mypages_path
   parent :mypages
 end
+
+crumb :listing do
+  link "出品した商品-出品中", listing_users_path
+  parent :mypages
+end
+
+crumb :in_progress do
+  link "出品した商品-取引中", in_progress_users_path
+  parent :mypages
+end
+
+crumb :completed do
+  link "出品した商品-売却済み", completed_users_path
+  parent :mypages
+end
+
+crumb :show_mine do
+  link "出品商品画面", show_mine_items_path
+  parent :listing
+end
