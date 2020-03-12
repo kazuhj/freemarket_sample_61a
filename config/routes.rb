@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
+  devise_scope :user do
+    get 'telephones', to: 'users/registrations#new_telephone' # 電話番号を登録させるページを表示するアクション
+  end
   root "items#index"
 
   resources :users, only: [:index, :new] do
