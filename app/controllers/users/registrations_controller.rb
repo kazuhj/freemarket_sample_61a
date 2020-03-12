@@ -37,6 +37,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
+  def create_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @telephone = Telephone.new(session["telephone"])
+    @address = Address.new(address_params)
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
+    end
+    @user.build_telephone(@telephone.attributes)
+    @user.build_address(@address.attributes)
+    session["address"] = @address.attributes
+    @card = @user.build_card
+    render :new_card
+  end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -72,6 +87,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def telephone_params
     params.require(:telephone).permit(:tel)
+  end
+
+  protected
+
+  def address_params
+    params.require(:address).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :zip_code, :prefecture, :city, :address, :building)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
