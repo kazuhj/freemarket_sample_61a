@@ -50,9 +50,10 @@
 
     & li {
       position: relative;
+      border-bottom: 1px solid #eee;
 
-      &:first-child {
-        border-bottom: 1px solid #eee;
+      &:last-child {
+        border: 0;
       }
 
       &:last-child {
