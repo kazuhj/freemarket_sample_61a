@@ -52,6 +52,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_card
   end
 
+  def create_card
+    @user = User.new(session["devise.regist_data"]["user"])
+    @telephone = Telephone.new(session["telephone"])
+    @address = Address.new(session["address"])
+    @card = Card.new(card_params)
+    unless @card.valid?
+      flash.now[:alert] = card.errors.full_messages
+      render :new_card and return
+    end
+    @user.build_telephone(@telephone.attributes)
+    @user.build_address(@address.attributes)
+    @user.build_card(@card.attributes)
+    @user.save
+    sign_in(:user, @user)
+  end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -93,6 +109,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def address_params
     params.require(:address).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :zip_code, :prefecture, :city, :address, :building)
+  end
+
+  protected
+
+  def card_params
+    params.require(:card).permit(:customer_number, :year, :month, :security_code)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
