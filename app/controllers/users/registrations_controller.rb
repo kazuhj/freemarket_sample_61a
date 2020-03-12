@@ -23,6 +23,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_telephone # 電話番号を登録させるページを表示するnew_telephoneアクションのビューへrenderする
   end
 
+  def create_telephone
+    # createアクションと同様に「valid?」メソッドでバリデーションチェックを行う
+    @user = User.new(session["devise.regist_data"]["user"])
+    @telephone = Telephone.new(telephone_params)
+    unless @telephone.valid?
+      flash.now[:alert] = @telephone.errors.full_messages
+      render :new_telephone and return
+    end
+    @user.build_telephone(@telephone.attributes)
+    session["telephone"] = @telephone.attributes
+    @address = @user.build_address
+    render :new_address
+  end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -52,6 +66,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  end
+
+  protected
+
+  def telephone_params
+    params.require(:telephone).permit(:tele)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
