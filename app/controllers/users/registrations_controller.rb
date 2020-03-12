@@ -71,7 +71,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def telephone_params
-    params.require(:telephone).permit(:tele)
+    params.require(:telephone).permit(:tel)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
