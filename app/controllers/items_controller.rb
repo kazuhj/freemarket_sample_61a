@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
+    @items = Item.where(user_id: current_user.id)
   end
 
   def new
@@ -20,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
 
@@ -40,8 +42,16 @@ class ItemsController < ApplicationController
     redirect_to listing_users_path
   end
 
+  def item_buy
+    @item = Item.find(params[:id])
+    @item.update(sales_status: "取引中")
+    redirect_to complete_items_path
+  end
+
 
   def confirmation
+    @item = Item.find(params[:id])
+    @items = Item.where(user_id: current_user.id).order("id DESC").limit(5)
   end
 
   def complete

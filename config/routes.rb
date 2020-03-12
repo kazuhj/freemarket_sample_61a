@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
   resources :items, only: [:index, :new, :create, :show] do
+  end
+  resource :items, only: :confirmation, path: ":id" do
     collection do
       get 'confirmation'
       get 'complete'
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
       get 'show_mine'
       get 'item_stop'
       get 'item_state'
+      get 'item_buy'
     end
   end
   resources :mypages, only: [:index] do
