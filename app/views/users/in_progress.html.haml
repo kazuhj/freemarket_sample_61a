@@ -1,0 +1,46 @@
+.wrapper
+  .mypage-header
+    = render 'shared/header'
+  %nav.bread-crumbs-list
+    %ul
+      %li
+        - breadcrumb :in_progress
+        = breadcrumbs separator: "#{content_tag(:i, '', class: 'fas fa-angle-right')}", current_class: "breadcrumbs-current"
+  %main.mypage-container.clearfix
+    .mypage-container__right-content
+      %section.mypage-tab-container
+        %h2.mypage-tab-head 出品した商品
+      %ul.listing-tabs
+        %li
+          %h3
+            = link_to "出品中", listing_users_path
+        %li.active
+          %h3
+            = link_to "取引中", in_progress_users_path
+        %li
+          %h3
+            = link_to "売却済み", completed_users_path
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.active
+          - @items.each do |item|
+            - if item.sales_status == "取引中"
+              %li
+                = link_to root_path, class: 'mypage-item-link' do
+                  %figure
+                    = image_tag "#{item.images[0].image_url}"
+                  .mypage-item-body.show-stock-item
+                    .mypage-item-text 
+                      = item.name
+                    %div
+                      %span.listing-item-count
+                        = icon('far', 'heart', class: 'rubber-band')
+                        %span 0
+                      %span.listing-item-count
+                        = icon('far', 'comment-alt', class: 'rubber-band')
+                        %span 0
+                        .mypage-item-status.action-required 取引中
+                  = icon('fas', 'angle-right', class: 'mypage-listing-right')
+            
+    = render 'shared/side'
+  = render 'shared/sell-icon'
+  = render 'shared/footer'
