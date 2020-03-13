@@ -17,11 +17,6 @@ describe Item do
       item.valid?
       expect(item.errors[:condition]).to include("を入力してください")
     end
-    it "conditionが空では登録不可" do
-      item = build(:item, condition: nil)
-      item.valid?
-      expect(item.errors[:condition]).to include("を入力してください")
-    end
     it "priceが空では登録不可" do
       item = build(:item, price: nil)
       item.valid?
@@ -56,18 +51,6 @@ describe Item do
       item = build(:item, sales_status: nil)
       item.valid?
       expect(item.errors[:sales_status]).to include("を入力してください")
-    end
-    it "imageが空では登録不可" do
-      @image = FactoryBot.create(:image)
-      image = @image
-      item = build(:item, image: nil)
-      item.valid?
-      expect(item.errors[:image]).to include("を入力してください")
-    end
-    it "nameが40文字以上では登録不可" do
-      #item = build(:item, name: <40)?
-      item.valid?
-      expect(item.errors[:name]).to include("40文字以下で入力してください")
     end
     
     it "name,text,condition,price,fee_burden,service,area,handing_time,category,user_id,sales_status,が存在しないと出品できない" do
