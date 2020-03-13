@@ -30,8 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def item_stop
-    @item.update(sales_status: "公開停止")
-    if @item.save
+    if @item.update(sales_status: "公開停止")
       redirect_to listing_users_path
     else
       render :show_mine
@@ -39,8 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def item_state
-    @item.update(sales_status: "出品中")
-    if @item.save
+    if @item.update(sales_status: "出品中")
       redirect_to listing_users_path
     else
       render :show_mine
@@ -48,8 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def item_buy
-    @item.update(sales_status: "取引中")
-    if @item.save
+    if @item.update(sales_status: "取引中")
       redirect_to complete_items_path
     else
       render :confirmation
