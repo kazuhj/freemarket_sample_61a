@@ -5,6 +5,16 @@ class Item < ApplicationRecord
   # allow_destroy→　親のレコードが削除された場合に、関連付いている子のレコードも一緒に削除される。
   accepts_nested_attributes_for :images, allow_destroy: true
 
+  validates :name, presence: true
+  validates :text, presence: true
+  validates :condition, presence: true
+  validates :price, presence: true
+  validates :fee_burden, presence: true
+  validates :service, presence: true
+  validates :area, presence: true
+  validates :handing_time, presence: true
+  validates :category, presence: true
+  validates :sales_status, presence: true
   enum sales_status: {"出品中":1,"公開停止":2,"取引中":3,"売却済み":4}
   enum category: { レディース: 1, メンズ: 2, ベビー・キッズ: 3, インテリア・住まい・小物: 4, 本・音楽・ゲーム: 5, おもちゃ・ホビー・グッズ:6, コスメ・香水・美容: 7, 家電・スマホ・カメラ: 8, スポーツ・レジャー: 9, ハンドメイド: 10, チケット: 11, 自動車・オートバイ: 12, その他: 13}
   enum condition: { 新品、未使用: 1, 未使用に近い: 2, 目立った傷や汚れなし: 3, やや傷や汚れあり: 4, 傷や汚れあり: 5, 全体的に状態が悪い: 6}, _prefix: true
