@@ -69,7 +69,6 @@
                 %span 年
                 .single-main__container__registration-form__content__input-box__birthday__select-wrap.select-wrap__month
                   = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
-                  .single-main__container__registration-form__content__input-box__birthday__select-wrap
                   = f.select :birth_month, User.birth_months.keys, {prompt: "--"}, class: "single-main__container__registration-form__content__input-box__birthday__select-wrap__default"
                 %span 月
                 .single-main__container__registration-form__content__input-box__birthday__select-wrap.select-wrap__day
