@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation]
 
   def index
-    @items = Item.where(user_id: current_user.id)
+    @items = Item.all
   end
 
   def new
