@@ -1,0 +1,109 @@
+.wrapper
+  .mypage-header
+    = render 'shared/header'
+  %nav.bread-crumbs-list
+    %ul
+      %li
+        - breadcrumb :show_mine
+        = breadcrumbs separator: "#{content_tag(:i, '', class: 'fas fa-angle-right')}", current_class: "breadcrumbs-current"
+  %section.item-box-container
+    %h1.item-box-container__item-name
+      = @item.name
+    .item-main-content.clearfix
+      .item-photo
+        .item-photo__list
+          .item-photo__list__outer
+            .item-photo__list__outer-stage
+              .item-photo__list__outer-stage__item
+                .item-photo__list__outer-stage__item-inner
+                  - @item.images.each_with_index do |img, i|
+                    = image_tag(img.image.url, size: '300x300', class: 'item-photo__list__outer-stage__item-inner__lazy' ,id: "main_#{i}")
+                
+                .item-photo__list__outer__dots 
+                  .item-photo__list__outer__dots__dot.active
+                    .item-photo__list__outer__dots__dot__inner
+                    - @item.images.each_with_index do |img, i|
+                      = image_tag(img.image.url, size: '60x60', "data-inner_id": "#{i}")
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to "#{@seller.nickname}", "#"
+              %div
+                .item-user-ratings
+                  = icon('fas', 'grin', class: 'icon-good')
+                  %span 0
+                .item-user-ratings
+                  = icon('fas', 'meh', class: 'icon-normal')
+                  %span 0
+                .item-user-ratings
+                  = icon('fas', 'tired', class: 'icon-bad')
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              = link_to "#" do
+                = @item.category
+              = link_to "#" do
+                .item-detail-table-sub-category
+                  = icon('fas', 'angle-right', class: 'icon-arrow-right')
+                  カメラ
+              = link_to "#" do
+                .item-detail-table-sub-category
+                  = icon('fas', 'angle-right', class: 'icon-arrow-right')
+                  デジタルカメラ
+          %tr
+            %th ブランド
+            %td
+              = link_to "#" do
+                %div
+                  パナソニック
+          %tr
+            %th 商品の状態
+            %td 目立った傷や汚れなし
+          %tr
+            %th 配送料の負担
+            %td 送料込み
+          %tr
+            %th 配送の方法
+            %td 未定
+          %tr
+            %th 配送元地域
+            %td
+              = link_to "三重県", "#"
+          %tr
+            %th 発送日の目安
+            %td 2~3日で発送
+    .item-price-box
+      %span.item-price-box__bold ¥35,800
+      %span.item-price-box__tax (税込)
+      %span.item-price-box__fee 送料込み
+    .item-description
+      %p.item-description__inner
+        = @item.text
+  .show-mine__bottom-container
+    .show-mine__bottom-container__change-box
+      = link_to "商品の編集", root_path, class: "btn-red"
+      %p.text-center or
+      - if @item.sales_status == "出品中"
+        = link_to item_stop_items_path(@item.id) do
+          .btn-gray 出品を一旦中止する
+      - else @item.sales_status == "公開停止"
+        = link_to item_state_items_path(@item.id) do
+          .btn-red 出品を再開する
+      %button.btn-gray{"data-modal" => "delete-item", "data-open" => "modal"} この商品を削除する
+  .item-detail-message
+    .item-detail-message__container
+      .item-detail-message__container__content
+        %form.message-form{action: "#", method: "POST"}
+          %input{name: "", type: "hidden", value: ""}
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %input{name: "", type: "hidden", value: ""}
+          %input{name: "", type: "hidden", value: ""}
+          %textarea.message-form__textarea-default{name: "", type: "text", value: ""}
+          = button_tag '#', class: 'btn-gray-disabled', name: "submit", type: "button" do
+            %span 売り切れ中のためコメントできません
+  = render 'shared/footer'
+
+  

@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_one :telephone
   has_one :address
   has_one :card
+  has_many :items
 end

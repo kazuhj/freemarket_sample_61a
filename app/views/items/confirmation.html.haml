@@ -59,8 +59,9 @@
                     %br
                     hoge
             %section.buy-user-info
-              = link_to complete_items_path do
-                = button_tag "購入する", class:'btn-red', type: 'submit'
+              - @items.each do |item|
+                = link_to item_buy_items_path(item.id) do
+                  = button_tag "購入する", class:'btn-red', type: 'submit'
   %footer.main-footer
     %ul.main-footer__container
       %li.main-footer__container__list
