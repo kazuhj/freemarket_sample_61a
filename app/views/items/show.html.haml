@@ -1,7 +1,8 @@
 .wrapper
   =render 'shared/header'
   %section.item-box-container
-    %h1.item-box-container__item-name 希少な超望遠レンズキット 大人気機種 LUMIX GF7
+    %h1.item-box-container__item-name 
+      = @item.name
     .item-main-content.clearfix
       .item-photo
         .item-photo__list
@@ -38,7 +39,7 @@
           %tr
             %th 出品者
             %td
-              = link_to "hoge", "#"
+              = link_to "#{@item.user.nickname}", "#"
               %div
                 .item-user-ratings
                   = icon('fas', 'grin', class: 'icon-good')
@@ -53,39 +54,34 @@
             %th カテゴリー
             %td
               = link_to "#" do
-                %div 家電・スマホ・カメラ
-              = link_to "#" do
-                .item-detail-table-sub-category
-                  = icon('fas', 'angle-right', class: 'icon-arrow-right')
-                  カメラ
-              = link_to "#" do
-                .item-detail-table-sub-category
-                  = icon('fas', 'angle-right', class: 'icon-arrow-right')
-                  デジタルカメラ
-          %tr
-            %th ブランド
-            %td
-              = link_to "#" do
                 %div
-                  パナソニック
+                  = @item.category
           %tr
             %th 商品の状態
-            %td 目立った傷や汚れなし
+            %td
+              = @item.condition
           %tr
             %th 配送料の負担
-            %td 送料込み
+            %td
+              = @item.fee_burden
           %tr
             %th 配送の方法
-            %td 未定
+            %td
+              = @item.service
           %tr
             %th 配送元地域
             %td
-              = link_to "三重県", "#"
+              = link_to "#" do
+                %div
+                  = @item.area
           %tr
             %th 発送日の目安
-            %td 2~3日で発送
+            %td
+              = @item.handing_time
     .item-price-box
-      %span.item-price-box__bold ¥35,800
+      %span.item-price-box__bold
+        ¥
+        = @item.price
       %span.item-price-box__tax (税込)
       %span.item-price-box__fee 送料込み
     .text-center
@@ -95,28 +91,7 @@
       購入画面に進む
     .item-description
       %p.item-description__inner
-        ご覧いただきありがとうございます
-        即購入いただいて大丈夫です！
-        ✨超お買い得！！予備バッテリー&amp;SDカード&amp;新品カメラポーチ付き✨
-        
-        ✨✨こんなセットが欲しかった✨✨⭐️⭐️自撮り＋Wi-Fi機能付き♪⭐️⭐️
-        
-        ルミックス GF7と OLYMPUS M.Zuiko 40-150mmの超望遠レンズセット
-        
-        【今回オススメしたい５つの理由！】
-        
-        ★オシャレでファッションにも良く合うブラウン♪
-        ★WiFi機能搭載で写真のシェアが簡単♪
-        ★嬉しい全国送料無料♪
-        ★SDカード付きなので届いてすぐに使える♪
-        ★到着日から７日間の初期不良付きで安心♪
-        
-        【商品説明】
-        
-        ■WiFi搭載なので、スマホやタブレットに写真を簡単転送♪
-        ■モニターが回転するので、自撮りも楽々♪美白効果も設定できる♪
-        ■セピアやトイカメラなど19種類の補正ができるから写真を撮るのが楽しくなる♪
-        ■料理を美味しそうに撮影できる機能も搭載♪
+        = @item.text
 
     .item-button-container.clearfix
       .item-button-container__left
