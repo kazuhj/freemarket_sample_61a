@@ -31,19 +31,10 @@
 }
 
 .btn-gray {
-  background: #aaa;
-  border: 1px solid #aaa;
-  color: #fff;
-  display: block;
-  width: 100%;
-  line-height: 48px;
-  font-size: 14px;
-  border: 1px solid transparent;
-  -webkit-transition: all ease-out .3s;
-  transition: all ease-out .3s;
-  cursor: pointer;
-  text-align: center;
-  margin: 10px 0;
+  @include btn-gray;
+}
+.btn-delete {
+  @include btn-gray;
 }
 
 .btn-gray-disabled {

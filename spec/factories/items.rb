@@ -17,5 +17,6 @@ FactoryBot.define do
     images {[
       FactoryBot.build(:image, item: nil)  #itemと同時にimage作成
     ]}
+    user
   end
 end
