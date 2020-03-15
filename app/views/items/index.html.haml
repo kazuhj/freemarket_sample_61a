@@ -50,7 +50,12 @@
               = link_to item_path(item.id), class: "category-groups__content__link" do
                 %figure.category-groups__content__items
                   %figcaption.category-groups__content__items__item
+                    = item.name
+                    %span.category-groups__content__items__item__title
                   .category-groups__content__items__item__description
+                    %span{class: 'item-price'}
+                      ¥
+                      = item.price
                     = image_tag "#{item.images[0].image_url}", class: 'show-image', alt: "画像が表示できません"
   = render 'shared/sell-icon'
   =render 'shared/footer'
