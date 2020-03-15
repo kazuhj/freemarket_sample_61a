@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation]
+  before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation, :destroy]
 
   def index
     @items = Item.where(sales_status:"1")
@@ -59,6 +59,14 @@ class ItemsController < ApplicationController
   end
 
   def complete
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to listing_users_path
+    else
+      render :show_mine
+    end
   end
 
   private

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       get 'completed'
     end
   end
-  resources :items, only: [:index, :new, :create, :show] do
+  resources :items, only: [:index, :new, :create, :show, :destroy] do
   end
   resource :items, only: :confirmation, path: ":id" do
     collection do
