@@ -39,21 +39,21 @@ describe User do
 
     # 6. passwordが半角英数字の7文字以上であれば登録できること
     it "passwordが半角英数字の7文字以上であれば登録出来ます" do
-      user = build(:user, password: "a000000", password_confirmation: "a000000")
+      user = build(:user, password: "a000000")
       user.valid?
       expect(user).to be_valid
     end
 
     # 7. passwordが６文字以下では登録できないこと
     it "passwordが6文字以下だと登録出来ません " do
-      user = build(:user, password: "000000", password_confirmation: "000000")
+      user = build(:user, password: "000000")
       user.valid?
       expect(user.errors[:password]).to include("は7文字以上で入力して下さい")
     end
 
     # 8. passwordが7文字以上でも半角英数字以外では登録できないこと
     it "passwordが7文字以上でも半角英数字以外だと登録出来ません " do
-      user = build(:user, password: "0_00000", password_confirmation: "0_00000")
+      user = build(:user, password: "0_00000")
       user.valid?
       expect(user.errors[:password]).to include("は半角英数字で入力して下さい")
     end
