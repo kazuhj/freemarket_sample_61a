@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# user_idはsessionを利用しウィザード形式で新規登録機能を実装した際に「optional: true」で外部キーがnullであることを許可している為記述なしです
+
 describe Telephone do
   describe '#create' do
     # 1. tel、user_idが存在すれば登録できること
@@ -12,7 +14,7 @@ describe Telephone do
     it "telが空だと登録出来ません" do
       telephone = build(:telephone, tel: nil)
       telephone.valid?
-      expect(telephone.errors[:tel]).to include("can't be blank")
+      expect(telephone.errors[:tel]).to include("を入力してください", "は不正な値です")
     end
 
     # 3. telが半角数字の11桁だと登録できること
@@ -26,21 +28,14 @@ describe Telephone do
     it "telが9桁以下だと登録出来ません " do
       telephone = build(:telephone, tel: "000000000")
       telephone.valid?
-      expect(telephone.errors[:tel]).to include("は11桁で入力して下さい")
+      expect(telephone.errors[:tel]).to include("は不正な値です")
     end
 
     # 5. telが12桁以上では登録できないこと
     it "telが12桁以上だと登録出来ません " do
       telephone = build(:telephone, tel: "000000000000")
       telephone.valid?
-      expect(telephone.errors[:tel]).to include("は11桁で入力して下さい")
-    end
-
-    # 6. user_idが空では登録できないこと
-    it "user_idが空だと登録出来ません" do
-      telephone = build(:telephone, user_id: nil)
-      telephone.valid?
-      expect(telephone.errors[:user_id]).to include("can't be blank")
+      expect(telephone.errors[:tel]).to include("は不正な値です")
     end
   end
 end
