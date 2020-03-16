@@ -1,5 +1,5 @@
 .item-box-container {
-  padding: 24px 40px 40px;
+  padding: 24px 30px 30px;
   background: $background-white;
   margin: 40px auto 0;
   width: 700px;
@@ -13,15 +13,15 @@
   }
 
   & .item-main-content {
-    margin: 16px 0 0;
+    margin: 30px 0 0;
   }
 }
 
 .item-photo {
   float: left;
   min-width: 300px;
-  max-width: 300px;
-  min-height: 375px;
+  max-width: 320px;
+  min-height: 420px;
   position: relative;
   margin: 0 auto;
   background: #fafafa;
@@ -36,30 +36,22 @@
       &-stage {
         position: relative;
         left: 0;
-        width: 1200px;
 
         &__item {
           width: 300px;
           min-height: 1px;
           float: left;
+          margin: 10px;
 
           &-inner {
             position: relative;
             width: 100%;
-            height: 0;
-            padding: 0 0 100%;
+            height: 100%;
+            display: flex;
 
-            &__lazy {
-              width: 100%;
-              vertical-align: bottom;
-              opacity: 1;
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              width: auto;
-              height: 100%;
-              margin: auto;
+            & .big_image {
+              width: 300px;
+              height: 300px;
             }
           }
         }
@@ -67,35 +59,12 @@
 
       &__dots {
         line-height: 0;
+        margin: 20px 15px 20px 15px;
 
-        &__dot {
-          width: 60px;
-          height: 60px;
-          max-height: none;
-          position: relative;
-          overflow: hidden;
-          display: inline-block;
-          width: 20%;
-          max-height: 90px;
-          opacity: .4;
-          cursor: pointer;
-
-          &.active {
-            opacity: 1;
-            cursor: default;
-          }
-
-          &__inner {
-            width: auto;
-            height: auto;
-            padding: 0;
-            overflow: hidden;
-
-            & img {
-              width: 100%;
-              vertical-align: bottom;
-            }
-          }
+        & .a-small_image {
+          height: 100px;
+          width: 90px;
+          margin: 5px 2px;
         }
       }
     }
@@ -157,7 +126,7 @@
 }
 
 .item-price-box {
-  margin: 24px 0 0;
+  margin: 24px 0 10px;
   text-align: center;
 
   &__bold {
@@ -795,3 +764,16 @@ figure {
   margin: 0;
   padding: 0;
 }
+
+.slick-dots {
+        position: absolute !important;
+        bottom: 20px !important;
+        li {
+          font-size: 20px !important;
+          button:before {
+            content: "●" !important;
+            font-size: 14px !important;
+            color: rgb(60, 60, 60) !important;
+          }
+        }
+      }
