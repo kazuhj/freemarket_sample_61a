@@ -7,32 +7,16 @@
       .item-photo
         .item-photo__list
           .item-photo__list__outer
-            .item-photo__list__outer-stage
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_1.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_2.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_3.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_4.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
+            .item-photo__list__outer-stage__item
+              .item-photo__list__outer-stage__item-inner
+                = image_tag @image.image.to_s, size: "300x300", class: "big_image"
+                -if @item.sales_status == "売却済"
+                  .items_box_photo_sold
+                    .items_box_photo_sold__inner SOLD
           .item-photo__list__outer__dots
-            .item-photo__list__outer__dots__dot.active
-              .item-photo__list__outer__dots__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_1.jpg?1580358437'
-            .item-photo__list__outer__dots__dot
-              .item-photo__list__outer__dots__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_2.jpg?1580358437'
-            .item-photo__list__outer__dots__dot
-              .item-photo__list__outer__dots__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_3.jpg?1580358437'
-            .item-photo__list__outer__dots__dot
-              .item-photo__list__outer__dots__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_4.jpg?1580358437'
+            - @item.images. each do |item|
+              %img{src: "#{item.image_url}", class: "a-small_image"}
+
 
       %table.item-detail-table
         %tbody
@@ -80,8 +64,7 @@
               = @item.handing_time
     .item-price-box
       %span.item-price-box__bold
-        ¥
-        = @item.price
+        =converting_to_mark(@item.price)
       %span.item-price-box__tax (税込)
       %span.item-price-box__fee 送料込み
     .text-center
