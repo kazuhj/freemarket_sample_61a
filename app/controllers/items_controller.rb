@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation, :destroy]
 
   def index
-    @items = Item.where(sales_status:"1").order("id DESC").limit(10)
+    @items = Item.where(sales_status:"1").order("created_at DESC").limit(10)
   end
 
   def new
