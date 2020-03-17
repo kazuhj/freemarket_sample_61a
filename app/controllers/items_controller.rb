@@ -22,6 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @images = @item.images
+    @image = @images.first
   end
 
 
