@@ -10,7 +10,7 @@
             .item-photo__list__outer-stage__item
               .item-photo__list__outer-stage__item-inner
                 = image_tag @image.image.to_s, size: "300x300", class: "big_image"
-                -if @item.sales_status == "売却済"
+                  -if @item.sales_status == "売却済み"
                   .items_box_photo_sold
                     .items_box_photo_sold__inner SOLD
           .item-photo__list__outer__dots
@@ -64,7 +64,7 @@
               = @item.handing_time
     .item-price-box
       %span.item-price-box__bold
-        =converting_to_mark(@item.price)
+        = converting_to_mark(@item.price)
       %span.item-price-box__tax (税込)
       %span.item-price-box__fee 送料込み
     .text-center
