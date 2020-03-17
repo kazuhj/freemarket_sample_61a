@@ -40,7 +40,7 @@
     .item-list
       .item-list__group
         .item-list__group__title
-          %h3.item-list__group__title__name 全ての新着アイテム(カテゴリ・ブランドは各機能実装時)
+          %h3.item-list__group__title__name 全ての新着アイテム
           = link_to "#", class: "more-item" do
             もっと見る
             = icon('fas', 'angle-right', class: 'style-right')
@@ -50,17 +50,12 @@
               = link_to item_path(item.id), class: "category-groups__content__link" do
                 %figure.category-groups__content__items
                   %figcaption.category-groups__content__items__item
-                    %span.category-groups__content__items__item__title 希少な超望遠レンズキット 大人気機種 LUMIX GF7
+                    = item.name
+                    %span.category-groups__content__items__item__title
                   .category-groups__content__items__item__description
-                    %span{class: 'item-price'} ¥35,800
+                    %span{class: 'item-price'}
+                      ¥
+                      = item.price
                     = image_tag "#{item.images[0].image_url}", class: 'show-image', alt: "画像が表示できません"
-          %li.category-groups__content
-            = link_to "#", class: "category-groups__content__link" do
-              %figure.category-groups__content__items
-                %figcaption.category-groups__content__items__item
-                  %span.category-groups__content__items__item__title 新品　レスポートサック　ポーチ　コスメティッククラッチ　シルバー
-                .category-groups__content__items__item__description
-                  %span{class: 'item-price'} ¥2,099
-                  = image_tag 'https://static.mercdn.net/thumb/photos/m91517264666_1.jpg?1580275903', class: 'show-image', alt: "画像が表示できません"
   = render 'shared/sell-icon'
   =render 'shared/footer'
