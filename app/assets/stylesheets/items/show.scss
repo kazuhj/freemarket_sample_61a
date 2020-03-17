@@ -53,6 +53,29 @@
               width: 300px;
               height: 300px;
             }
+            
+
+            & .items_box_photo_sold {
+              width: 0;
+              height: 0;
+              margin-right: 20px;
+              border-top: 60px solid red;
+              border-right: 60px solid transparent;
+              border-bottom: 60px solid transparent;
+              border-left: 60px solid red;
+              z-index:3;
+              position: absolute;
+              top: 0;
+
+              &__inner {
+                transform: rotate(-45deg);
+                font-size: 25px;
+                margin:-25px 0px 0px -55px;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
+            }
           }
         }
       }
@@ -765,15 +788,3 @@ figure {
   padding: 0;
 }
 
-.slick-dots {
-        position: absolute !important;
-        bottom: 20px !important;
-        li {
-          font-size: 20px !important;
-          button:before {
-            content: "●" !important;
-            font-size: 14px !important;
-            color: rgb(60, 60, 60) !important;
-          }
-        }
-      }
