@@ -70,8 +70,10 @@
     .text-center
       .text-center__sales-point-message
         売上金¥3,000をお持ちです
-    = link_to confirmation_items_path, class: "item-buy-btn" do
-      購入画面に進む
+    - if user_signed_in?
+      = link_to confirmation_items_path, class: "item-buy-btn" do
+        購入画面に進む
+    - if 
     .item-description
       %p.item-description__inner
         = @item.text
