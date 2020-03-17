@@ -29,6 +29,8 @@ class ItemsController < ApplicationController
 
   def show_mine
     @seller = User.find(@item.user_id)
+    @images = @item.images
+    @image = @images.first
   end
 
   def item_stop
