@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.where(sales_status:"1").order("created_at DESC").limit(10)
   end
 
   def new
@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.user_id = current_user.id 
+    @item.user_id = current_user.id
     if @item.save
       redirect_to mypages_path
     else
