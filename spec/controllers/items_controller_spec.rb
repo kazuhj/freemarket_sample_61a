@@ -10,4 +10,24 @@ describe ItemsController, type: :controller  do
       expect(assigns(:item)).to eq item
     end
   end
+
+  describe 'Get #index' do
+    it "@itemsのcreared_atの値が降順で並ぶようになっているか" do
+      item = create_list(:item, 3)
+      get :index
+      expect(assigns(:items)).to match(item.sort{ |a, b| b.created_at <=> a.created_at } )
+    end
+
+    it "出品した商品がトップページに表示されるか" do
+      get :index
+      expect(response).to render_template :index
+    end
+end
+
+describe 'GET #new' do
+    it "renders the :new template" do
+      get :new
+      expect(response).to render_template :new
+    end
+  end
 end

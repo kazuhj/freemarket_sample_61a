@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item do
-    id                     {1}
     name                   {"参考書"}
     text                   {"テストです"}
     condition              {"傷や汚れあり"}
@@ -11,12 +10,13 @@ FactoryBot.define do
     handing_time           {"1~2日で発送"}
     category               {"レディース"}
     user_id                {"1"}
-    created_at             {"2020-03-12 10:40:52"}
     updated_at             {"2020-03-12 10:40:52"}
     sales_status           {"出品中"}
     images {[
       FactoryBot.build(:image, item: nil)  #itemと同時にimage作成
     ]}
+    # created_atのデータをランダムで表示
+    created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
     user
   end
 end
