@@ -10,13 +10,12 @@
             .item-photo__list__outer-stage__item
               .item-photo__list__outer-stage__item-inner
                 = image_tag @image.image.to_s, size: "300x300", class: "big_image"
-                  -if @item.sales_status == "売却済み"
+                  -if @item.sales_status == "売却済み" || @item.sales_status == "取引中"
                   .items_box_photo_sold
                     .items_box_photo_sold__inner SOLD
           .item-photo__list__outer__dots
             - @item.images. each do |item|
-              %img{src: "#{item.image_url}", class: "a-small_image"}
-
+              = image_tag "#{item.image_url}", class: "a-small_image"
 
       %table.item-detail-table
         %tbody
@@ -68,8 +67,9 @@
       %span.item-price-box__tax (税込)
       %span.item-price-box__fee 送料込み
     .text-center
-      .text-center__sales-point-message
-        売上金¥3,000をお持ちです
+      - if @item.sales_status == "出品中"
+        .text-center__sales-point-message
+          売上金¥3,000をお持ちです
     - if @item.sales_status == "出品中"
       -if user_signed_in?
         = link_to confirmation_items_path, class: "item-buy-btn" do
@@ -167,10 +167,10 @@
         %section.items-in-user-profile__items-box-content__item-box
           =link_to controller: "items",action: "show",id:item.id do
             %figure.items-in-user-profile__items-box-content__item-box__photo
-              %img{src: "#{item.images.first.image_url.to_s}",height: "180",width: "200",class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded'}
-                - if item.sales_status == "売却済み"
-                  .items_box_photo_sold
-                    .items_box_photo_sold__inner SOLD
+              = image_tag item.images.first.image_url, class: "items-in-user-profile__items-box-content__item-box__photo__lazyloaded"
+              - if item.sales_status == "売却済み"|| item.sales_status == "取引中"
+                .items_box_photo_sold
+                  .items_box_photo_sold__inner SOLD
             .items-in-user-profile__items-box-content__body
               %h3.items-in-user-profile__items-box-content__name
                 = item.name
