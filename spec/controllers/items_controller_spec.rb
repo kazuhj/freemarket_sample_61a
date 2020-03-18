@@ -25,7 +25,7 @@ describe ItemsController, type: :controller  do
 end
 
 describe 'GET #new' do
-    it "renders the :new template" do
+    it "newアクションでnew.html.hamlに遷移するようになっているか？" do
       get :new
       expect(response).to render_template :new
     end
