@@ -24,10 +24,23 @@ describe ItemsController, type: :controller  do
     end
 end
 
-describe 'GET #new' do
-    it "renders the :new template" do
-      get :new
-      expect(response).to render_template :new
+  describe 'GET #new' do
+      it "renders the :new template" do
+        get :new
+        expect(response).to render_template :new
+      end
     end
-  end
+
+    describe 'GET #show' do
+      it "【商品詳細表示】インスタンス変数の値が期待したものになるか" do
+        item = create(:item)
+        get :show, params: { id: item}
+        expect(assigns(:item)).to eq item
+      end
+      it "詳細ページへ遷移するか" do
+        item = create(:item)
+        get :show, params: {id: item}
+        expect(response).to render_template :show
+      end
+    end
 end
