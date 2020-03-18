@@ -54,8 +54,7 @@
                     %span.category-groups__content__items__item__title
                   .category-groups__content__items__item__description
                     %span{class: 'item-price'}
-                      ¥
-                      = item.price
+                      = "¥ #{item.price.to_s(:delimited)}"
                     = image_tag "#{item.images[0].image_url}", class: 'show-image', alt: "画像が表示できません"
   = render 'shared/sell-icon'
   =render 'shared/footer'
