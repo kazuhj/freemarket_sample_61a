@@ -13,17 +13,15 @@
       .item-photo
         .item-photo__list
           .item-photo__list__outer
-            .item-photo__list__outer-stage
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  - @item.images.each_with_index do |img, i|
-                    = image_tag(img.image.url, size: '300x300', class: 'item-photo__list__outer-stage__item-inner__lazy' ,id: "main_#{i}")
-                
-                .item-photo__list__outer__dots 
-                  .item-photo__list__outer__dots__dot.active
-                    .item-photo__list__outer__dots__dot__inner
-                    - @item.images.each_with_index do |img, i|
-                      = image_tag(img.image.url, size: '60x60', "data-inner_id": "#{i}")
+            .item-photo__list__outer-stage__item
+              .item-photo__list__outer-stage__item-inner
+                = image_tag @image.image.to_s, size: "300x300", class: "big_image"
+                  -if @item.sales_status == "公開停止"
+                  .items_box_photo_stop
+                    .items_box_photo_stop__inner 公開停止中
+          .item-photo__list__outer__dots
+            - @item.images. each do |item|
+              %img{src: "#{item.image_url}", class: "a-small_image"}
       %table.item-detail-table
         %tbody
           %tr
@@ -45,38 +43,29 @@
             %td
               = link_to "#" do
                 = @item.category
-              = link_to "#" do
-                .item-detail-table-sub-category
-                  = icon('fas', 'angle-right', class: 'icon-arrow-right')
-                  カメラ
-              = link_to "#" do
-                .item-detail-table-sub-category
-                  = icon('fas', 'angle-right', class: 'icon-arrow-right')
-                  デジタルカメラ
-          %tr
-            %th ブランド
-            %td
-              = link_to "#" do
-                %div
-                  パナソニック
           %tr
             %th 商品の状態
-            %td 目立った傷や汚れなし
+            %td
+              = @item.condition
           %tr
             %th 配送料の負担
-            %td 送料込み
+            %td
+              = @item.fee_burden
           %tr
             %th 配送の方法
-            %td 未定
+            %td
+              = @item.service
           %tr
             %th 配送元地域
             %td
-              = link_to "三重県", "#"
+              = @item.area
           %tr
             %th 発送日の目安
-            %td 2~3日で発送
+            %td
+              = @item.handing_time
     .item-price-box
-      %span.item-price-box__bold ¥35,800
+      %span.item-price-box__bold
+        = converting_to_mark(@item.price)
       %span.item-price-box__tax (税込)
       %span.item-price-box__fee 送料込み
     .item-description
