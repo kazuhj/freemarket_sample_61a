@@ -43,5 +43,18 @@ describe ItemsController, type: :controller  do
       expect(response).to render_template :show
     end
   end
-  
+
+  describe 'GET #show_mine' do
+    it "【出品商品ページ】インスタンス変数の値が期待したものになるか" do
+      item = create(:item)
+      get :show_mine, params: { id: item}
+      expect(assigns(:item)).to eq item
+    end
+    it "詳細ページへ遷移するか" do
+      item = create(:item)
+      get :show_mine, params: {id: item}
+      expect(response).to render_template :show_mine
+    end
+  end
+
 end
