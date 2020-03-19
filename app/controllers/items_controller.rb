@@ -24,8 +24,7 @@ class ItemsController < ApplicationController
   def show
     @images = @item.images
     @image = @images.first
-    items = Item.where(user_id: @item.user_id)
-    @items = items.order("created_at DESC").limit(6)
+    @items = Item.where(user_id: @item.user_id).order("created_at DESC").limit(6)
   end
   
 
