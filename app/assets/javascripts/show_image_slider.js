@@ -1,10 +1,9 @@
 $(window).on("turbolinks:load",function(){
 
   $('img.a-small_image').mouseover(function(){
-    console.log('hoge')
+    
     // カーソルを乗せた小さい画像のURLを取得
     var selectedSrc = $(this).attr('src')
-    console.log(selectedSrc)
 
     // 画像入れ替え
     $('img.big_image').stop().fadeOut(50,
