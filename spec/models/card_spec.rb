@@ -12,56 +12,56 @@ describe Card do
     it "customer_numberが空だと登録出来ません" do
       card = build(:card, customer_number: nil)
       card.valid?
-      expect(card.errors[:customer_number]).to include("can't be blank")
+      expect(card.errors[:customer_number]).to include("を入力してください")
     end
 
     # 3. customer_numberが半角数字だと登録できること
     it "customer_numberが半角数字だと登録出来ます" do
-      card = build(:card, customer_number: "0000000000")
+      card = build(:card, customer_number: "00000")
       card.valid?
-      expect(customer_number).to be_valid
+      expect(card).to be_valid
     end
 
     # 14. customer_numberが半角数字以外では登録できないこと
     it "customer_numberが半角数字以外だと登録出来ません " do
       card = build(:card, customer_number: "a_00000")
       card.valid?
-      expect(card.errors[:customer_number]).to include("は半角数字で入力して下さい")
+      expect(card.errors[:customer_number]).to include("は不正な値です")
     end
 
     # 2.yearが空では登録できないこと
     it "yearが空だと登録出来ません" do
       card = build(:card, year: nil)
       card.valid?
-      expect(card.errors[:year]).to include("can't be blank")
+      expect(card.errors[:year]).to include("を入力してください")
     end
 
     # 2.monthが空では登録できないこと
     it "monthが空だと登録出来ません" do
       card = build(:card, month: nil)
       card.valid?
-      expect(card.errors[:month]).to include("can't be blank")
+      expect(card.errors[:month]).to include("を入力してください")
     end
 
     # 2.security_codeが空では登録できないこと
     it "security_codeが空だと登録出来ません" do
       card = build(:card, security_code: nil)
       card.valid?
-      expect(card.errors[:security_code]).to include("can't be blank")
+      expect(card.errors[:security_code]).to include("を入力してください", "は不正な値です")
     end
 
     # 3. security_codeが半角数字だと登録できること
     it "security_codeが半角数字だと登録出来ます" do
-      card = build(:card, security_code: "0000000000")
+      card = build(:card, security_code: "0000")
       card.valid?
-      expect(security_code).to be_valid
+      expect(card).to be_valid
     end
 
     # 14. security_codeが半角数字以外では登録できないこと
     it "security_codeが半角数字以外だと登録出来ません " do
-      card = build(:card, security_code: "a_00000")
+      card = build(:card, security_code: "a000")
       card.valid?
-      expect(card.errors[:security_code]).to include("は半角数字で入力して下さい")
+      expect(card.errors[:security_code]).to include("は不正な値です")
     end
   end
 end
