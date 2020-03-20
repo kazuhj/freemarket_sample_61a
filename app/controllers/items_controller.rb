@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(update_item_params)
-      redirect_to listing_users_path
+      redirect_to show_mine_items_path(@item)
     else
       render :edit
     end
