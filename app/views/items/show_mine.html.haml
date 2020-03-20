@@ -73,7 +73,7 @@
         = @item.text
   .show-mine__bottom-container
     .show-mine__bottom-container__change-box
-      = link_to "商品の編集", root_path, class: "btn-red"
+      = link_to "商品の編集", edit_item_path(@item.id), class: "btn-red"
       %p.text-center or
       - if @item.sales_status == "出品中"
         = link_to item_stop_items_path(@item.id) do
