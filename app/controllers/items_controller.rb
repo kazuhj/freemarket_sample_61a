@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation, :destroy]
+  before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation, :destroy, :edit, :update]
 
   def index
     @items = Item.where(sales_status:"1").order("created_at DESC").limit(10)
@@ -74,6 +74,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(update_item_params)
+      redirect_to listing_users_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params
@@ -81,7 +92,7 @@ class ItemsController < ApplicationController
   end
 
   def update_item_params
-    params.require(:item).permit(:name, :text, :condition, :price, :fee_burden, :service, :area, :handing_time, :category, :sales_status, [images_attributes: [:image]]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :text, :condition, :price, :fee_burden, :service, :area, :handing_time, :category, :sales_status, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
   end
 
   def set_item
