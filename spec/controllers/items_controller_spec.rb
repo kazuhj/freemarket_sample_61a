@@ -57,4 +57,17 @@ describe ItemsController, type: :controller  do
     end
   end
 
+  describe 'GET #edit' do
+    it "【編集ページ】インスタンス変数の値が期待したものになるか" do
+      item = create(:item)
+      get :edit, params: { id: item}
+      expect(assigns(:item)).to eq item
+    end
+    it "編集ページへ遷移するか" do
+      item = create(:item)
+      get :edit, params: {id: item}
+      expect(response).to render_template :edit
+    end
+  end
+
 end
