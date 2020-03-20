@@ -31,8 +31,8 @@
                       .delete-box
                         .delete-btn
                           %span 削除
+                          
               .label-content
-
                 //プレビューの数に合わせてforオプションを指定
                 = f.label :"images_attributes_#{@item.images.length}_image", class:"label-box", id: "label-box--#{@item.images.length}" do
                   %pre.label-box__text-visible クリックしてファイルをアップロード
@@ -42,7 +42,7 @@
                   =i.file_field :image, class: "hidden-field"
                   =i.check_box:_destroy, class: "hidden-checkbox"
 
-                  //5つのfile_fieldを準備するに当たって、足りない分を表示
+                  //5つのfile_fieldを準備するに当たって、足りない分を表示(元々保存していた数しか追加削除できないのを解消)
                 - @item.images.length.upto(4) do |i|
                   %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class: "hidden-field", type:"file"}
           .sell-form__container__item
@@ -156,6 +156,6 @@
                 = link_to "加盟店規約", "#", class: "sell-form__content__sell-btn-box__rule__link"
                 に同意したことになります。
             = f.submit "変更する", class:"sell-btn-red",id:"item_botton"
-            = link_to "もどる", root_path, class: "sell-btn-gray"
+            = link_to "もどる", show_mine_items_path(@item), class: "sell-btn-gray"
 
   =render 'shared/sell-footer'
