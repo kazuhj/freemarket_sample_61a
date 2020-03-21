@@ -66,7 +66,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_card(@card.attributes)
     @user.save
     sign_in(:user, @user)
-    # binding.pry
 
   end
 
