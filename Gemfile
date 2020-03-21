@@ -86,3 +86,4 @@ gem "gretel"
 gem 'jquery-rails'
 gem 'devise'
 gem 'activesupport'
+gem 'ancestry'
