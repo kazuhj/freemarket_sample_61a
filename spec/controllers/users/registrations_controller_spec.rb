@@ -9,7 +9,6 @@ describe Users::RegistrationsController, type: :controller  do
       expect(response).to render_template :new
     end
 
-    #200レスポンスは成功というステート
     it "200レスポンスを返すこと" do
       request.env["devise.mapping"] = Devise.mappings[:user]
       get :new
@@ -18,7 +17,6 @@ describe Users::RegistrationsController, type: :controller  do
 
     describe "#create" do
       context "有効なデータの場合" do 
-        # 同じ処理はsubjectを使うことでｄｒｙにし同じデータを使っているとわかりやすくする
         subject {
           user_params = attributes_for(:user)
           #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
@@ -37,7 +35,7 @@ describe Users::RegistrationsController, type: :controller  do
                             birthday_day: "11"
                           }
         }
-        # 200レスポンスはリダイレクト成功というステート
+        
         it "200レスポオンスを返すこと" do
           request.env["devise.mapping"] = Devise.mappings[:user]
           #設定したsubjectはこのように使う
@@ -54,7 +52,6 @@ describe Users::RegistrationsController, type: :controller  do
 
       context "無効なデータの場合" do
         subject {
-          #無効なデータのときは処理の流れを理解しているとスムーズに進む
           user_params = attributes_for(:user, nickname: "")
           post :create, params: { user: user_params},
                                 session: {
@@ -90,7 +87,6 @@ describe Users::RegistrationsController, type: :controller  do
       context "有効なデータの場合" do
         subject {
           user_params = attributes_for(:user)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create, params: { user: user_params},
                           session: {
                             nickname: "watashi",
@@ -106,7 +102,6 @@ describe Users::RegistrationsController, type: :controller  do
                             birthday_day: "11"
                           }
           telephone_params = attributes_for(:telephone)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create_telephone, params: { telephone: telephone_params},
                           session: {
                             id: 1,
@@ -115,10 +110,8 @@ describe Users::RegistrationsController, type: :controller  do
                           }
           
         }
-        # 200レスポンスはリダイレクト成功というステート
         it "200レスポオンスを返すこと" do
           request.env["devise.mapping"] = Devise.mappings[:user]
-          #設定したsubjectはこのように使う
           subject
           expect(response).to have_http_status "200"
         end
@@ -132,9 +125,7 @@ describe Users::RegistrationsController, type: :controller  do
 
       context "無効なデータの場合" do
         subject {
-          #無効なデータのときは処理の流れを理解しているとスムーズに進む
           user_params = attributes_for(:user)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create, params: { user: user_params},
                           session: {
                             nickname: "watashi",
@@ -176,7 +167,6 @@ describe Users::RegistrationsController, type: :controller  do
       context "有効なデータの場合" do
         subject {
           user_params = attributes_for(:user)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create, params: { user: user_params},
                           session: {
                             nickname: "watashi",
@@ -192,7 +182,6 @@ describe Users::RegistrationsController, type: :controller  do
                             birthday_day: "11"
                           }
           telephone_params = attributes_for(:telephone)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create_telephone, params: { telephone: telephone_params},
                           session: {
                             id: 1,
@@ -200,7 +189,6 @@ describe Users::RegistrationsController, type: :controller  do
                             user_id: "1"
                           }
           address_params = attributes_for(:address)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create_address, params: { address: address_params},
                           session: {
                             id: 1,
@@ -216,10 +204,9 @@ describe Users::RegistrationsController, type: :controller  do
                           }
           
         }
-        # 200レスポンスはリダイレクト成功というステート
+
         it "200レスポオンスを返すこと" do
           request.env["devise.mapping"] = Devise.mappings[:user]
-          #設定したsubjectはこのように使う
           subject
           expect(response).to have_http_status "200"
         end
@@ -233,9 +220,7 @@ describe Users::RegistrationsController, type: :controller  do
 
       context "無効なデータの場合" do
         subject {
-          #無効なデータのときは処理の流れを理解しているとスムーズに進む
           user_params = attributes_for(:user)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create, params: { user: user_params},
                           session: {
                             nickname: "watashi",
@@ -258,7 +243,6 @@ describe Users::RegistrationsController, type: :controller  do
                                   user_id: "1"
                                 }
           address_params = attributes_for(:address, zip_code: "")
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create_address, params: { address: address_params},
                           session: {
                             id: 1,
@@ -291,7 +275,6 @@ describe Users::RegistrationsController, type: :controller  do
       context "有効なデータの場合" do
         subject {
           user_params = attributes_for(:user)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create, params: { user: user_params},
                           session: {
                             nickname: "watashi",
@@ -307,7 +290,6 @@ describe Users::RegistrationsController, type: :controller  do
                             birthday_day: "11"
                           }
           telephone_params = attributes_for(:telephone)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create_telephone, params: { telephone: telephone_params},
                           session: {
                             id: 1,
@@ -315,7 +297,6 @@ describe Users::RegistrationsController, type: :controller  do
                             user_id: "1"
                           }
           address_params = attributes_for(:address)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create_address, params: { address: address_params},
                           session: {
                             id: 1,
@@ -330,7 +311,6 @@ describe Users::RegistrationsController, type: :controller  do
                             user_id: "1"
                           }
           card_params = attributes_for(:card)
-          #post :アクション名, params: { パラメータ名: "値"}, session: { session名: "値" } でデータを指定できる
           post :create_card, params: { card: card_params},
                           session: {
                             id: 1,
@@ -341,10 +321,8 @@ describe Users::RegistrationsController, type: :controller  do
                             user_id: "1"
                           }
         }
-        # 200レスポンスはリダイレクト成功というステート
         it "200レスポオンスを返すこと" do
           request.env["devise.mapping"] = Devise.mappings[:user]
-          #設定したsubjectはこのように使う
           subject
           expect(response).to have_http_status "200"
         end
@@ -354,7 +332,6 @@ describe Users::RegistrationsController, type: :controller  do
           @request.env["devise.mapping"] = Devise.mappings[:user]
           @user = attributes_for(:user)
           session["devise.regist_data"] = {user: @user}
-          # binding.pry
           @telephone = attributes_for(:telephone)
           @address = attributes_for(:address)
           @card = attributes_for(:card)
@@ -363,7 +340,6 @@ describe Users::RegistrationsController, type: :controller  do
         subject {
           post :create_card, params: {card: @card },
           session: {
-            # user: @user,
             "devise.regist_data": {user: @user},
             telephone: @telephone,
             address: @address
@@ -371,7 +347,6 @@ describe Users::RegistrationsController, type: :controller  do
         }
   
         it 'リクエストは200となること' do
-          # post :create_card, params: {card: @card}
           subject
           expect(response.status).to eq 200
         end
