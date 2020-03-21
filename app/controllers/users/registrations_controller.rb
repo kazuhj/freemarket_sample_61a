@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -25,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_telephone
     # createアクションと同様に「valid?」メソッドでバリデーションチェックを行う
-    @user = User.new(session["devise.regist_data"][:user])
+    @user = User.new(session["devise.regist_data"]["user"])
     @telephone = Telephone.new(telephone_params)
     unless @telephone.valid?
       flash.now[:alert] = @telephone.errors.full_messages
@@ -38,7 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_address
-    @user = User.new(session["devise.regist_data"][:user])
+    @user = User.new(session["devise.regist_data"]["user"])
     @telephone = Telephone.new(session["telephone"])
     @address = Address.new(address_params)
     unless @address.valid?
@@ -53,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_card
-    @user = User.new(session["devise.regist_data"][:user])
+    @user = User.new(session["devise.regist_data"]["user"])
     @telephone = Telephone.new(session["telephone"])
     @address = Address.new(session["address"])
     @card = Card.new(card_params)
@@ -101,13 +101,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   end
 
+  protected
+
   def telephone_params
     params.require(:telephone).permit(:tel)
   end
 
+  protected
+
   def address_params
     params.require(:address).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :zip_code, :prefecture, :city, :address, :building)
   end
+
+  protected
 
   def card_params
     params.require(:card).permit(:customer_number, :year, :month, :security_code)
