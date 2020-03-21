@@ -25,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_telephone
     # createアクションと同様に「valid?」メソッドでバリデーションチェックを行う
-    @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session["devise.regist_data"][:user])
     @telephone = Telephone.new(telephone_params)
     unless @telephone.valid?
       flash.now[:alert] = @telephone.errors.full_messages
@@ -38,7 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_address
-    @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session["devise.regist_data"][:user])
     @telephone = Telephone.new(session["telephone"])
     @address = Address.new(address_params)
     unless @address.valid?
@@ -53,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_card
-    @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session["devise.regist_data"][:user])
     @telephone = Telephone.new(session["telephone"])
     @address = Address.new(session["address"])
     @card = Card.new(card_params)
@@ -66,6 +66,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_card(@card.attributes)
     @user.save
     sign_in(:user, @user)
+    # binding.pry
+
   end
 
   # GET /resource/edit

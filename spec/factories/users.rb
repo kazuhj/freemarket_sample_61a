@@ -8,7 +8,7 @@ FactoryBot.define do
     birth_year            {"1990"}
     birth_month           {"4"}
     birth_day             {"11"}
-    email                 {"kkk@gmail.com"}
+    # email                 {"kkk@gmail.com"}
     sequence(:email) {Faker::Internet.email}
     password              {"a234567"}
     password_confirmation {"a234567"}
