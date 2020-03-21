@@ -26,7 +26,7 @@ describe Card do
     it "customer_numberが半角数字以外だと登録出来ません " do
       card = build(:card, customer_number: "a_00000")
       card.valid?
-      expect(card.errors[:customer_number]).to include("は不正な値です")
+      expect(card.errors[:customer_number]).to include("は数値で入力してください")
     end
 
     # 2.yearが空では登録できないこと
@@ -47,7 +47,7 @@ describe Card do
     it "security_codeが空だと登録出来ません" do
       card = build(:card, security_code: nil)
       card.valid?
-      expect(card.errors[:security_code]).to include("を入力してください", "は不正な値です")
+      expect(card.errors[:security_code]).to include("を入力してください", "は数値で入力してください")
     end
 
     # 3. security_codeが半角数字だと登録できること
@@ -61,7 +61,7 @@ describe Card do
     it "security_codeが半角数字以外だと登録出来ません " do
       card = build(:card, security_code: "a000")
       card.valid?
-      expect(card.errors[:security_code]).to include("は不正な値です")
+      expect(card.errors[:security_code]).to include("は数値で入力してください")
     end
   end
 end
