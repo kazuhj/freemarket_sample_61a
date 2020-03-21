@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :name, length: { in: 1..40 }, presence: true
   validates :text, length: { in: 1..1000 }, presence: true
   validates :condition, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { only_integer: true,greater_than: 299, less_than: 10000000}
   validates :fee_burden, presence: true
   validates :service, presence: true
   validates :area, presence: true

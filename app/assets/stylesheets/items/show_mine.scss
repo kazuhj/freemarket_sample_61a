@@ -13,6 +13,27 @@
     }
   }
 }
+.items_box_photo_stop {
+  width: 0;
+  height: 0;
+  margin-right: 20px;
+  border-top: 60px solid gray;
+  border-right: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid gray;
+  z-index:3;
+  position: absolute;
+  top: 0;
+
+  &__inner {
+    transform: rotate(-45deg);
+    font-size: 20px;
+    margin:-75px -170px 0px -90px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
 
 .btn-red {
   margin: 16px 0 16px 0;
