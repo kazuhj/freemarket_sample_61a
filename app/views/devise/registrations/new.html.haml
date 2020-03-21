@@ -1,0 +1,103 @@
+.wrapper
+  = render 'users/new-account-header'
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__header
+        会員情報入力
+      .single-main__container__registration-form
+        = form_for(@user, url: user_registration_path) do |f|
+          = render "devise/shared/error_messages", resource: @user
+          .single-main__container__registration-form__content
+            .single-main__container__registration-form__content__input-box
+              = f.label :ニックネーム
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              = f.text_field :nickname, placeholder:"例)フリマ太郎", required: 'true', class: "single-main__container__registration-form__content__input-box__default"
+            .single-main__container__registration-form__content__input-box
+              = f.label :メールアドレス
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              = f.email_field :email, placeholder: "PC・携帯どちらでも可", required: 'true', autofocus: true, autocomplete: "email", class: "single-main__container__registration-form__content__input-box__default"
+            .single-main__container__registration-form__content__input-box
+              = f.label :パスワード
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              =f.password_field :password, placeholder: "7文字以上の半角英数字", required: 'true', class: "single-main__container__registration-form__content__input-box__default"
+              %p.form-info-text
+                ※ 英字と数字の両方を含めて設定してください
+              .single-main__container__registration-form__content__input-box__display
+                .single-main__container__registration-form__content__input-box__checkbox-default
+                  %input#reveal_password{type: "checkbox"}
+                  %i.single-main__container__registration-form__content__input-box__checkbox-default__icon-check
+                  = f.label :パスワードを表示する
+                .form-password-revelation-revealed-password-container{style: "display: none;"}
+                  %span.form-password-revelation-revealed-password
+            .single-main__container__registration-form__content__input-box
+              %h3.single-main__container__registration-form__content__input-box__identification-title
+                本人確認
+              %p.single-main__container__registration-form__content__input-box__indentification-message
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .single-main__container__registration-form__content__input-box
+              = f.label "姓 (全角)"
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              = f.text_field :family_name, placeholder: "例) 山田", required: 'true', class: "single-main__container__registration-form__content__input-box__default"
+            .single-main__container__registration-form__content__input-box
+              = f.label "名 (全角)"
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              = f.text_field :first_name, placeholder: "例) 花子", required: 'true', class: "single-main__container__registration-form__content__input-box__default"
+            .single-main__container__registration-form__content__input-box
+              = f.label "姓カナ (全角)"
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              = f.text_field :family_name_kana, placeholder: "例) ヤマダ", class: "single-main__container__registration-form__content__input-box__default"
+            .single-main__container__registration-form__content__input-box
+              = f.label "名カナ (全角)"
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              = f.text_field :first_name_kana, placeholder: "例) ハナコ", class: "single-main__container__registration-form__content__input-box__default"
+            .single-main__container__registration-form__content__input-box
+              = f.label :生年月日
+              %span.single-main__container__registration-form__content__input-box__require
+                必須
+              %br
+              .single-main__container__registration-form__content__input-box__birthday
+                .single-main__container__registration-form__content__input-box__birthday__select-wrap
+                  = f.select :birth_year, User.birth_years.keys, {prompt: "--"}, class: "single-main__container__registration-form__content__input-box__birthday__select-wrap__default"
+                  = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
+                %span 年
+                .single-main__container__registration-form__content__input-box__birthday__select-wrap.select-wrap__month
+                  = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
+                  = f.select :birth_month, User.birth_months.keys, {prompt: "--"}, class: "single-main__container__registration-form__content__input-box__birthday__select-wrap__default"
+                %span 月
+                .single-main__container__registration-form__content__input-box__birthday__select-wrap.select-wrap__day
+                  = icon('fas', 'chevron-down', class: 'icon-arrow-bottom')
+                  = f.select :birth_day, User.birth_days.keys, {prompt: "--"}, class: "single-main__container__registration-form__content__input-box__birthday__select-wrap__default"
+                %span 日
+              .clearfix
+            %p.form-info
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .single-main__container__registration-form__content
+            .single-main__container__registration-form__content__input-box
+              %p.single-main__container__registration-form__content__input-box__text-center
+                「次へ進む」のボタンを押すことにより、
+                = link_to "利用規約" "", class: "single-main__container__registration-form__content__input-box__text-center"
+                に同意したものとみなします
+            = f.submit "次へ進む", class: 'single-main__container__registration-form__content__input-box__btn'
+            .single-main__container__registration-form__content__input-box 
+              .single-main__container__registration-form__content__input-box__text-right
+                %p
+                  = link_to "", class: "single-main__container__registration-form__content__input-box__text-right__text" do
+                    本人情報の登録について
+                    = icon('fas', 'chevron-right', class: 'single-main__container__registration-form__content__input-box__text-right__icon')        
+            .single-main__container__registration-form__content__input-box 
+              .single-main__container__registration-form__content__input-box__recaptcha-term
+                %p
+                  This site is protected by reCAPTCHA and the Google
+                  = link_to "Privacy Policy" "", class: "single-main__container__registration-form__content__input-box__recaptcha-term__text"
+                  and
+                  = link_to "Terms of Service" "", class: "single-main__container__registration-form__content__input-box__recaptcha-term__text"
+                  apply.
+  =render 'shared/sell-footer'
+= render "devise/shared/links"

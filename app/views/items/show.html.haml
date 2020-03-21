@@ -1,44 +1,28 @@
 .wrapper
   =render 'shared/header'
   %section.item-box-container
-    %h1.item-box-container__item-name 希少な超望遠レンズキット 大人気機種 LUMIX GF7
+    %h1.item-box-container__item-name 
+      = @item.name
     .item-main-content.clearfix
       .item-photo
         .item-photo__list
           .item-photo__list__outer
-            .item-photo__list__outer-stage
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_1.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_2.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_3.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
-              .item-photo__list__outer-stage__item
-                .item-photo__list__outer-stage__item-inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_4.jpg?1580358437', class: 'item-photo__list__outer-stage__item-inner__lazy', alt: "希少な超望遠レンズキット 大人気機種 LUMIX GF7"
+            .item-photo__list__outer-stage__item
+              .item-photo__list__outer-stage__item-inner
+                = image_tag @image.image.to_s, size: "300x300", class: "big_image"
+                  -if @item.sales_status == "売却済み" || @item.sales_status == "取引中"
+                  .items_box_photo_sold
+                    .items_box_photo_sold__inner SOLD
           .item-photo__list__outer__dots
-            .item-photo__list__outer__dots__dot.active
-              .item-photo__list__outer__dots__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_1.jpg?1580358437'
-            .item-photo__list__outer__dots__dot
-              .item-photo__list__outer__dots__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_2.jpg?1580358437'
-            .item-photo__list__outer__dots__dot
-              .item-photo__list__outer__dots__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_3.jpg?1580358437'
-            .item-photo__list__outer__dots__dot
-              .item-photo__list__outer__dots__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_4.jpg?1580358437'
+            - @item.images. each do |item|
+              = image_tag "#{item.image_url}", class: "a-small_image"
 
       %table.item-detail-table
         %tbody
           %tr
             %th 出品者
             %td
-              = link_to "hoge", "#"
+              = link_to "#{@item.user.nickname}", "#"
               %div
                 .item-user-ratings
                   = icon('fas', 'grin', class: 'icon-good')
@@ -53,71 +37,52 @@
             %th カテゴリー
             %td
               = link_to "#" do
-                %div 家電・スマホ・カメラ
-              = link_to "#" do
-                .item-detail-table-sub-category
-                  = icon('fas', 'angle-right', class: 'icon-arrow-right')
-                  カメラ
-              = link_to "#" do
-                .item-detail-table-sub-category
-                  = icon('fas', 'angle-right', class: 'icon-arrow-right')
-                  デジタルカメラ
-          %tr
-            %th ブランド
-            %td
-              = link_to "#" do
                 %div
-                  パナソニック
+                  = @item.category
           %tr
             %th 商品の状態
-            %td 目立った傷や汚れなし
+            %td
+              = @item.condition
           %tr
             %th 配送料の負担
-            %td 送料込み
+            %td
+              = @item.fee_burden
           %tr
             %th 配送の方法
-            %td 未定
+            %td
+              = @item.service
           %tr
             %th 配送元地域
             %td
-              = link_to "三重県", "#"
+              = link_to "#" do
+                %div
+                  = @item.area
           %tr
             %th 発送日の目安
-            %td 2~3日で発送
+            %td
+              = @item.handing_time
     .item-price-box
       %span.item-price-box__bold 
         = converting_to_mark("#{@item.price}")
       %span.item-price-box__tax (税込)
       %span.item-price-box__fee 送料込み
     .text-center
-      .text-center__sales-point-message
-        売上金¥3,000をお持ちです
-    = link_to confirmation_items_path, class: "item-buy-btn" do
-      購入画面に進む
+      - if @item.sales_status == "出品中"
+        .text-center__sales-point-message
+          売上金¥3,000をお持ちです
+    - if @item.sales_status == "出品中"
+      -if user_signed_in?
+        = link_to confirmation_items_path, class: "item-buy-btn" do
+          購入画面に進む
+    - elsif @item.sales_status == "公開停止"
+      %p.item-buy-stop-btn
+        出品停止中です
+    - else @item.sales_status == "売却済み"
+      %p.item-buy-stop-btn
+        売り切れました
     .item-description
       %p.item-description__inner
-        ご覧いただきありがとうございます
-        即購入いただいて大丈夫です！
-        ✨超お買い得！！予備バッテリー&amp;SDカード&amp;新品カメラポーチ付き✨
-        
-        ✨✨こんなセットが欲しかった✨✨⭐️⭐️自撮り＋Wi-Fi機能付き♪⭐️⭐️
-        
-        ルミックス GF7と OLYMPUS M.Zuiko 40-150mmの超望遠レンズセット
-        
-        【今回オススメしたい５つの理由！】
-        
-        ★オシャレでファッションにも良く合うブラウン♪
-        ★WiFi機能搭載で写真のシェアが簡単♪
-        ★嬉しい全国送料無料♪
-        ★SDカード付きなので届いてすぐに使える♪
-        ★到着日から７日間の初期不良付きで安心♪
-        
-        【商品説明】
-        
-        ■WiFi搭載なので、スマホやタブレットに写真を簡単転送♪
-        ■モニターが回転するので、自撮りも楽々♪美白効果も設定できる♪
-        ■セピアやトイカメラなど19種類の補正ができるから写真を撮るのが楽しくなる♪
-        ■料理を美味しそうに撮影できる機能も搭載♪
+        = @item.text
 
     .item-button-container.clearfix
       .item-button-container__left
@@ -195,84 +160,30 @@
   .items-in-user-profile
     %section.items-in-user-profile.clearfix
       %h2.items-in-user-profile__items-box-head
-        = link_to "hogeさんのその他の出品", "#"
+        = link_to "#" do
+          = "#{@item.user.nickname}さんのその他の商品"
       .items-in-user-profile__items-box-content.clearfix
+      - @items.each do |item|
         %section.items-in-user-profile__items-box-content__item-box
-          = link_to "#" do
+          =link_to controller: "items",action: "show",id:item.id do
             %figure.items-in-user-profile__items-box-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m61442850335_1.jpg?1581247501', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "希少な超望遠レンズセット❤️パナソニック LUMIX GF6"
+              = image_tag item.images.first.image_url, class: "items-in-user-profile__items-box-content__item-box__photo__lazyloaded"
+              - if item.sales_status == "売却済み"|| item.sales_status == "取引中"
+                .items_box_photo_sold
+                  .items_box_photo_sold__inner SOLD
             .items-in-user-profile__items-box-content__body
               %h3.items-in-user-profile__items-box-content__name
-                希少な超望遠レンズセット パナソニック LUMIX GF6
+                = item.name
               .items-in-user-profile__items-box-content__num
-                .items-in-user-profile__items-box-content__num__price ¥28,000
+                .items-in-user-profile__items-box-content__num__price
+                  = "¥ #{item.price.to_s(:delimited)}"
                 .items-in-user-profile__items-box-content__num__like
                   = icon('far', 'heart', class: 'icon-like-border')
                   %span 14
-        %section.items-in-user-profile__items-box-content__item-box
-          = link_to "#" do
-            %figure.items-in-user-profile__items-box-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m45698129728_1.jpg?1571824556', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "⭐️予備バッテリー付き⭐️最上級 プレミアム オリンパスOM-D E-M10"
-            .items-in-user-profile__items-box-content__body
-              %h3.items-in-user-profile__items-box-content__name
-                ⭐️予備バッテリー付き⭐️最上級 プレミアム オリンパスOM-D E-M10 
-              .items-in-user-profile__items-box-content__num
-                .items-in-user-profile__items-box-content__num__price ¥38,000
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 8
-        %section.items-in-user-profile__items-box-content__item-box
-          = link_to "#" do
-            %figure.items-in-user-profile__items-box-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m33776418270_1.jpg?1573445745', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "コスパ最強手ぶれ補正内蔵望遠レンズ付き ニコン D7000"
-            .items-in-user-profile__items-box-content__body
-              %h3.items-in-user-profile__items-box-content__name
-                コスパ最強手ぶれ補正内蔵望遠レンズ付き ニコン D7000
-              .items-in-user-profile__items-box-content__num
-                .items-in-user-profile__items-box-content__num__price ¥34,000
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 3
-        %section.items-in-user-profile__items-box-content__item-box
-          = link_to "#" do
-            %figure.items-in-user-profile__items-box-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m73573865074_1.jpg?1577443076', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "新品のWi-Fi SD&予備バッテリー付き Canon Kiss X7"
-            .items-in-user-profile__items-box-content__body
-              %h3.items-in-user-profile__items-box-content__name
-                新品のWi-Fi SD&amp;予備バッテリー付き Canon Kiss X7
-              .items-in-user-profile__items-box-content__num
-                .items-in-user-profile__items-box-content__num__price ¥35,800
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 9
-        %section.items-in-user-profile__items-box-content__item-box
-          = link_to "#" do
-            %figure.items-in-user-profile__items-box-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m30192132145_1.jpg?1577357163', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "✨便利✨Nikon バッテリーグリップ MB-D11 ニコン純正品"
-            .items-in-user-profile__items-box-content__body
-              %h3.items-in-user-profile__items-box-content__name
-                ✨便利✨Nikon バッテリーグリップ MB-D11 ニコン純正品
-              .items-in-user-profile__items-box-content__num
-                .items-in-user-profile__items-box-content__num__price ¥8,500
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 14
-        %section.items-in-user-profile__items-box-content__item-box
-          = link_to "#" do
-            %figure.items-in-user-profile__items-box-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m59775588595_1.jpg?1577608247', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "新品のWi-Fi SD&自撮り&動画対応 キャノン Kiss X5"
-            .items-in-user-profile__items-box-content__body
-              %h3.items-in-user-profile__items-box-content__name
-                新品のWi-Fi SD&amp;自撮り&amp;動画対応 キャノン Kiss X5
-              .items-in-user-profile__items-box-content__num
-                .items-in-user-profile__items-box-content__num__price ¥27,800
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 16
     %section.items-box-container.clearfix.related-item-column
       %h2.items-box-head
         = link_to "#" do
-          パナソニックのデジタルカメラ その他の商品
+          パナソニックのデジタルカメラ その他の商品（カテゴリー機能時に実装）
       .items-box-head-content.clearfix
         %section.items-box-head-content__item-box
           = link_to "#" do
@@ -349,9 +260,10 @@
   %nav.pos-bottom
     %ul
       %li
-        = link_to "#" do
+        = link_to root_path do
           %span フリマアプリ
         = icon('fas', 'angle-right', class: 'icon-arrow-right')
       %li
-        %span 希少な超望遠レンズ&amp;予備バッテリー大人気機種 LUMIX GF7
+        %span
+          = @item.name
   =render 'shared/footer'
