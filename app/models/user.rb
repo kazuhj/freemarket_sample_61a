@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_one :address
   has_one :card
   has_many :items
+  has_many :sns_credentials
 
   # enum
   enum birth_year: {"1990":1990,"1991":1991,"1992":1992,"1993":1993,"1994":1994,"1995":1995,"1996":1996,"1997":1997,"1998":1998,"1999":1999,"2000":2000,"2001":2001}
