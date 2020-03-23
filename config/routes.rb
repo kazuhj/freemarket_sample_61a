@@ -12,12 +12,8 @@ Rails.application.routes.draw do
   end
   root "items#index"
 
-  resources :users, only: [:index, :new] do
+  resources :users, only: [:index] do 
     collection do
-      get :tel
-      get :address
-      get :credit
-      get :done
       get :login
     end
   end
