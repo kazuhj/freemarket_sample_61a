@@ -18,20 +18,24 @@
               %span.single-main__container__registration-form__content__input-box__require
                 必須
               = f.email_field :email, placeholder: "PC・携帯どちらでも可", required: 'true', autofocus: true, autocomplete: "email", class: "single-main__container__registration-form__content__input-box__default"
-            .single-main__container__registration-form__content__input-box
-              = f.label :パスワード
-              %span.single-main__container__registration-form__content__input-box__require
-                必須
-              =f.password_field :password, placeholder: "7文字以上の半角英数字", required: 'true', class: "single-main__container__registration-form__content__input-box__default"
-              %p.form-info-text
-                ※ 英字と数字の両方を含めて設定してください
-              .single-main__container__registration-form__content__input-box__display
-                .single-main__container__registration-form__content__input-box__checkbox-default
-                  %input#reveal_password{type: "checkbox"}
-                  %i.single-main__container__registration-form__content__input-box__checkbox-default__icon-check
-                  = f.label :パスワードを表示する
-                .form-password-revelation-revealed-password-container{style: "display: none;"}
-                  %span.form-password-revelation-revealed-password
+            - if @sns_id.present?
+              = hidden_field_tag :sns_auth, true
+            - else
+              .single-main__container__registration-form__content__input-box
+                = f.label :パスワード
+                %span.single-main__container__registration-form__content__input-box__require
+                  必須
+
+                =f.password_field :password, placeholder: "7文字以上の半角英数字", required: 'true', class: "single-main__container__registration-form__content__input-box__default"
+                %p.form-info-text
+                  ※ 英字と数字の両方を含めて設定してください
+                .single-main__container__registration-form__content__input-box__display
+                  .single-main__container__registration-form__content__input-box__checkbox-default
+                    %input#reveal_password{type: "checkbox"}
+                    %i.single-main__container__registration-form__content__input-box__checkbox-default__icon-check
+                    = f.label :パスワードを表示する
+                  .form-password-revelation-revealed-password-container{style: "display: none;"}
+                    %span.form-password-revelation-revealed-password
             .single-main__container__registration-form__content__input-box
               %h3.single-main__container__registration-form__content__input-box__identification-title
                 本人確認
