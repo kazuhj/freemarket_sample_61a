@@ -12,6 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
     @user = User.new(sign_up_params) # 1ページ目から送られてきたパラメータをインスタンス変数@userに代入
     unless @user.valid? # 「valid?」は、送られてきたパラメータが指定されたバリデーションに違反しないかチェック
       flash.now[:alert] = @user.errors.full_messages # falseになったらエラーメッセージと共に、newアクションへrenderする
