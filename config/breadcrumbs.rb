@@ -50,3 +50,8 @@ crumb :show_mine do
   link "出品商品画面", show_mine_items_path
   parent :listing
 end
+
+crumb :purchased do
+  link "購入した商品-取引中", purchased_users_path
+  parent :mypages
+end

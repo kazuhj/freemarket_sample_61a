@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
   # mypageの購入した商品
   def purchased
+    @items = Item.where(user_id: current_user.id).order("id DESC").limit(5)
   end
 
 end
