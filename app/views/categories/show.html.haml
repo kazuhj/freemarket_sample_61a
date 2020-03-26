@@ -1,0 +1,31 @@
+.wrapper
+  .mypage-header
+    = render 'shared/header'
+  %nav.bread-crumbs-list
+    %ul
+      %li
+        - breadcrumb :category, @category
+        = breadcrumbs separator: "#{content_tag(:i, '', class: 'fas fa-angle-right')}", current_class: "breadcrumbs-current"
+  .container
+    .container__flame
+      -if @category.children.present?
+        .category__children
+          - @category.children.each do |child|
+            = link_to "#{child.category}", category_path(child), class: "category__children__link"
+      %h2.category-head= "#{@category.category}の商品一覧"
+      .category-content
+        %ul.category-groups
+          - @items.each do |item|
+            %li.category-groups__content
+              = link_to item_path(item.id), class: "category-groups__content__link" do
+                %figure.category-groups__content__items
+                  %figcaption.category-groups__content__items__item
+                    = item.name
+                    %span.category-groups__content__items__item__title
+                  .category-groups__content__items__item__description
+                    %span{class: 'item-price'}
+                      = "¥ #{item.price.to_s(:delimited)}"
+                    = image_tag "#{item.images[0].image_url}", class: 'show-image', alt: "画像が表示できません"
+                    
+  = render 'shared/sell-icon'
+  =render 'shared/footer'
