@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function(){
       var childSelectHtml = '';
       childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                           <div class='listing-select-wrapper__box'>
-                            <select class="listing-select-wrapper__box--select" id="child_category" name="">
+                            <select class="listing-select-wrapper__box--select" id="child_category" name="item[category_id]" required>
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             </select>
@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function(){
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
                                 <div class='listing-select-wrapper__box'>
-                                  <select class="listing-select-wrapper__box--select" id="grandchild_category" name="item[category_id]">
+                                  <select class="listing-select-wrapper__box--select" id="grandchild_category" name="item[category_id]" required>
                                     <option value="---" data-category="---">---</option>
                                     ${insertHTML}
                                   </select>
@@ -37,11 +37,11 @@ $(document).on('turbolinks:load', function(){
       var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
       console.log(parentCategory)
       var itemId = $('.hiddenid').data('id');
-      if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+      if (parentCategory != 0){ //親カテゴリーが初期値でないことを確認
         $.ajax({
           url: '/items/' + itemId + '/get_category_children',
           type: 'GET',
-          data: { parent_name: parentCategory },
+          data: { parent_id: parentCategory },
           dataType: 'json'
         })
         .done(function(children){
@@ -69,8 +69,9 @@ $(document).on('turbolinks:load', function(){
       }
     });
     // 子カテゴリー選択後のイベント
-    $('.listing-item-detail__category').on('change', '#child_category', function(){
-      var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
+    $('.listing-item-detail__category').on('change', '#child_category', function(e){
+        $('#grandchildren_wrapper').remove();
+      var childId = $('#child_category')[0].value; //選択された子カテゴリーのidを取得
       var itemId = $('.hiddenid').data('id');
       if (childId != "---"){ //子カテゴリーが初期値でないことを確認
         $.ajax({
