@@ -81,11 +81,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # @category_parent_array = ["---"]
-    # #データベースから、親カテゴリーのみ抽出し、配列化
-    # Category.where(ancestry: nil).each do |parent|
-    # @category_parent_array << parent.category
-    # end
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
     @parents = Category.where(ancestry:nil)
     @category_grandchildren_now = Category.find(@item.category_id)
@@ -93,33 +88,6 @@ class ItemsController < ApplicationController
     @category_parent_now = @category_children_now.parent
     @p_c_children = @category_parent_now.children
     @c_grandchildren_children = @category_children_now.children
-    # @parents = Category.where(ancestry:nil)
-    # # 編集する商品を選択
-    # @item = Item.find(params[:id])
-    # # 登録されている商品の孫カテゴリーのレコードを取得
-    # @selected_grandchild_category = @item.category
-    # # 孫カテゴリー選択肢用の配列作成
-    # @category_grandchildren_array = [{id: "---", name: "#{@item.category}"}]
-    # Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
-    #   grandchildren_hash = {id: "#{grandchild.id}", name: "#{grandchild.category}"}
-    #   @category_grandchildren_array << grandchildren_hash
-    # end
-    # # 選択されている子カテゴリーのレコードを取得
-    # @selected_child_category = @selected_grandchild_category.parent
-    # # 子カテゴリー選択肢用の配列作成
-    # @category_children_array = [{id: "---", name: "---"}]
-    # Category.find("#{@selected_child_category.id}").siblings.each do |child|
-    #   children_hash = {id: "#{child.id}", name: "#{child.category}"}
-    #   @category_children_array << children_hash
-    # end
-    # # 選択されている親カテゴリーのレコードを取得
-    # @selected_parent_category = @selected_child_category.parent
-    # # 親カテゴリー選択肢用の配列作成
-    # @category_parents_array = [{id: "---", name: "---"}]
-    # Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
-    #   parent_hash = {id: "#{parent.id}", name: "#{parent.category}"}
-    #   @category_parents_array << parent_hash
-    # end
   end
 
   def update
