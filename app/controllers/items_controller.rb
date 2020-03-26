@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation, :destroy, :edit, :update]
-  before_action :set_user, only: [:confirmation]
 
   def index
     @categories = [ Category.find_by(category:"レディース"),
@@ -14,24 +13,16 @@ class ItemsController < ApplicationController
     @item = Item.new
     @images = @item.images.build
     #セレクトボックスの初期値設定
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.category
-    end
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
   end
 
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.category
-    end
     if @item.save
       redirect_to mypages_path
     else
+      @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
       render :new
     end
   end
@@ -95,6 +86,7 @@ class ItemsController < ApplicationController
     # Category.where(ancestry: nil).each do |parent|
     # @category_parent_array << parent.category
     # end
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
     @parents = Category.where(ancestry:nil)
     @category_grandchildren_now = Category.find(@item.category_id)
     @category_children_now = @category_grandchildren_now.parent
@@ -168,9 +160,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-  def set_user
-    @user = User.find(current_user.id)
-  end
-
 end
