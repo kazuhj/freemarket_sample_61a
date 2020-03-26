@@ -1,8 +1,30 @@
 .wrapper
-  = render 'shared/header'
+  .mypage-header
+    = render 'shared/header'
+  %nav.bread-crumbs-list
+    %ul
+      %li
+        - breadcrumb :categories
+        = breadcrumbs separator: "#{content_tag(:i, '', class: 'fas fa-angle-right')}", current_class: "breadcrumbs-current"
   .gretel_area
   .category_wrapper
     .category_main_box
       .category_block_area
         %h1 カテゴリー一覧
         .category_boxes
+          - @parents.each do |parent|
+            .category_box
+              = link_to "#{parent.category}","##{parent.id}",class: "category"
+      - @parents.each do |parent|
+        .category_p_area.red
+          %h1{id: parent.id}
+            = parent.category
+        .category_c_area 
+          = link_to "すべて", category_path(parent.id), class: "grandchild"
+          - parent.children.each do |child|
+            %h2 
+              = child.category
+            .grandchild_area
+              = link_to "すべて", category_path(child.id), class: "grandchild"
+              - child.children.each do |grandchild|
+                = link_to "#{grandchild.category}", category_path(grandchild.id), class: "grandchild"
