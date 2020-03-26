@@ -7,6 +7,10 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   validates :images,presence: true
 
+  def self.get_by_category(category_parent)
+    return self.where(category_id:category_parent.descendant_ids, sales_status:"出品中").order("created_at DESC").includes(:category,:images).take(10)
+  end
+
   validates :name, length: { in: 1..40 }, presence: true
   validates :text, length: { in: 1..1000 }, presence: true
   validates :condition, presence: true
