@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     end
   end
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
+    #Ajaxで動くアクションのルートを作成
+    member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
   resource :items, only: :confirmation, path: ":id" do
     collection do
@@ -43,5 +48,5 @@ Rails.application.routes.draw do
       get :logout
     end
   end
-  resources :categories, only: [:index]
+  resources :categories, only: [:index, :show]
 end
