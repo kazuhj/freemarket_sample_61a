@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   require 'payjp'
   before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation, :destroy, :edit, :update, :pay, :complete]
   before_action :set_address, only: [:confirmation, :complete]
-  before_action :set_user, only: [:confirmation, :complerte]
+  before_action :set_user, only: [:confirmation, :complete]
   before_action :set_card, only: [:pay, :confirmation, :complete]
   before_action :set_image, only: [:show, :show_mine, :confirmation, :complete]
 
@@ -139,12 +139,11 @@ end
   end
 
   def set_address
-    @address = Address.find(user_id: current_user.id)
+    @address = Address.find_by(user_id: current_user.id)
   end
 
   def set_user
     @user = User.find(current_user.id)
-    # @user = User.find(user_id: current_user.id)
   end
 
   def set_image
