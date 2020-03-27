@@ -50,3 +50,13 @@ crumb :show_mine do
   link "出品商品画面", show_mine_items_path
   parent :listing
 end
+
+crumb :categories do
+  link "カテゴリー一覧", categories_path
+  parent :root
+end
+
+crumb :category do |category|
+  link "#{category.category}", category_path
+  parent :categories
+end

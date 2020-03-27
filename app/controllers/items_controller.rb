@@ -2,13 +2,18 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :show_mine, :item_stop, :item_state, :item_buy, :confirmation, :destroy, :edit, :update]
 
   def index
-    @items = Item.where(sales_status:"1").order("created_at DESC").limit(10)
+    @categories = [ Category.find_by(category:"レディース"),
+                    Category.find_by(category:"メンズ"),
+                    Category.find_by(category:"家電・スマホ・カメラ"),
+                    Category.find_by(category:"おもちゃ・ホビー・グッズ")]
   end
 
   def new
     @address = Prefecture.all
     @item = Item.new
     @images = @item.images.build
+    #セレクトボックスの初期値設定
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
   end
 
   def create
@@ -17,6 +22,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to mypages_path
     else
+      @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
       render :new
     end
   end
@@ -75,9 +81,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+    @parents = Category.where(ancestry:nil)
+    @category_grandchildren_now = Category.find(@item.category_id)
+    @category_children_now = @category_grandchildren_now.parent
+    @category_parent_now = @category_children_now.parent
+    @p_c_children = @category_parent_now.children
+    @c_grandchildren_children = @category_children_now.children
   end
 
   def update
+    
     if @item.update(update_item_params)
       redirect_to show_mine_items_path(@item)
     else
@@ -85,19 +99,33 @@ class ItemsController < ApplicationController
     end
   end
 
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find(params[:parent_id]).children 
+    #@category_children = Category.find_by(category: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find(params[:child_id]).children 
+    #@category_grandchildren = Category.find("#{params[:child_id]}").children
+  end 
+
+
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :text, :condition, :price, :fee_burden, :service, :area, :handing_time, :category, :sales_status, [images_attributes: [:image]]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :text, :condition, :price, :fee_burden, :service, :area, :handing_time, :category_id, :sales_status, [images_attributes: [:image]]).merge(user_id: current_user.id)
   end
 
   def update_item_params
-    params.require(:item).permit(:name, :text, :condition, :price, :fee_burden, :service, :area, :handing_time, :category, :sales_status, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :text, :condition, :price, :fee_burden, :service, :area, :handing_time, :category_id, :sales_status, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
   end
 
   def set_item
     @item = Item.find(params[:id])
   end
-
-
 end
