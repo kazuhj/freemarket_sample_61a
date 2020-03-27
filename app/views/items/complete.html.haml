@@ -15,11 +15,13 @@
         .single-main__buy-item-container__item__inner
           .single-main__buy-item-container__item__inner__box
             %h3.single-main__buy-item-container__item__inner__box__image
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m63148262496_1.jpg?1580358437', class: "image-size", alt: ""
+              = image_tag @image.image.to_s, size: "80×80", class: "image-size"
             .single-main__buy-item-container__item__inner__box__detail
-              %p.single-main__buy-item-container__item__inner__box__detail__name 希少な超望遠レンズキット 大人気機種 LUMIX GF7
+              %p.single-main__buy-item-container__item__inner__box__detail__name
+                = @item.name
               %p.single-main__buy-item-container__item__inner__box__detail__price
-                %span ¥35,800
+                %span
+                  = converting_to_mark("#{@item.price}")
                 %span.single-main__buy-item-container__item__inner__box__detail__price__fee (税込)送料込み
       %section.single-main__buy-item-container__item
         .single-main__buy-item-container__item__inner
@@ -27,31 +29,37 @@
             %li.buy-you-pay
               .buy-price-sell.buy-price-sell-label 支払い金額
               .buy-price-sell
-                %span ¥35,800
+                %span
+                  = converting_to_mark("#{@item.price}")
           %section.buy-user-info
             .buy-content-inner
               .clearfix
                 %h3.l-left 配送先
               %adress.buy-user-info-text
                 %p
-                  〒111-1111
+                  〒
+                  = @address.zip_code
                   %br
-                  三重県 鈴鹿市
-                  ○○○丁目 ○○-○
+                  = @address.prefecture
+                  = @address.city
+                  = @address.address
+                  = @address.building
                   %br
-                  hoge
+                  = @user.family_name
+                  = @user.first_name
           %section.buy-user-info
             .buy-content-inner
               .clearfix
                 %h3.l-left 支払い方法
               %p.buy-user-info-text
-                クレジットカード
-                %br
-                ************1111
-                %br
-                有効期限 11 / 24
-              %figure.buy-card-logo
-                = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?35314277', alt: "master-card"
+                - if @default_card_information.blank?
+                  %br
+                - else
+                  = "**** **** **** " + "#{@default_card_information.last4}"
+                  %br
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = "有効期限 " + exp_month + " / " + exp_year
           %section.buy-done-flow
             %h3 発送通知後の流れ
             %div
@@ -82,4 +90,4 @@
       = image_tag "#{asset_path'logo_gray.svg'}", alt: 'fmarket', class: "fmarket-footer__top__logo"
     %p.company
       %small.company__name
-        © Free Market, Inc. 
+        © Free Market, Inc.
