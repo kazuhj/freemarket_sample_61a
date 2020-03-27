@@ -38,36 +38,41 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_address
-    @user = User.new(session["devise.regist_data"]["user"])
-    @telephone = Telephone.new(session["telephone"])
-    @address = Address.new(address_params)
-    unless @address.valid?
-      flash.now[:alert] = @address.errors.full_messages
-      render :new_address and return
-    end
-    @user.build_telephone(@telephone.attributes)
-    @user.build_address(@address.attributes)
-    session["address"] = @address.attributes
-    @card = @user.build_card
-    render :new_card
+  @user = User.new(session["devise.regist_data"]["user"])
+  @telephone = Telephone.new(session["telephone"])
+  @address = Address.new(address_params)
+  unless @address.valid?
+    flash.now[:alert] = @address.errors.full_messages
+    render :new_address and return
+  end
+  @user.build_telephone(@telephone.attributes)
+  @user.build_address(@address.attributes)
+  @user.save
+  sign_in(:user, @user)
+  render :first_card_create
   end
 
-  def create_card
-    @user = User.new(session["devise.regist_data"]["user"])
-    @telephone = Telephone.new(session["telephone"])
-    @address = Address.new(session["address"])
-    @card = Card.new(card_params)
-    unless @card.valid?
-      flash.now[:alert] = card.errors.full_messages
-      render :new_card and return
+  def first_card_create
+  Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
+  if params['payjp-token'].blank?
+    redirect_to first_card_create_path
+  else
+    customer = Payjp::Customer.create(
+      description: 'test',
+      card: params['payjp-token'],
+      metadata: {user_id: current_user.id}
+    )
+    @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+    if @card.save
+      redirect_to complete_path
+    else
+      redirect_to first_card_create_path
     end
-    @user.build_telephone(@telephone.attributes)
-    @user.build_address(@address.attributes)
-    @user.build_card(@card.attributes)
-    @user.save
-    sign_in(:user, @user)
-
   end
+end
+
+def complete
+end
 
   # GET /resource/edit
   # def edit
@@ -112,11 +117,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:address).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :zip_code, :prefecture, :city, :address, :building)
   end
 
-  protected
-
-  def card_params
-    params.require(:card).permit(:customer_number, :year, :month, :security_code)
-  end
+  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
