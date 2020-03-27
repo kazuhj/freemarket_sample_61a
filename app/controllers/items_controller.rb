@@ -27,15 +27,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @images = @item.images
-    # @image = @images.first
     @items = Item.where(user_id: @item.user_id).order("created_at DESC").limit(6)
   end
 
   def show_mine
     @seller = User.find(@item.user_id)
-    # @images = @item.images
-    # @image = @images.first
   end
 
   def item_stop
