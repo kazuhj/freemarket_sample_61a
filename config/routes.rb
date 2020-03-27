@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resource :items, only: :confirmation, path: ":id" do
     collection do
       get 'confirmation'
+      post 'confirmation', to: 'items#pay'
       get 'complete'
     end
   end
