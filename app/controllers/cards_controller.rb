@@ -24,8 +24,8 @@ class CardsController < ApplicationController
       if @card.save
         redirect_to card_path(current_user.id), notice: 'カードの登録に成功しました'
       else
+        flash[:alert] = 'カードの登録に失敗しました'
         redirect_to new_card_path
-        flash.now[:alert] = 'カードの登録に失敗しました'
       end
     end
   end
@@ -39,6 +39,7 @@ class CardsController < ApplicationController
       customer.delete
       card.delete
     end
+      flash[:notice] = 'カードが削除されました'
       redirect_to new_card_path
   end
 
