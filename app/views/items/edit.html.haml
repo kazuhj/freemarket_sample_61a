@@ -1,4 +1,5 @@
 .wrapper
+  .hiddenid{data:{id:@item.id}}
   =render 'shared/sell-header'
 
   %main.sell-main
@@ -66,8 +67,30 @@
                     必須
                 %div
                   .sell-form__select__wrap
-                    = icon('fas', 'angle-down', class: 'angele-down')
-                    = f.select :category, Item.categories.keys,{prompt: '---'}, class: 'sell-form__select__wrap__default'
+                    .listing-item-detail__category
+                      = f.select :category_id,@category_parent_now, {prompt:"aaaa"},{class: 'listing-select-wrapper__box--select', id: 'parent_category'} do
+                        %option{value: "#{@category_parent_now.id}"}
+                          = @category_parent_now.category
+                        - @parents.each do |child|
+                          -if child.id != @category_parent_now.id
+                            %option{value: "#{child.id}"} 
+                              = child.category
+                      .c_d#chi
+                        = f.select :category_id,@category_children_now, {prompt:"aaaa"},{class: 'listing-select-wrapper__box--select', id: 'child_category'} do
+                          %option{value: "#{@category_children_now.id}"}
+                            = @category_children_now.category
+                          - @p_c_children.each do |child|
+                            -if child.id != @category_children_now.id
+                              %option{value: "#{child.id}"} 
+                                = child.category
+                      .c_d#gra
+                        = f.select :category_id,@category_grandchildren_now, {prompt:"aaaa"}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'} do
+                          %option{value: "#{@category_grandchildren_now.id}"}
+                            = @category_grandchildren_now.category
+                          - @c_grandchildren_children.each do |child|
+                            -if child.id != @category_grandchildren_now.id
+                              %option{value: "#{child.id}"} 
+                                = child.category
               .sell-form__content__group__lower
                 %label
                   商品の状態

@@ -1,0 +1,26 @@
+.container {
+  margin: 40px auto 0;
+  width: 1020px;
+
+  &__flame {
+    width: 100%;
+
+    .category__children {
+
+      &__link {
+        margin: 16px 16px 0 0;
+      }
+    }
+
+    .category-head {
+      font-size: 22px;
+      margin: 24px 0 8px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    
+    .category-content {
+      margin-bottom: 40px;
+    }
+  }
+}

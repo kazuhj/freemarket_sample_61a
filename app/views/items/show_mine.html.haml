@@ -41,8 +41,11 @@
           %tr
             %th カテゴリー
             %td
-              = link_to "#" do
-                = @item.category
+              =link_to("#{@item.category.parent.parent.category}",root_path)
+              %br
+              =link_to(">#{@item.category.parent.category}",root_path)
+              %br
+              =link_to(">#{@item.category.category}",root_path)
           %tr
             %th 商品の状態
             %td
