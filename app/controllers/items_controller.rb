@@ -27,15 +27,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @images = @item.images
-    @image = @images.first
+    # @images = @item.images
+    # @image = @images.first
     @items = Item.where(user_id: @item.user_id).order("created_at DESC").limit(6)
   end
 
   def show_mine
     @seller = User.find(@item.user_id)
-    @images = @item.images
-    @image = @images.first
+    # @images = @item.images
+    # @image = @images.first
   end
 
   def item_stop
@@ -104,8 +104,7 @@ class ItemsController < ApplicationController
   end
 
    def pay
-    @card = Card.find_by(user_id: current_user.id)
-   if @item = Item.find(params[:id])
+   if
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
     Payjp::Charge.create(
     amount: @item.price, # 商品の値段を取り出して決済する
