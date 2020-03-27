@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     post 'telephones', to: 'users/registrations#create_telephone' # 電話番号を登録するアクション
     get 'addresses', to: 'users/registrations#new_address' # 住所を登録させるページを表示するアクション
     post 'addresses', to: 'users/registrations#create_address' # 電話番号を登録するアクション
-    get 'cards', to: 'users/registrations#new_card' # クレジットカード情報の登録させるページを表示するアクション
-    post 'cards', to: 'users/registrations#create_card' # クレジットカードを登録するアクション
+    get 'first_card_create', to: 'users/registrations#first_card_create' # クレジットカード情報の登録させるページを表示するアクション
+    post 'first_card_create', to: 'users/registrations#first_card_create' # クレジットカードを登録するアクション
+    get 'complete', to: 'users/registrations#complete' # 会員登録完了画面
   end
   root "items#index"
 
