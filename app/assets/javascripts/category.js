@@ -64,8 +64,8 @@ $(document).on('turbolinks:load', function(){
       }
     });
     // 子カテゴリー選択後のイベント
-    $('.listing-item-detail__category').on('change', '#child_category', function(e){
-        $('#grandchildren_wrapper').remove();
+    $('.listing-item-detail__category').on('change', '#child_category', function(){
+      $('#grandchildren_wrapper').remove();
       var childId = $('#child_category')[0].value; //選択された子カテゴリーのidを取得
       var itemId = $('.hiddenid').data('id');
       if (childId != "---"){ //子カテゴリーが初期値でないことを確認
