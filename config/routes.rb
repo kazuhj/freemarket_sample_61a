@@ -59,7 +59,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only: [:new, :create, :show, :destroy] do
-  end
+  resources :cards, only: [:new, :create, :show, :destroy]
+
   resources :categories, only: [:index, :show]
 end
