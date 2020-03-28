@@ -8,12 +8,12 @@
         = link_to users_path, class: 'single-main__login-panel__no-account__sign-up' do
           新規登録
       .single-main__login-panel__form-inner
-        = link_to '#', method: :get, class: 'contents__btn contents__btn__facebook' do
+        = link_to user_facebook_omniauth_authorize_path, method: :post, class: 'contents__btn contents__btn__facebook' do
           = icon('fab', 'facebook-square')
           Facebookでログイン
-        = button_tag '', class: 'contents__btn contents__btn__google' do
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: 'contents__btn contents__btn__google' do
           = image_tag "#{asset_path "g_rainbow.png"}", class: 'contents__btn__google__icon-google', size: '30x30'
-          Googleで登録する
+          Googleでログインする
       %form{action: "", method: "", novalidate: "novalidate"}
         .login-form-inner
           .login-form-inner__form-group

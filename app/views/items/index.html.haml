@@ -25,27 +25,28 @@
                       = link_to "#", rel: "noopener noreferrer", target: "_blank" do
                         = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', class: 'banner-list__content__items__item__icon__GooglePlay', alt: "googlePlay"
     .popular-categories
+      - index = 0
       %h2.popular-categories__title 人気のカテゴリー
       .popular-categories__title__tag
         %ul.popular-categories__title__tag__items
-          %li.popular-categories__title__tag__items__item
-            = link_to "レディース", "#", class: "popular-categories__title__tag__items__item__name"
-          %li.popular-categories__title__tag__items__item
-            = link_to "メンズ", "#", class: "popular-categories__title__tag__items__item__name"
-          %li.popular-categories__title__tag__items__item
-            = link_to "家電・スマホ・カメラ", "#", class: "popular-categories__title__tag__items__item__name"
-          %li.popular-categories__title__tag__items__item
-            = link_to "おもちゃ・ホビー・グッズ", "#", class: "popular-categories__title__tag__items__item__name"
-          %li.popular-categories__title__tag__items__item
+          - index_for_jump = 0
+          - @categories.each do |a_parent|
+            %li.popular-categories__title__tag__items__item
+              = link_to("#{a_parent.category}", href="##{index_for_jump}", class: 'popular-categories__title__tag__items__item__name')
+              - index_for_jump += 1
+
     .item-list
-      .item-list__group
-        .item-list__group__title
-          %h3.item-list__group__title__name 全ての新着アイテム
-          = link_to "#", class: "more-item" do
-            もっと見る
-            = icon('fas', 'angle-right', class: 'style-right')
+      - @categories.each do |a_parent_category|
+        .item-list__group
+          .item-list__group__title{id:"#{index}"}
+            - index += 1
+            .item-list__group__title__name
+              = a_parent_category.category + "新着アイテム"
+              = link_to "#", class: "more-item" do
+                もっと見る
+                = icon('fas', 'angle-right', class: 'style-right')
         %ul.category-groups
-          - @items.each do |item|
+          - Item.get_by_category(a_parent_category).each do |item|
             %li.category-groups__content
               = link_to item_path(item.id), class: "category-groups__content__link" do
                 %figure.category-groups__content__items

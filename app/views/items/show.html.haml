@@ -36,9 +36,12 @@
           %tr
             %th カテゴリー
             %td
-              = link_to "#" do
-                %div
-                  = @item.category
+              =link_to("#{@item.category.parent.parent.category}",root_path)
+              %br
+              =link_to(">#{@item.category.parent.category}",root_path)
+              %br
+              =link_to(">#{@item.category.category}",root_path)
+
           %tr
             %th 商品の状態
             %td
@@ -181,83 +184,7 @@
                 .items-in-user-profile__items-box-content__num__like
                   = icon('far', 'heart', class: 'icon-like-border')
                   %span 14
-    %section.items-box-container.clearfix.related-item-column
-      %h2.items-box-head
-        = link_to "#" do
-          パナソニックのデジタルカメラ その他の商品（カテゴリー機能時に実装）
-      .items-box-head-content.clearfix
-        %section.items-box-head-content__item-box
-          = link_to "#" do
-            %figure.items-box-head-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m52108250127_1.jpg?1581215629', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "パナソニック デジカメ ピンク"
-            .items-box-body
-              %h3.items-box-body__name
-                パナソニック デジカメ ピンク
-              .items-box-body__num
-                .items-box-body__num__price ¥4,499
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 16
-        %section.items-box-head-content__item-box
-          = link_to "#" do
-            %figure.items-box-head-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m40472079846_1.jpg?1576295495', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "圧倒的人気&可愛さの頂点へ ルミックスDMC-GF7"
-            .items-box-body
-              %h3.items-box-body__name
-                圧倒的人気&amp;可愛さの頂点へ ルミックスDMC-GF7
-              .items-box-body__num
-                .items-box-body__num__price ¥36,800
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 16
-        %section.items-box-head-content__item-box
-          = link_to "#" do
-            %figure.items-box-head-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m88493542226_1.jpg?1581203135', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "★超美品★自撮り★スマホ転送★タッチパネル★付属品多数パナソニックG2★"
-            .items-box-body
-              %h3.items-box-body__name
-                超美品★自撮り★スマホ転送★タッチパネル★付属品多数パナソニックG2
-              .items-box-body__num
-                .items-box-body__num__price ¥23,800
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 16
-        %section.items-box-head-content__item-box
-          = link_to "#" do
-            %figure.items-box-head-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m55305551667_1.jpg?1578360077', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "自撮り＆Wi-Fi&パンケーキレンズ ルミックス GF6"
-            .items-box-body
-              %h3.items-box-body__name
-                自撮り＆Wi-Fi&amp;パンケーキレンズ ルミックス GF6
-              .items-box-body__num
-                .items-box-body__num__price ¥29,800
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 16
-        %section.items-box-head-content__item-box
-          = link_to "#" do
-            %figure.items-box-head-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m90773807594_1.jpg?1568207827', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "デジタルカメラ LUMIX デジカメ FX60"
-            .items-box-body
-              %h3.items-box-body__name
-                デジタルカメラ LUMIX デジカメ FX60
-              .items-box-body__num
-                .items-box-body__num__price ¥2,980
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 16
-        %section.items-box-head-content__item-box
-          = link_to "#" do
-            %figure.items-box-head-content__item-box__photo
-              = image_tag 'https://static.mercdn.net/thumb/photos/m45308657792_1.jpg?1580370038', class: 'items-in-user-profile__items-box-content__item-box__photo__lazyloaded', alt: "高画質コンパクト☆LUMIX DMC-GF2☆スマホに転送お散歩カメラ☆"
-            .items-box-body
-              %h3.items-box-body__name
-                高画質コンパクト☆LUMIX DMC-GF2☆スマホに転送お散歩カメラ☆
-              .items-box-body__num
-                .items-box-body__num__price ¥16,980
-                .items-in-user-profile__items-box-content__num__like
-                  = icon('far', 'heart', class: 'icon-like-border')
-                  %span 16
+
   %nav.pos-bottom
     %ul
       %li

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
   devise_scope :user do
     get 'telephones', to: 'users/registrations#new_telephone' # 電話番号を登録させるページを表示するアクション
@@ -13,12 +14,8 @@ Rails.application.routes.draw do
   end
   root "items#index"
 
-  resources :users, only: [:index, :new] do
+  resources :users, only: [:index] do 
     collection do
-      get :tel
-      get :address
-      get :credit
-      get :done
       get :login
     end
   end
@@ -31,6 +28,11 @@ Rails.application.routes.draw do
     end
   end
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
+    #Ajaxで動くアクションのルートを作成
+    member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
   resource :items, only: :confirmation, path: ":id" do
     collection do
@@ -59,4 +61,5 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :create, :show, :destroy] do
   end
+  resources :categories, only: [:index, :show]
 end

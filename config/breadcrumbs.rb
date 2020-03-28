@@ -54,4 +54,12 @@ end
 crumb :purchased do
   link "購入した商品-取引中", purchased_users_path
   parent :mypages
+crumb :categories do
+  link "カテゴリー一覧", categories_path
+  parent :root
+end
+
+crumb :category do |category|
+  link "#{category.category}", category_path
+  parent :categories
 end
