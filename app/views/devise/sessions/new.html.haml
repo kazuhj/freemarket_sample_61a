@@ -14,15 +14,15 @@
         = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: 'contents__btn contents__btn__google' do
           = image_tag "#{asset_path "g_rainbow.png"}", class: 'contents__btn__google__icon-google', size: '30x30'
           Googleでログインする
-      %form{action: "", method: "", novalidate: "novalidate"}
-        .login-form-inner
+      .login-form-inner
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .login-form-inner__form-group
-            %input.login-form-inner__form-group__input-mail{name: "email", placeholder: "メールアドレス", type: "email", value: ""}
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "login-form-inner__form-group__input-mail"
           .login-form-inner__form-group
-            %input.login-form-inner__form-group__input-password{name: "password", placeholder: "パスワード", type: "password"}
+            = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "login-form-inner__form-group__input-password"
           .login-form-inner__form-group
-            = button_tag '#', class: 'single-main__container__registration-form__content__input-box__btn', type: 'submit' do
-              ログイン
+            = f.submit'ログイン', class: 'single-main__container__registration-form__content__input-box__btn'
           .login-form-inner__form-group
             = link_to "パスワードをお忘れの方", '#', class: "find-password"
   =render 'shared/sell-footer'
+= render "devise/shared/links"
