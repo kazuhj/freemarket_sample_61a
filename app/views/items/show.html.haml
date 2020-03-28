@@ -68,7 +68,8 @@
       %span.item-price-box__bold 
         = converting_to_mark("#{@item.price}")
       %span.item-price-box__tax (税込)
-      %span.item-price-box__fee 送料込み
+      %span.item-price-box__fee 
+      = @item.fee_burden
     .text-center
       - if @item.sales_status == "出品中"
         .text-center__sales-point-message

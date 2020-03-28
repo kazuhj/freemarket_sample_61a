@@ -91,7 +91,7 @@
             justify-content: center;
 
             & .image-size {
-              width: auto;
+              max-width: 80px;
               max-height: 80px;
             }
           }
