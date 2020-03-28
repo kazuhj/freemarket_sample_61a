@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
   devise_scope :user do
     get 'telephones', to: 'users/registrations#new_telephone' # 電話番号を登録させるページを表示するアクション
@@ -12,12 +13,8 @@ Rails.application.routes.draw do
   end
   root "items#index"
 
-  resources :users, only: [:index, :new] do
+  resources :users, only: [:index] do 
     collection do
-      get :tel
-      get :address
-      get :credit
-      get :done
       get :login
     end
   end
