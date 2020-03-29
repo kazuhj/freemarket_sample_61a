@@ -267,7 +267,7 @@
       }
 
     .sell-form__content__price {
-      padding: 40px;
+      padding: 40px 40px 20px;
       border-top: 1px solid #eee;
       height: 299px;
     }
@@ -316,13 +316,30 @@
         float: left;
       }
 
-      .l-right {
+      .commission {
         float: right;
+
+        & div {
+
+          & p {
+            font-size:15px;
+          }
+        }
       }
-      .clearfix.bold {
-        padding: 24px 0;
+
+      .profit {
+        float: right;
+        
+        & div {
+
+          & p {
+            font-size:15px;
+          }
+        }
+      }
+      .clearfix {
+        padding: 25px 0;
         border-top: 1px solid #ccc;
-        font-weight: 600;
       }
 
   .sell-form__content__sell-btn-box {
