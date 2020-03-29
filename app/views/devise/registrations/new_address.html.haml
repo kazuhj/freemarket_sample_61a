@@ -46,8 +46,8 @@
                 = f.text_field :address, placeholder: "例) 青山1-1", class: "single-main__container__registration-form__content__input-box__default"
               .single-main__container__registration-form__content__input-box
                 = f.label :建物名
-                %span.single-main__container__registration-form__content__input-box__require
-                  必須
+                %span.form-arbitrary
+                  任意
                 = f.text_field :building, placeholder: "例) 柳ビル103", class: "single-main__container__registration-form__content__input-box__default"
               .single-main__container__registration-form__content__input-box
                 = f.submit '次へ進む', class: 'single-main__container__registration-form__content__input-box__btn'
