@@ -118,13 +118,11 @@
                       .sell-price__input
                         = f.number_field :price, min:300, max:9999999, class: "input-default", id: "sell-price", placeholder: "例）300", value: ""
                 %li.sell-price__form-group__commission
-                  .sales-profit
-                    販売手数料 (10%)
-                  .l-right -
-                %li.clearfix.bold
-                  .left
-                    販売利益
-                  .l-right -
+                  .sales-profit 販売手数料 (10%)
+                  .commission
+                %li.clearfix
+                  .sales-profit 販売利益
+                  .profit
           .sell-form__content__sell-btn-box
             %div
               %p.sell-form__content__sell-btn-box__rule
