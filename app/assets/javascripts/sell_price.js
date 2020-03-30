@@ -16,7 +16,7 @@ $(document).on('turbolinks:load', function(){
   $('#sell-price').on('keyup',function(e){
     e.preventDefault();
     var price = $('#sell-price').val(); 
-    if(price.length == 0|| price <=300 || price >= 9999999){
+    if(price.length == 0|| price <300 || price >= 9999999){
       $(".commission").empty();
       $(".profit").empty();
       var commission = '-'
