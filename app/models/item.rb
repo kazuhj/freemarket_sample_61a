@@ -8,7 +8,8 @@ class Item < ApplicationRecord
   validates :images,presence: true
 
   def self.get_by_category(category_parent)
-    return self.where(category_id:category_parent.descendant_ids, sales_status:"出品中").order("created_at DESC").includes(:category,:images).take(10)
+    #出品中だけ表示したい場合はdescendant_ids, sales_status:"出品中")
+    return self.where(category_id:category_parent.descendant_ids).order("created_at DESC").includes(:category,:images).take(10)
   end
 
   validates :name, length: { in: 1..40 }, presence: true
