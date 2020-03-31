@@ -3,6 +3,10 @@
   color: #888;
 }
 
+.form-arbitrary {
+  @include form-arbitrary();
+}
+
 .single-main {
   display: block;
 

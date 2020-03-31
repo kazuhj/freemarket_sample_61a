@@ -132,6 +132,14 @@ describe User do
       user.valid?
       expect(user.errors[:birth_day]).to include("を入力してください")
     end
+
+    # 20. パスワードが存在してもパスワード確認の値が違うと登録できないこと
+    it "パスワードとパスワード確認の値が違うと登録出来ない" do
+      user = build(:user, password_confirmation: "")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+    end
+
   end
 end
 

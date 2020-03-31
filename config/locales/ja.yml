@@ -15,6 +15,36 @@ ja:
         handing_time: 発送までの日数
         category: カテゴリー
         images: 画像
+        
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: メールアドレス
+        encrypted_password: パスワード
+        family_name_kana: 姓 カナ(全角)
+        first_name_kana: 名 カナ（全角）
+
+    models:
+      telephone: テレフォン
+    attributes:
+      telephone:
+        tel: 携帯電話の番号
+
+    models:
+      address: アドレス
+    attributes:
+      address:
+        family_name: 苗字
+        first_name: 名前
+        family_name_kana: 苗字 カナ
+        first_name_kana: 名前 カナ
+        zip_code: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        address: 番地
+
+
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
