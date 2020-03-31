@@ -10,7 +10,8 @@
     .mypage-container__right-content
       %section.mypage-identification
         %h2.mypage-identification__head 本人情報の登録
-        %form.mypage-identification__right-single-inner{action: "#", method: "POST", novalidate: ""}
+        // method: "POST"のままだと、エラーが出るため、仮のリンク先に変更
+        %form.mypage-identification__right-single-inner{action: "#", method: "#", novalidate: ""}
           %div
             %p
               お客さまの本人情報をご登録ください。
