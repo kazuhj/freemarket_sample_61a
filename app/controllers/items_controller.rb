@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_user, only: [:confirmation, :complete]
   before_action :set_card, only: [:pay, :confirmation, :complete]
   before_action :set_image, only: [:show, :show_mine, :confirmation, :complete]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @categories = [ Category.find_by(category:"レディース"),
