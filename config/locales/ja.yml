@@ -2,23 +2,35 @@
 ja:
   activerecord:
     models:
+      item: アイテム
       user: ユーザー
+      telephone: テレフォン
+      address: アドレス
     attributes:
+      item:
+        name: 商品名
+        text: 商品の説明
+        condition: 商品の状態
+        price: 金額
+        fee_burden: 配送料の負担
+        service: 配送方法
+        area: 発送元地域
+        handing_time: 発送までの日数
+        category: カテゴリー
+        images: 画像
+
       user:
         email: メールアドレス
         encrypted_password: パスワード
         family_name_kana: 姓 カナ(全角)
         first_name_kana: 名 カナ（全角）
-
-    models:
-      telephone: テレフォン
-    attributes:
+        birth_year: 誕生年
+        birth_month: 誕生月
+        birth_day: 誕生日
+        
       telephone:
         tel: 携帯電話の番号
 
-    models:
-      address: アドレス
-    attributes:
       address:
         family_name: 苗字
         first_name: 名前
@@ -162,6 +174,7 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      
     template:
       body: 次の項目を確認してください
       header:

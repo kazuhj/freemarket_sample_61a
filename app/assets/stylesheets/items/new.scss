@@ -315,7 +315,6 @@
       .sales-profit {
         float: left;
       }
-
       .commission {
         float: right;
 
@@ -326,20 +325,20 @@
           }
         }
       }
-
       .profit {
         float: right;
         
         & div {
-
+    
           & p {
             font-size:15px;
           }
         }
       }
-      .clearfix {
-        padding: 25px 0;
+      .clearfix.bold {
+        padding: 24px 0;
         border-top: 1px solid #ccc;
+        font-weight: 600;
       }
 
   .sell-form__content__sell-btn-box {
