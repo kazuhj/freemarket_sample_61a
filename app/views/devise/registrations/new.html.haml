@@ -7,6 +7,7 @@
       .single-main__container__registration-form
         = form_for(@user, url: user_registration_path) do |f|
           = render "devise/shared/error_messages", resource: @user
+          %br
           .single-main__container__registration-form__content
             .single-main__container__registration-form__content__input-box
               = f.label :ニックネーム
@@ -29,13 +30,14 @@
                 =f.password_field :password, placeholder: "7文字以上の半角英数字", required: 'true', class: "single-main__container__registration-form__content__input-box__default"
                 %p.form-info-text
                   ※ 英字と数字の両方を含めて設定してください
-                .single-main__container__registration-form__content__input-box__display
-                  .single-main__container__registration-form__content__input-box__checkbox-default
-                    %input#reveal_password{type: "checkbox"}
-                    %i.single-main__container__registration-form__content__input-box__checkbox-default__icon-check
-                    = f.label :パスワードを表示する
-                  .form-password-revelation-revealed-password-container{style: "display: none;"}
-                    %span.form-password-revelation-revealed-password
+              .single-main__container__registration-form__content__input-box
+                = f.label :パスワード確認
+                %span.single-main__container__registration-form__content__input-box__require
+                  必須
+
+                = f.password_field :password_confirmation, placeholder: "7文字以上の半角英数字", autocomplete: "new-password", class: "single-main__container__registration-form__content__input-box__default"
+                %p.form-info-text
+                  ※ 確認用に再度パスワードを入力してください
             .single-main__container__registration-form__content__input-box
               %h3.single-main__container__registration-form__content__input-box__identification-title
                 本人確認
@@ -104,4 +106,3 @@
                   = link_to "Terms of Service" "", class: "single-main__container__registration-form__content__input-box__recaptcha-term__text"
                   apply.
   =render 'shared/sell-footer'
-= render "devise/shared/links"
