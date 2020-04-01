@@ -25,11 +25,12 @@
         color: #333;
 
         &.active {
-          background: #eee;
-          font-weight: 600;
+          // マイページサイドバー選択した際のCSS
+          // background: #eee;
+          // font-weight: 600;
 
           & .mypage-style-right {
-            color: #333;
+            // color: #333;
           }
         }
 
