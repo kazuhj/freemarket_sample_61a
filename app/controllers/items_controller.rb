@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to mypages_path
     else
+      @item.images.new
       @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
       render :new
     end
