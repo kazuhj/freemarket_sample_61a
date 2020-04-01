@@ -20,7 +20,7 @@ class Item < ApplicationRecord
   validates :service, presence: true
   validates :area, presence: true
   validates :handing_time, presence: true
-  validates :category, presence: true
+  validates :category, presence: { message: 'は再度全て入力してください。' }
   validates :sales_status, presence: true
   enum sales_status: {"出品中":1,"公開停止":2,"取引中":3,"売却済み":4}
   enum condition: { 新品、未使用: 1, 未使用に近い: 2, 目立った傷や汚れなし: 3, やや傷や汚れあり: 4, 傷や汚れあり: 5, 全体的に状態が悪い: 6}, _prefix: true
