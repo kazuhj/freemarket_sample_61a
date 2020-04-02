@@ -57,5 +57,8 @@
                     %span{class: 'item-price'}
                       = "¥ #{item.price.to_s(:delimited)}"
                     = image_tag "#{item.images[0].image_url}", class: 'show-image', alt: "画像が表示できません"
+                      -if item.sales_status == "売却済み" || item.sales_status == "取引中"
+                      .items_box_photo_sold
+                        .items_box_photo_sold__inner SOLD
   = render 'shared/sell-icon'
   =render 'shared/footer'
