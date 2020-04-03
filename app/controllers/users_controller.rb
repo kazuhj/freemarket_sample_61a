@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:listing, :in_progress, :completed, :purchased]
 
   def index
   end

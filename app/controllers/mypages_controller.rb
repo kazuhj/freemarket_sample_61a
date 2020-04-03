@@ -1,4 +1,6 @@
 class MypagesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_user, only: [:index, :identification, :profile]
 
   def index
   end
@@ -17,5 +19,11 @@ class MypagesController < ApplicationController
   end
 
   def logout
+  end
+
+  private
+
+  def set_user
+    @user = User.find(current_user.id)
   end
 end

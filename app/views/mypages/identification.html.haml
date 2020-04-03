@@ -23,13 +23,16 @@
                 = icon('fas', 'angle-right', class: 'mypage-style-right')
           .form-group
             %label お名前
-            %p hoge
+            %p 
+              = @user.family_name
           .form-group
             %label お名前カナ
-            %p hoge
+            %p 
+              = @user.first_name
           .form-group
             %label{for: "birthday"} 生年月日
-            %p 2000/01/01
+            %p 
+              = "#{@user.birth_year}/#{@user.birth_month}/#{@user.birth_day}"
           .form-group
             %label{for: "zip_code"} 郵便番号
             %span.form-arbitrary 任意
