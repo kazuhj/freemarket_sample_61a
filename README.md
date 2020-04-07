@@ -75,13 +75,73 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true|
-|customer_number|string|null: false|
-|year|integer|null: false|
-|month|integer|null: false|
-|security_code|integer|null: false|
+|customer_id|string|null: false|
+|card_id|integer|null: false|
 
 ### Association
 - belongs_to :user
+
+## items
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+|text|text|null: false|
+|condition|string|null: false|
+|price|string|null: false|
+|category_id|references|foreign_key: true|
+|brand_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
+|fee_burden|string|null: false|
+|service|string|null: false|
+|area|string|null: false|
+|handling_time|string|null: false|
+|size_id|references|foreign_key: true|
+
+### Association
+- belongs_to :size
+- belongs_to :brand
+- belongs_to :user
+- belongs_to :category
+- has_many :images
+- has_many :likes
+- has_many :comments
+- has_many :reviews
+- has_many :messages
+- has_one :order
+
+## categories
+
+|Column|Type|Options|
+|------|----|-------|
+|path|integer|null: false|
+|name|string|null: false|
+
+### Association
+- has_many :items
+
+## images
+
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|item_id|references|foreign_key: true|
+
+### Association
+- belongs_to :item
+
+## telepones
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|tel|string|null: false|
+
+### Association
+- belongs_to :user
+
+
+* ---以下は見作成のテーブルです---
 
 ## comments
 
@@ -112,35 +172,6 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-
-## items
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, index: true|
-|text|text|null: false|
-|condition|string|null: false|
-|price|string|null: false|
-|category_id|references|foreign_key: true|
-|brand_id|references|foreign_key: true|
-|user_id|references|foreign_key: true|
-|fee_burden|string|null: false|
-|service|string|null: false|
-|area|string|null: false|
-|handling_time|string|null: false|
-|size_id|references|foreign_key: true|
-
-### Association
-- belongs_to :size
-- belongs_to :brand
-- belongs_to :user
-- belongs_to :category
-- has_many :images
-- has_many :likes
-- has_many :comments
-- has_many :reviews
-- has_many :messages
-- has_one :order
 
 ## likes
 
@@ -189,32 +220,3 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 
-## categories
-
-|Column|Type|Options|
-|------|----|-------|
-|path|integer|null: false|
-|name|string|null: false|
-
-### Association
-- has_many :items
-
-## images
-
-|Column|Type|Options|
-|------|----|-------|
-|image|string|null: false|
-|item_id|references|foreign_key: true|
-
-### Association
-- belongs_to :item
-
-## telepones
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|tel|string|null: false|
-
-### Association
-- belongs_to :user
