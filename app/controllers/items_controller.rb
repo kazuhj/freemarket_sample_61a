@@ -107,7 +107,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    
     if @item.update(update_item_params)
       redirect_to show_mine_items_path(@item)
     else
